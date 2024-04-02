@@ -1,3 +1,10 @@
+
+<%-- 
+    Document   : index.jsp
+    Created on : Apr 2, 2024, 10:00:57 PM
+    Author     : tduls
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -6,10 +13,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
-        <form action="CheckoutRegservlet" method="post">
-           
-        <input type="submit" value="Checkout">
-    </form>
+        <h1>Hello World!</h1>
     </body>
 </html>

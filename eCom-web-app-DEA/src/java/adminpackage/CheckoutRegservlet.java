@@ -1,19 +1,18 @@
 
 package adminpackage;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class CheckoutServletReg extends HttpServlet {
-
+public class CheckoutRegservlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -23,10 +22,10 @@ public class CheckoutServletReg extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CheckoutReg</title>");            
+            out.println("<title>Servlet CheckoutRegservlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CheckoutReg at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CheckoutRegservlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -42,10 +41,9 @@ public class CheckoutServletReg extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         PrintWriter out =response.getWriter();
         
-        String userId="0";
+        String userId="1";
         Dbcon dbConn = new Dbcon();
         if (userId.equals("0")) {
             
@@ -56,7 +54,7 @@ public class CheckoutServletReg extends HttpServlet {
             out.println("<script type=\"text/javascript\">");
             out.println("var result = confirm('Are you sure you want confirm order?');");
             out.println("if (result) {");
-            out.println("  alert('Order Confirmed!');"); // You can replace this with your logic
+            out.println("  alert('Order Confirmed!');"); 
             out.println("} else {");
             out.println("  alert('Cancelled!');");
             out.println("  window.location.href = 'cart.jsp';");

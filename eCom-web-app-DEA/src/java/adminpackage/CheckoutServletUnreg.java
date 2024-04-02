@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(name = "adminservlet", urlPatterns = {"/adminservlet"})
+@WebServlet(name = "CheckoutServletReg", urlPatterns = {"/CheckoutServletUnreg"})
 public class CheckoutServletUnreg extends HttpServlet {
 
 

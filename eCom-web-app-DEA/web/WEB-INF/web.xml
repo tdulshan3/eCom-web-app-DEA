@@ -4,9 +4,17 @@
         <servlet-name>CheckoutReg</servlet-name>
         <servlet-class>adminpackage.CheckoutServletReg</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckoutRegservlet</servlet-name>
+        <servlet-class>adminpackage.CheckoutRegservlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckoutReg</servlet-name>
         <url-pattern>/CheckoutReg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckoutRegservlet</servlet-name>
+        <url-pattern>/CheckoutRegservlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
