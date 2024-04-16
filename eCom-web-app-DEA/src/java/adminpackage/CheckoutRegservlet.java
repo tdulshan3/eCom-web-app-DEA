@@ -1,3 +1,4 @@
+
 package adminpackage;
 
 import java.io.IOException;
@@ -10,55 +11,82 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
-import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 
 public class CheckoutRegservlet extends HttpServlet {
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet CheckoutRegservlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet CheckoutRegservlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
+    }
+
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
+        PrintWriter out =response.getWriter();
         
-        String userId = "1";
+        String userId="1";
         Dbcon dbConn = new Dbcon();
-        
         if (userId.equals("0")) {
+            
             response.sendRedirect("non_reg_user_contact_form.jsp");
-        } else {
+            
+        }else {
+            
             out.println("<script type=\"text/javascript\">");
-            out.println("var result = confirm('Are you sure you want to confirm the order?');");
+            out.println("var result = confirm('Are you sure you want confirm order?');");
             out.println("if (result) {");
-            out.println("  alert('Order Confirmed!');");
+            out.println("  alert('Order Confirmed!');"); 
             out.println("} else {");
             out.println("  alert('Cancelled!');");
             out.println("  window.location.href = 'cart.jsp';");
             out.println("}");
             out.println("</script>");
-            out.println("Thank you for Ordering....");
             
-            try {
-                dbConn.connect();
+            try{
+            dbConn.connect();
+            
+                // Select cart_id from cart where user_id = userId
                 ResultSet rs = dbConn.executeQuery("SELECT cart_id FROM cart WHERE user_id = " + userId);
                 if (rs.next()) {
                     int cartId = rs.getInt("cart_id");
+
+                    // Insert data into the order table
                     String queryOrder = "INSERT INTO `order` (cart_id, status) VALUES (?, 'confirm')";
                     dbConn.executePreparedStatement(queryOrder, String.valueOf(cartId));
                 } else {
                     System.out.println("No cart found for user with user_id: " + userId);
                 }
+            
+
             } catch (ClassNotFoundException | SQLException ex) {
-                Logger.getLogger(CheckoutRegservlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(checkoutForm.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
         }
     }
 
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
 
 }

@@ -39,7 +39,6 @@ public class CheckoutServletUnreg extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
 
         String userEmail = request.getParameter("email");
         String cart_details = "1:4;2:1";
@@ -52,7 +51,6 @@ public class CheckoutServletUnreg extends HttpServlet {
     private void placeOrder(String email, String userstatus, String cart_details) {
         checkoutForm.placeOrder(email, userstatus, cart_details);
     }
-    
 
 
 
