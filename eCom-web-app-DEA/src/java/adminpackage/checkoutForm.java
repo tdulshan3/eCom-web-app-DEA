@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 public class checkoutForm {
 
-    public static void placeOrder(String email, String userstatus, String cart_details) {
+    public static void placeOrder(String email, String firstName,  String lastName, String address, String townCity, String postcode, String phoneNumber, String userstatus, String cart_details) {
         
         Dbcon dbConn = new Dbcon();
         try{
@@ -19,8 +19,8 @@ public class checkoutForm {
 
             
             // Insert user data into the user table
-            String queryUser = "INSERT INTO user (email, status) VALUES (?, ?)";
-            dbConn.executePreparedStatement(queryUser, email, userstatus);
+            String queryUser =  "INSERT INTO user (email, FirstName, LastName, Address, City, Postcode, Phone, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            dbConn.executePreparedStatement(queryUser, email, firstName, lastName, address, townCity, postcode, phoneNumber, userstatus);
 
             // Select user_id from user where email = email
             ResultSet rs = dbConn.executeQuery("SELECT user_id FROM user WHERE email = '" + email + "'");
