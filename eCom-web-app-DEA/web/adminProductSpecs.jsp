@@ -2,6 +2,7 @@
 <%@ page import="adminpackage.Dbcon" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="adminpackage.Authentication" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,10 +13,13 @@
         <link href="./admin.css" rel="stylesheet">
     </head>
     <body>
-        <div class="d-flex " style="min-height: 100vh;"> <!-- Centering the content vertically and horizontally -->
+            <%
+         Authentication.redirectIfNotAuthenticated(request, response);
+        %>
+        <div class="d-flex " style="min-height: 100vh;"> 
             <%@ include file="./component/adminSidebar.html" %>
             <div class="container mt-4">
-                <div class="container>
+                <div class="container"> 
                      <div class="card" style="max-width: 800px; margin: 5rem auto;">
                      <div class="card-body">
                         <%
@@ -56,7 +60,8 @@
                             }
                         %>
                         <button id="submitButton" class="btn btn-primary">Submit</button>
-                    </div>
+                    </div></div>
+            </div>
                 </div>
             </div>
         </div>

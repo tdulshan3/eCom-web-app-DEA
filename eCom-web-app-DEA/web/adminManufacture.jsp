@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="adminpackage.Authentication" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,9 +10,12 @@
         <link href="./admin.css" rel="stylesheet">
     </head>
     <body>
+            <%
+         Authentication.redirectIfNotAuthenticated(request, response);
+        %>
         <div class="d-flex">
             <%@ include file="./component/adminSidebar.html" %>
-
+            
             <div class="container mt-4">
                 <div class="text-center">
                     <button type="button" class="btn btn-primary" id="toggleButton">Add Manufacturer</button>

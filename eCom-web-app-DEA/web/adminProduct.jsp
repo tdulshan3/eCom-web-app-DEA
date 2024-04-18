@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@ page import="adminpackage.Authentication" %>
 <!DOCTYPE html>
 
 <html>
@@ -18,6 +18,9 @@
 </head>
 
 <body>
+        <%
+         Authentication.redirectIfNotAuthenticated(request, response);
+        %>
     <div class="d-flex">
         <%@ include file="./component/adminSidebar.html" %>
 
