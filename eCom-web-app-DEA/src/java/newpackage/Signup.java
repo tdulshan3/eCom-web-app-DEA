@@ -6,6 +6,7 @@ import static java.lang.System.out;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,6 +48,16 @@ public class Signup extends HttpServlet {
                 out.println("Attempting database connection");
                 dbConnector.connect();
                 out.println("Connected to database");
+                    // Check if the email already exists in the database
+        String emailCheckQuery = "SELECT * FROM register WHERE Email = ?";
+        ResultSet rs = dbConnector.executeQueryWithPreparedStatement(emailCheckQuery, email);
+        if (rs.next()) {
+            // Email already exists, set error message and forward to registration page
+            request.setAttribute("errorMessage2", "Email already exists");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/Register.jsp");
+            dispatcher.forward(request, response);
+            return; // Stop further execution of the servlet
+        }
                 dbConnector.executePreparedStatement(query, email, pw1, firstName, lastName, address, townCity, postcode, phoneNumber);
                 out.println("Executed database query");
                 dbConnector.disconnect();

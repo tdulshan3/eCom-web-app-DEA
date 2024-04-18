@@ -16,6 +16,10 @@
 <center><h2>Register</h2></center>
 <form action="Signup" method="post">
     <input type="email" id="email" name="email" placeholder="E-mail" required>
+     <% String errorMessage2 = (String) request.getAttribute("errorMessage2");
+       if (errorMessage2 != null) { %>
+        <p style="color: red;"><%= errorMessage2 %></p>
+    <% } %>
     <input type="password" id="password" name="password1" placeholder="password" oninput="checkPasswordStrength(this.value)" required>
     <div class="password-strength-meter">
         <div id="strength"></div>

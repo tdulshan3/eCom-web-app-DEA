@@ -12,8 +12,8 @@ import javax.servlet.http.HttpSession;
 
 public class NewServlet extends HttpServlet {
 
-    @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+@Override
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
     String email = request.getParameter("Email");
     String password = request.getParameter("password");
@@ -21,22 +21,32 @@ public class NewServlet extends HttpServlet {
     Dbcon db = new Dbcon();
     try {
         db.connect();
-        String query = "SELECT * FROM register WHERE Email = ? AND password = ?";
-        ResultSet rs = db.executeQueryWithPreparedStatement(query, email, password);
+        String query = "SELECT * FROM register WHERE Email = ?";
+        ResultSet rs = db.executeQueryWithPreparedStatement(query, email);
         if (rs.next()) {
-            // Login successful
-            // Redirect to a success page or do further processing
-            response.sendRedirect("index.html");
+            String storedPassword = rs.getString("password");
+            if (password.equals(storedPassword)) {
+                // Passwords match, login successful
+                // Redirect to a success page or do further processing
+                response.sendRedirect("index.html");
+            } else {
+                // Passwords don't match, login failed
+                // Set error message attribute and redirect back to the login page
+                request.setAttribute("errorMessage", "Incorrect password");
+                request.getRequestDispatcher("Login.jsp").forward(request, response);
+            }
         } else {
-            // Login failed
-            // Redirect back to the login page with an error message
-            response.sendRedirect("login.jsp?error=1");
+            // User not found, login failed
+            // Set error message attribute and redirect back to the login page
+            request.setAttribute("errorMessage", "User not found");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     } catch (ClassNotFoundException | SQLException e) {
         // Handle exceptions
         e.printStackTrace();
-        // Redirect back to the login page with an error message
-        response.sendRedirect("login.jsp?error=2");
+        // Set error message attribute and redirect back to the login page
+        request.setAttribute("errorMessage", "Database error");
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     } finally {
         try {
             db.disconnect();
