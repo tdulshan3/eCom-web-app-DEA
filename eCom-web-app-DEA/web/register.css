@@ -1,0 +1,174 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 17, 2024, 11:28:22 PM
+    Author     : User
+*/
+body {
+            /*background-image: url('https://th.bing.com/th/id/R.00a2fc96129f9cf715484951d6bd65a4?rik=jjJXS6rTj7eZlg&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f4%2f8%2f9%2f536913.jpg&ehk=Oux0h4qpYzvq9CfHmKAkQMHCFyVZ%2fdgOkO5Yfjq0Czo%3d&risl=&pid=ImgRaw&r=0');
+            background-size: cover;*/
+            background-position: center;
+            font-family: Arial, sans-serif; 
+            background-color: #CDDFEF;
+           
+        }
+        
+/*         form:before{
+           content: '';
+           position: absolute;
+           width: 2000px;
+           height: 2000px;
+           border-radius: 50%;
+           background: linear-gradient(-45deg, #4481eb, #04befe);
+        }*/
+        
+        .password-strength-meter {
+            width: calc(100% - 12px);
+            height: 6px;
+            border: 1px solid #ccc;
+            margin: 0 auto 10px auto;
+/*            margin-bottom: 10px;*/
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .password-strength-meter > div {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .weak {
+            background-color: #ff6b6b;
+        }
+
+        .medium {
+            background-color: #ffd166;
+        }
+
+        .strong {
+            background-color: #4caf50;
+        }
+
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            max-width: 400px;
+            margin: auto;
+            padding: 0 30px;
+            position: relative;
+        }
+
+        form label {
+            margin-bottom: 5px;
+        }
+
+        form input[type="text"],
+        form input[type="password"],
+        form input[type="email"],
+        form select {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px 30px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+        }
+        form input[type="email"] {
+            width: calc(100% - 62px); 
+            margin-top: 15px;
+        }
+        
+        ::placeholder{
+            color: #aaa;
+            opacity: 1; 
+            font-weight: 500;
+        }
+
+
+        form input[type="submit"] {
+            width: auto;
+            height: 49px;
+            padding: 10px 50px;
+            margin-top: 10px;
+            background-color: #65A7D3;
+            color: white;
+            border: none;
+            border-radius: 49px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+/*            margin-top: 25px;*/
+/*            margin: auto;*/
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #386CAF;
+        }
+             body {
+                 width: 400px;
+            font-family: Arial, sans-serif;
+/*            background-color: #13364B;*/
+            margin: 60px auto;
+            padding: 0;
+        }
+        
+        form input[type="number"], 
+        form input[type="tel"], 
+        form select {
+            margin-bottom: -9px;
+            width: calc(100% - 44px);
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+        }
+        
+        
+        h2{
+            color:black;
+        }
+     
+        form {
+            max-width: 400px;
+            height: 530px;
+            margin: 20px auto;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+       
+        
+        input[type="text"],
+        input[type="password"],
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
