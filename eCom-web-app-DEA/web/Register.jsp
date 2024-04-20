@@ -1,7 +1,7 @@
 <%-- 
-    Document   : Register
-    Created on : 26/03/2024, 2:54:11 PM
-    Author     : Admin
+    Document   : newjsp
+    Created on : Apr 17, 2024, 11:19:50 PM
+    Author     : User
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -16,10 +16,6 @@
 <center><h2>Register</h2></center>
 <form action="Signup" method="post">
     <input type="email" id="email" name="email" placeholder="E-mail" required>
-     <% String errorMessage2 = (String) request.getAttribute("errorMessage2");
-       if (errorMessage2 != null) { %>
-        <p style="color: red;"><%= errorMessage2 %></p>
-    <% } %>
     <input type="password" id="password" name="password1" placeholder="password" oninput="checkPasswordStrength(this.value)" required>
     <div class="password-strength-meter">
         <div id="strength"></div>
