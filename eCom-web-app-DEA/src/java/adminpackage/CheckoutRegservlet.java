@@ -18,7 +18,7 @@ public class CheckoutRegservlet extends HttpServlet {
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         
-        String userId = "1";
+        String userId = "0";
         Dbcon dbConn = new Dbcon();
         
         if (userId.equals("0")) {
@@ -40,6 +40,8 @@ public class CheckoutRegservlet extends HttpServlet {
                 ResultSet rs = dbConn.executeQuery("SELECT cart_id FROM cart WHERE user_id = " + userId);
                 if (rs.next()) {
                     int cartId = rs.getInt("cart_id");
+                    String queryDelUser = "DELETE FROM `order` WHERE cart_id = ?";
+                    dbConn.executePreparedStatement(queryDelUser, cartId);
                     String queryOrder = "INSERT INTO `order` (cart_id, status) VALUES (?, 'confirm')";
                     dbConn.executePreparedStatement(queryOrder, String.valueOf(cartId));
                 } else {

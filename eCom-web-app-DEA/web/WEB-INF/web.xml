@@ -16,6 +16,22 @@
         <servlet-name>cart</servlet-name>
         <servlet-class>adminpackage.cart</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>deleteCart</servlet-name>
+        <servlet-class>adminpackage.deleteCart</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteCartItem</servlet-name>
+        <servlet-class>adminpackage.DeleteCartItem</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DelCartUnReg</servlet-name>
+        <servlet-class>adminpackage.DelCartUnReg</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DelCartItemUnreg</servlet-name>
+        <servlet-class>adminpackage.DelCartItemUnreg</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckoutReg</servlet-name>
         <url-pattern>/CheckoutReg</url-pattern>
@@ -31,6 +47,22 @@
     <servlet-mapping>
         <servlet-name>cart</servlet-name>
         <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteCart</servlet-name>
+        <url-pattern>/deleteCart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteCartItem</servlet-name>
+        <url-pattern>/DeleteCartItem</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DelCartUnReg</servlet-name>
+        <url-pattern>/DelCartUnReg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DelCartItemUnreg</servlet-name>
+        <url-pattern>/DelCartItemUnreg</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
