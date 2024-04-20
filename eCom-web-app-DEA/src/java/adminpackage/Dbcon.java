@@ -42,4 +42,12 @@ public class Dbcon {
         preparedStatement.executeUpdate();
         preparedStatement.close();
     }
+     public ResultSet executeQueryWithPreparedStatement(String query, Object... params) throws SQLException {
+    PreparedStatement preparedStatement = conn.prepareStatement(query);
+    for (int i = 0; i < params.length; i++) {
+        preparedStatement.setObject(i + 1, params[i]);
+    }
+    ResultSet resultSet = preparedStatement.executeQuery();
+    return resultSet;
+}
 }
