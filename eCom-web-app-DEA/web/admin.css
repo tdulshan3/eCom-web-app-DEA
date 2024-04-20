@@ -1,0 +1,26 @@
+  body {
+            overflow-x: hidden;
+        }
+
+        .sidebar {
+            min-width: 250px;
+            max-width: 250px;
+            min-height: 100vh;
+            background-color: #1f1f1f;
+            padding-top: 1rem;
+        }
+
+        .sidebar .nav-link {
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 0;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .sidebar .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
