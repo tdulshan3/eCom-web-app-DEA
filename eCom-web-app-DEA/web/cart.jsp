@@ -6,10 +6,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
-        <form action="CheckoutRegservlet" method="post">
+      <form action="CheckoutRegservlet" method="post">
            
         <input type="submit" value="Checkout">
     </form>
-    </body>
 </html>
