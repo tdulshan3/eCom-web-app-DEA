@@ -95,7 +95,90 @@
     <servlet>
         <servlet-name>updateQuantity</servlet-name>
         <servlet-class>adminpackage.updateQuantity</servlet-class>
+    <servlet-name>OrdersServlet</servlet-name>
+    <servlet-class>adminpackage.OrdersServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>OrdersServlet</servlet-name>
+    <url-pattern>/OrdersServlet</url-pattern>
+</servlet-mapping>
+
+    <servlet>
+        <servlet-name>CheckoutRegservlet</servlet-name>
+        <servlet-class>adminpackage.CheckoutRegservlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CategoryAdd</servlet-name>
+        <servlet-class>adminpackage.CategoryAdd</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CategoryDelete</servlet-name>
+        <servlet-class>adminpackage.CategoryDelete</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManufactureAdd</servlet-name>
+        <servlet-class>adminpackage.ManufactureAdd</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManufacturerDelete</servlet-name>
+        <servlet-class>adminpackage.ManufacturerDelete</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProductAdd</servlet-name>
+        <servlet-class>adminpackage.ProductAdd</servlet-class>
+        <multipart-config>
+            <!-- Maximum size of file -->
+            <max-file-size>20848820</max-file-size>
+            <!-- Maximum size of request -->
+            <max-request-size>418018841</max-request-size>
+            <!-- Size threshold after which files will be written to disk -->
+            <file-size-threshold>1048576</file-size-threshold>
+        </multipart-config>
+    </servlet>
+    <servlet>
+        <servlet-name>Signup</servlet-name>
+        <servlet-class>adminpackage.Signup</servlet-class>
+    </servlet>
+        <servlet>
+        <servlet-name>Logins</servlet-name>
+        <servlet-class>adminpackage.Logins</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProductSpecsAdd</servlet-name>
+        <servlet-class>adminpackage.ProductSpecsAdd</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SpecsAdd</servlet-name>
+        <servlet-class>adminpackage.SpecsAdd</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SpecsDelete</servlet-name>
+        <servlet-class>adminpackage.SpecsDelete</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SpecsTypeAdd</servlet-name>
+        <servlet-class>adminpackage.SpecsTypeAdd</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SpecsTypeDelete</servlet-name>
+        <servlet-class>adminpackage.SpecsTypeDelete</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteProduct</servlet-name>
+        <servlet-class>adminpackage.deleteProduct</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updatePrice</servlet-name>
+        <servlet-class>adminpackage.updatePrice</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateQuantity</servlet-name>
+        <servlet-class>adminpackage.updateQuantity</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Logins</servlet-name>
+        <url-pattern>/Logins</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Logins</servlet-name>
         <url-pattern>/Logins</url-pattern>
@@ -184,6 +267,73 @@
         <servlet-name>Signup</servlet-name>
         <url-pattern>/Signup</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryAdd</servlet-name>
+        <url-pattern>/CategoryAdd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryDelete</servlet-name>
+        <url-pattern>/CategoryDelete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManufactureAdd</servlet-name>
+        <url-pattern>/ManufactureAdd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManufacturerDelete</servlet-name>
+        <url-pattern>/ManufacturerDelete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductAdd</servlet-name>
+        <url-pattern>/ProductAdd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductSpecsAdd</servlet-name>
+        <url-pattern>/ProductSpecsAdd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SpecsAdd</servlet-name>
+        <url-pattern>/SpecsAdd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SpecsDelete</servlet-name>
+        <url-pattern>/SpecsDelete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SpecsTypeAdd</servlet-name>
+        <url-pattern>/SpecsTypeAdd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SpecsTypeDelete</servlet-name>
+        <url-pattern>/SpecsTypeDelete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteProduct</servlet-name>
+        <url-pattern>/deleteProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updatePrice</servlet-name>
+        <url-pattern>/updatePrice</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateQuantity</servlet-name>
+        <url-pattern>/updateQuantity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Signup</servlet-name>
+        <url-pattern>/Signup</url-pattern>
+    </servlet-mapping>
+    <servlet>
+    <servlet-name>CancelOrderServlet</servlet-name>
+    <servlet-class>adminpackage.CancelOrderServlet</servlet-class>
+</servlet>
+<servlet>
+    <servlet-name>OrdersServlet</servlet-name>
+    <servlet-class>adminpackage.OrdersServlet</servlet-class>
+</servlet>
+
+
+
     <session-config>
         <session-timeout>
             30
