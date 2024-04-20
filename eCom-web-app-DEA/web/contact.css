@@ -1,0 +1,133 @@
+*{
+    margin: 10px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    
+    
+}
+body{
+    background: linear-gradient(180deg,rgb(102,178,255) 50%,#bcd8f5 60%);
+}
+.newsletter h1{
+    text-align: center;
+    font-weight: 800;
+    color: black;
+    padding-top: 10px;
+}
+.newsletter p{
+    font-size: 25px;
+    font-weight: 200;
+    text-align: center;
+    font-style: italic;
+    color: black;
+}
+.contact{
+    display: flex;
+}
+.contact-left{
+    min-height: 100vh;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-left: 30px;
+    flex-basis: 50%;
+    float: right;
+    padding-right:100px;
+}
+.contact-right{
+    flex-basis: 50%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(180deg,rgb(5,5,160) 10%,#a2bfde 60%);
+    margin: 150px 250px;
+    border-radius: 5px;
+    float: left;
+}
+.contact-right p{
+    font-size: 20px;
+    text-align: left;
+    padding-left: 40px;
+    color: black;
+    font-weight: 200;
+}
+.contact-right h3{
+    color: black;
+}
+.contact-right h2{
+    text-align: center;
+    color: white;
+}
+.contact-left form{
+    width: 500px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(180deg,rgb(0, 0, 180) 0%,#a2bfde 60%);
+    border-radius: 10px;
+    flex-wrap: wrap;
+    font-weight: 300;
+}
+.contact-left form h2{
+    color: white;
+    font-weight: 600;
+    line-height: 2;
+    margin-top: 20px;
+    width: 500px;
+    text-align: center;
+}
+.contact-left form input{
+    width: 175px;
+    height: 50px;
+    padding-left: 10px;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    margin-bottom: 10px;
+    background: none;
+    border-bottom: 2px solid;
+    color: black;
+}
+.contact-left form input::placeholder{
+    color: black;
+}
+.contact-left form #lastname,.contact-left form #email{
+    margin-left: 20px;
+}
+.contact-left form h4{
+    font-weight: 300;
+    width: 400px;
+    margin-top: 20px;
+    font-size: 20px;
+    color: black;
+}
+.contact-left form textarea{
+    background: none;
+    border: none;
+    border-bottom: 2px solid;
+    font-weight: 200;
+    font-size: 20px;
+    padding: 10px;
+    outline: none;
+    max-height: 100px;
+    max-width: 400px;
+    min-height: 100px;
+    min-width: 400px;
+    color: black;
+}
+.contact-left form #button{
+    border: none;
+    background-color: black;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 22px;
+    color: white;
+    width: 200px;
+    height: 50px;
+    padding: 0;
+    margin-bottom: 30px;
+    transition: 0.3s;
+}
