@@ -5,15 +5,6 @@
         <servlet-class>adminpackage.CheckoutServletReg</servlet-class>
     </servlet>
     <servlet>
-    <servlet-name>OrdersServlet</servlet-name>
-    <servlet-class>adminpackage.OrdersServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-    <servlet-name>OrdersServlet</servlet-name>
-    <url-pattern>/OrdersServlet</url-pattern>
-</servlet-mapping>
-
-    <servlet>
         <servlet-name>CheckoutRegservlet</servlet-name>
         <servlet-class>adminpackage.CheckoutRegservlet</servlet-class>
     </servlet>
@@ -153,17 +144,6 @@
         <servlet-name>Signup</servlet-name>
         <url-pattern>/Signup</url-pattern>
     </servlet-mapping>
-    <servlet>
-    <servlet-name>CancelOrderServlet</servlet-name>
-    <servlet-class>adminpackage.CancelOrderServlet</servlet-class>
-</servlet>
-<servlet>
-    <servlet-name>OrdersServlet</servlet-name>
-    <servlet-class>adminpackage.OrdersServlet</servlet-class>
-</servlet>
-
-
-
     <session-config>
         <session-timeout>
             30

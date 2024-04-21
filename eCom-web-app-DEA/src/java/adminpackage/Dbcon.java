@@ -16,10 +16,10 @@ public class Dbcon {
     }
 
     public void connect() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        String url = "jdbc:mysql://localhost:3306/dilina1";
+        Class.forName("com.mysql.jdbc.Driver");
+        String url = "jdbc:mysql://localhost:3306/test";
         String username = "root";
-        String password = ""; // Enter your MySQL password here
+        String password = "";
         conn = DriverManager.getConnection(url, username, password);
     }
 
@@ -44,31 +44,30 @@ public class Dbcon {
     }
     
     public int executePreparedStatementInt(String query, Object... params) throws SQLException {
-        PreparedStatement preparedStatement = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-        for (int i = 0; i < params.length; i++) {
-            preparedStatement.setObject(i + 1, params[i]);
-        }
-        preparedStatement.executeUpdate();
-        
-        ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
-        if (generatedKeys.next()) {
-            int generatedKey = generatedKeys.getInt(1);
-            generatedKeys.close();
-            preparedStatement.close();
-            return generatedKey;
-        } else {
-            generatedKeys.close();
-            preparedStatement.close();
-            return -1; 
-        }
+    PreparedStatement preparedStatement = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+    for (int i = 0; i < params.length; i++) {
+        preparedStatement.setObject(i + 1, params[i]);
     }
+    preparedStatement.executeUpdate();
     
-    public ResultSet executeQueryWithPreparedStatement(String query, Object... params) throws SQLException {
-        PreparedStatement preparedStatement = conn.prepareStatement(query);
-        for (int i = 0; i < params.length; i++) {
-            preparedStatement.setObject(i + 1, params[i]);
-        }
-        ResultSet resultSet = preparedStatement.executeQuery();
-        return resultSet;
+    ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+    if (generatedKeys.next()) {
+        int generatedKey = generatedKeys.getInt(1);
+        generatedKeys.close();
+        preparedStatement.close();
+        return generatedKey;
+    } else {
+        generatedKeys.close();
+        preparedStatement.close();
+        return -1; 
     }
+}
+    public ResultSet executeQueryWithPreparedStatement(String query, Object... params) throws SQLException {
+    PreparedStatement preparedStatement = conn.prepareStatement(query);
+    for (int i = 0; i < params.length; i++) {
+        preparedStatement.setObject(i + 1, params[i]);
+    }
+    ResultSet resultSet = preparedStatement.executeQuery();
+    return resultSet;
+}
 }
