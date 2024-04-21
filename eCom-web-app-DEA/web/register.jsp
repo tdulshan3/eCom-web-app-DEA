@@ -1,9 +1,3 @@
-<%-- 
-    Document   : newjsp
-    Created on : Apr 17, 2024, 11:19:50 PM
-    Author     : User
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
