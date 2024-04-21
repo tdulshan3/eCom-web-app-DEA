@@ -58,23 +58,9 @@ body,
   overflow: hidden; }
 
 .ty-mainWrap {
-  background: #ffffff; }
+  background: #f8f8ff; }
 
-.ty-overlay-trigger {
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  position: fixed;
-  z-index: 10;
-  background: #2051d5;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease; }
+
 
 .ty-offCanvasNav {
   position: fixed;
@@ -84,9 +70,8 @@ body,
   height: 100%;
   z-index: 9999;
   background: #f9f9f9;
-  overflow-y: scroll;
-  -webkit-box-shadow: 0 0 50px #ffffff;
-  box-shadow: 0 0 50px #ffffff;
+  overflow-x: scroll;
+
   -webkit-transform: translateX(-100%);
   -moz-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
@@ -97,21 +82,7 @@ body,
   -ms-transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1);
   -o-transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1);
   transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1); }
-  .ty-offCanvasNav button.ty-catNav-trigger-close {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    color: #1c1c1c;
-    padding: 0 15px;
-    font-size: 3em;
-    background: none;
-    border: none;
-    opacity: 0;
-    -webkit-transition: opacity 0.3s ease 0.3s;
-    -moz-transition: opacity 0.3s ease 0.3s;
-    -ms-transition: opacity 0.3s ease 0.3s;
-    -o-transition: opacity 0.3s ease 0.3s;
-    transition: opacity 0.3s ease 0.3s; }
+
   .ty-offCanvasNav h2 {
     text-align: center;
     color: #030303;
@@ -161,7 +132,7 @@ body,
     .ty-mainContent section.ty-pageContentWrap .ty-cat {
       width: 250px;
       height: auto;
-      background: #1c1c1c;
+
       display: none;
       float: left; }
 
@@ -176,32 +147,21 @@ body,
       display: block; } }
 /* Google Map */
 
-/* Header Styles */
 
-/* 768px */
-/* 970px */
-
-/* Nav Open on click */
-/* Header Quote Block Styles */
-
-/* 970px */
-/* QuoteBlockWrap --- HOVER */
-/* Catergories Nav --- Styles */
 .ty-cat ul.ty-catList li.ty-catListItem {
   position: relative;
+  min-height: 70px;
   cursor: pointer;
   float: left;
   width: 100%;
-  background: #4b4a48;
-  border-bottom: 5px solid #1c1c1c;
+  background: #fff;
+  box-shadow:  3px 20px 50px 0px rgba(0, 0, 0, 0.3);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
   display: block;
   z-index: 1;
-  -webkit-transition: all 0.2s cubic-bezier(0.7, 0, 0.3, 1);
-  -moz-transition: all 0.2s cubic-bezier(0.7, 0, 0.3, 1);
-  -ms-transition: all 0.2s cubic-bezier(0.7, 0, 0.3, 1);
-  -o-transition: all 0.2s cubic-bezier(0.7, 0, 0.3, 1);
-  transition: all 0.2s cubic-bezier(0.7, 0, 0.3, 1);
-  padding: 10px; }
+  transition: left 0.3s ease;
+  padding:13px; 
+}
   .ty-cat ul.ty-catList li.ty-catListItem a {
     width: 100%;
     display: table; }
@@ -209,20 +169,17 @@ body,
     width: 100%;
     display: table-cell;
     vertical-align: middle;
-    padding: 0 20px; }
+    padding: 7px; }
     .ty-cat ul.ty-catList li.ty-catListItem .ty-catContent .ty-catIconWrap {
-      width: 30%;
+      width: 100%;
       float: left;
       padding-right: 7.5px; }
-      .ty-cat ul.ty-catList li.ty-catListItem .ty-catContent .ty-catIconWrap img {
-        width: 40px;
-        height: auto;
-        float: right; }
+
     .ty-cat ul.ty-catList li.ty-catListItem .ty-catContent .ty-catTitle {
       margin-top: 6px;
-      width: 70%;
+      width: 100%;
       float: left;
-      color: #090909;
+      color: black;
       opacity: 0.5;
       padding-left: 7.5px;
       text-transform: uppercase;
@@ -239,24 +196,19 @@ body,
 /* Catergories Nav --- Hover Styles */
 .ty-cat ul.ty-catList .ty-catListItem:hover {
   width: 105%;
-  background: #0077ff;
-  -webkit-box-shadow: 0 0 5px #1c1c1c, 0 0 30px #1c1c1c;
-  box-shadow: 0 0 5px #1c1c1c, 0 0 30px #1c1c1c;
-  z-index: 2; }
+  background: #358fef;
+  -webkit-box-shadow: 0 0 1px rgba(0,0,255,0.9), 0 0 30px rgb(0,0,255,0.9);
+  box-shadow: 0 0 1px rgba(0,0,0,0.3), 0 0 30px rgba(0,0,0,0.3);
+  z-index: 2;
+  border-top: 5px solid #358fef;
+  border-bottom: 5px solid #358fef;
+
+  
+}
   .ty-cat ul.ty-catList .ty-catListItem:hover .ty-catContent .ty-catTitle {
-    color: #262626;
+    color: #fff;
     opacity: 1; }
 
-/* 768px */
-/* 970px */
-/* Home Services Display --- Styles */
-/* Footer --- Styles */
-/* ty-credit */
-/* Footer Sections */
-/*--------------------------
----- Contact Page
-----------------------------*/
-/* Contact Page --- Form */
 
 .ty-productPage-title {
   width: 100%;
@@ -380,7 +332,9 @@ body,
   width: 100%;
   float: left;
   color: #121111;
-  padding: 20px; }
+  padding-top: 20px;
+    padding-bottom: 40px;  
+}
 
 /* line over retail price*/
 .ty-price-retail .ty-price-retail-price {
@@ -1752,9 +1706,121 @@ Loading Animation
       .ty-modal-search-wrap .ty-more-wrap a {
         width: 300px; } }
 
-/* Headroom*/
-/* Headroom */
+.container {
+  display: flex;
+  padding: 80px;
+  
+}
 
-/* Quote Block */
+.content {
+  flex: 1;
+  padding: 20px;
+   
+}
 
-/*# sourceMappingURL=main.css.map */
+.image {
+  flex: 1;
+  padding: 20px;
+  text-align: center; /* Center the image */
+}
+
+.image img {
+  max-width: 100%; /* Ensure image doesn't exceed container width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Media query for responsive layout */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 0;}
+    .content {
+    flex: 1;
+    justify-content: center;
+    
+  }
+  .image {
+    order: -1; 
+  }
+}
+
+.ty-productTitle {
+    position: relative;
+    font-size: 48px;
+    font-weight: bold;
+    color: #333;
+    padding-bottom: 10px; 
+    margin-bottom: 30px;/* Adjust spacing between heading and line */
+}
+
+.half-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30%; /* Adjust width of the line */
+    height: 5px; /* Adjust thickness of the line */
+    background-color: #6f6f6f; /* Adjust color of the line */
+    
+}
+
+.ty-productCategory {
+    font-size: 18px;
+    color: #358fef;
+}
+.ty-productPage-info p  {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #555;
+}
+.price {
+    font-size: 36px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+.availability {
+    font-size: 18px;
+    font-weight: normal;
+    color: green;
+    padding-bottom: 10px;
+}
+.add-to-cart-btn {
+    background-color: #358fef;
+    border: 1px solid #358fef;
+    color: #fff;
+    padding: 0;
+    border: none;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 22px;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: white;
+    transform: scale(1.1);
+    border: 1px solid #358fef;
+    color: #358fef;/* Increase button size on hover */
+}
+
+.plus-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    line-height: 1;
+    transition: transform 0.3s;
+}
+
+.add-to-cart-btn:hover .plus-icon {
+    transform: translateY(-50%) scale(1.5); /* Increase icon size on hover */
+}
+.plus {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/* Rest of your CSS styles */

@@ -1,108 +1,242 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="adminpackage.Dbcon" %>
-<%@page import="java.sql.SQLException" %>
-<%@page import="java.sql.ResultSet" %>
-<%@page import="java.util.*" %>
-<%@page import="javax.naming.*" %>
-<%@page import="javax.sql.*" %>
+<!-- ty-contentWrap.start -->
+<div class="ty-contentWrap container-fluid">
+    <!-- ty-content.start -->
+    <div class="ty-content col-xs-12 clearfix">
+        <!-- ty-gameBG.start -->
+        <div class="ty-gameBG">
+            <!--background image place-->
+        </div>
+
+        <div class="ty-push">
+            <!-- ty-mainContent.start -->
+            <div class="ty-mainContent">
+                <section class="ty-pageContentWrap">
+                    <a href="#showHere"></a>
 
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-        <table border="0" cellpadding="5">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Product</th>
-                    <th>Availability</th>
-                    <th>Product price</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-                <tbody>
-        <%
-            int price, qty, cartId, total=0;
-            String productName, cartDetails, ava, userId="0";
-            Dbcon dbConn = new Dbcon();
-            dbConn.connect();
-            if (userId.equals("0")){
-                
-                Cookie[] cookies = request.getCookies();
-                if (cookies != null) {
-                    for (Cookie cookie : cookies) {
-                        if (cookie.getName().equals("cart_details")) {
-                            cartDetails = cookie.getValue();
-                            out.println(cartDetails);
-                            String[] pairs = cartDetails.split("/");
-                            Integer i=0;
-                            for (String pair : pairs) {
-                                i++;
-                                String[] parts = pair.split(":");
-                                int productId = Integer.parseInt(parts[0]);
-                                int quantity = Integer.parseInt(parts[1]);
-                                ResultSet rsProduct =dbConn.executeQuery("SELECT name, price, quantity FROM products WHERE product_id=" +productId);
-                                if(rsProduct.next()){
-                                    productName = rsProduct.getString("name");
-                                    price = rsProduct.getInt("price");
-                                    total+=price;
-                                    qty = rsProduct.getInt("quantity");
-                                    if (qty==0){
-                                        ava = "outofstock";
-                                    } else{
-                                        ava = "instock";      
-                                    }
-                                    out.print("<tr><td>"+Integer.toString(i)+"</td><td>"+productName+"</td><td>"+ava+"</td><td>"+price+"</td><td>"+quantity+"</td><td>"+price*quantity+"</td><td><form action='DelCartItemUnreg' method='post'><input type='hidden' name='itemDetails' value='" + productId +":"+quantity+"'><input type='submit' value='Delete'></form></td></tr>");
-                                }
-                            }
-                    out.print("<form action='DelCartUnReg' method='post'><input type='submit' value='Delete All'></form>");
-                    out.print("Total "+Integer.toString(total));
-                            break;
-                        }
-                    }
-                }
-                
 
-            } else{
-                ResultSet rsCart = dbConn.executeQuery("SELECT cart_id, cart_details FROM cart WHERE user_id= " +userId);
-                if(rsCart.next()){
-                    cartDetails = rsCart.getString("cart_details");
-                    cartId = rsCart.getInt("cart_id");
-                    String[] pairs = cartDetails.split("/");
-                    Integer i=0;
-                    for (String pair : pairs) {
-                        i++;
-                        String[] parts = pair.split(":");
-                        int productId = Integer.parseInt(parts[0]);
-                        int quantity = Integer.parseInt(parts[1]);
-                        ResultSet rsProduct =dbConn.executeQuery("SELECT name, price, quantity FROM products WHERE product_id=" +productId);
-                        if(rsProduct.next()){
-                            productName = rsProduct.getString("name");
-                            price = rsProduct.getInt("price");
-                            total+=price;
-                            qty = rsProduct.getInt("quantity");
-                            if (qty==0){
-                                ava = "outofstock";
-                            } else{
-                                ava = "instock";      
-                            }
-                            out.print("<tr><td>"+Integer.toString(i)+"</td><td>"+productName+"</td><td>"+ava+"</td><td>"+price+"</td><td>"+quantity+"</td><td>"+price*quantity+"</td><td><form action='DeleteCartItem' method='post'><input type='hidden' name='itemDetails' value='" + productId +":"+quantity+"'><input type='submit' value='Delete'></form></td></tr>");
-                        }
-                    }
-                    out.print("<form action='deleteCart' method='post'><input type='hidden' name='cartId' value='" + cartId + "'><input type='submit' value='Delete All'></form>");
-                    out.print("Total "+Integer.toString(total));
-                }
-            }
-        %>
-            </tbody>
-        </table>
-        <form action="CheckoutRegservlet" method="post">   
-            <input type="submit" value="Checkout">
-        </form>
-        
-   
-</html>
+
+
+                    <div class="ty-cat">
+                        <ul class="ty-catList">
+                            <!-- ty-catListItem.start -->
+                            <li class="ty-catListItem">
+                                <a href="asus-rog.html">
+                                    <div class="ty-catContent">
+                                        <div class="ty-catIconWrap"></div>
+                                        <div class="ty-catTitle">
+                                            <span>ASUS ROG</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- ty-catListItem.start -->
+                            <li class="ty-catListItem">
+                                <a href="powered-by-asus.html">
+                                    <div class="ty-catContent">
+                                        <div class="ty-catIconWrap"></div>
+                                        <div class="ty-catTitle">
+                                            <span>Powered by ASUS</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- ty-catListItem.start -->
+                            <li class="ty-catListItem">
+                                <a href="commercial-motherboards.html">
+                                    <div class="ty-catContent">
+                                        <div class="ty-catIconWrap"></div>
+                                        <div class="ty-catTitle">
+                                            <span>Commercial solutions</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- ty-catListItem.start -->
+                            <li class="ty-catListItem">
+                                <a href="apple-products.html">
+                                    <div class="ty-catContent">
+                                        <div class="ty-catIconWrap"></div>
+                                        <div class="ty-catTitle">
+                                            <span>APPLE PRODUCTS</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- ty-catListItem.start -->
+                            <li class="ty-catListItem">
+                                <a href="console-gaming.html">
+                                    <div class="ty-catContent">
+                                        <div class="ty-catIconWrap"></div>
+                                        <div class="ty-catTitle">
+                                            <span>Console Gaming</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- ty-catListItem.start -->
+                            <li class="ty-catListItem">
+                                <a href="graphics-tablet.html">
+                                    <div class="ty-catContent">
+                                        <div class="ty-catIconWrap"></div>
+                                        <div class="ty-catTitle">
+                                            <span>Graphics Tablet / Tab</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- ty-catListItem.start -->
+                            <li class="ty-catListItem">
+                                <a href="laptops.html">
+                                    <div class="ty-catContent">
+                                        <div class="ty-catIconWrap"></div>
+                                        <div class="ty-catTitle">
+                                            <span>Laptops</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- ty-catListItem.start -->
+                            <li class="ty-catListItem">
+                                <a href="desktop-workstations.html">
+                                    <div class="ty-catContent">
+                                        <div class="ty-catIconWrap"></div>
+                                        <div class="ty-catTitle">
+                                            <span>Desktop Workstations</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- ty-catListItem.start -->
+                            <li class="ty-catListItem">
+                                <a href="nano-x-gaming-desktops.html">
+                                    <div class="ty-catContent">
+                                        <div class="ty-catIconWrap"></div>
+                                        <div class="ty-catTitle">
+                                            <span>Gaming Desktops</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- ty-catListItem.start -->
+                            <li class="ty-catListItem">
+                                <a href="desktop-computers.html">
+                                    <div class="ty-catContent">
+                                        <div class="ty-catIconWrap"></div>
+                                        <div class="ty-catTitle">
+                                            <span>Budget Desktop Computers</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- ty-catListItem.start -->
+                            <li class="ty-catListItem">
+                                <a href="processors.html">
+                                    <div class="ty-catContent">
+                                        <div class="ty-catIconWrap"></div>
+                                        <div class="ty-catTitle">
+                                            <span>Processors</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- ty-catListItem.start -->
+                            <li class="ty-catListItem">
+                                <a href="motherboards.html">
+                                    <div class="ty-catContent">
+                                        <div class="ty-catIconWrap"> </div>
+                                        <div class="ty-catTitle">
+                                            <span>MotherBoards</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                    <!-- ty-pageContent.start -->
+                    <div class="ty-pageContent">
+
+                        <!-- ty-productPage-title.start -->
+                        <div class="ty-productPage-title">
+
+
+                            <h1 class="ty-productTitle">Playstation DualSense Wireless Controller</h1>
+                            <h3 class="ty-productCategory">KEYBOARDS, MICE & GAMEPADS</h3>
+                        </div>
+
+                        <!-- ty-productPage-contentWrap.start -->
+                        <div class="ty-productPage-contentWrap">
+                            <!-- ty-productPage-content-imgHolder.start -->
+                            <div class="ty-productPage-content-imgHolder">
+                                <div id="ty-seqProductImgSlider">
+                                    <img src="https://www.nanotek.lk/uploads/product/2157-20221027134559-Untitled-1.png">
+                                </div>
+                            </div>
+
+
+
+
+
+                            <!-- ty-productPage-content.start -->
+                            <div class="ty-productPage-content">
+                                <!-- ty-productPage-price.start -->
+                                <div class="ty-productPage-price ty-mobile-price">
+                                    <span class="ty-price ty-price-now">25,500</span>
+                                    <span class="ty-price-retail">
+                                        <span class="ty-price ty-price-retail-price">27,500</span>
+                                        <span class="ty-price-retail-title">- Retail Price</span>
+                                    </span>
+
+                                    <span class="ty-special-msg">Out of Stock</span>
+
+                                    <div class="ty-productPage-quoteBtn-wrap">
+                                        <button class="ty-productPage-quoteBtn pg-add-quote" data-pid="2154">Add
+                                            to Quote</button>
+                                    </div>
+                                </div>
+
+                                <!-- ty-productPage-info.start -->
+                                <div class="ty-productPage-info">
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos laudantium tempore soluta, laborum minus atque vero, ut in reiciendis unde quia eum quasi corrupti, asperiores ratione! Ab est illum id consectetur harum blanditiis aliquam autem. Vitae sint vero dolores ad consectetur repellendus a repudiandae, labore accusantium nam saepe harum quasi obcaecati, aut adipisci eaque amet quis ab illum quae possimus!\
+                                    </p>
+                                </div>
+
+                                <!-- ty-productPage-price.start -->
+                                <div class="ty-productPage-price ty-desktop-price">
+                                    <span class="ty-price ty-price-now">25,500</span>
+                                    <span class="ty-price-retail">
+                                        <span class="ty-price ty-price-retail-price">27,500</span>
+                                        <span class="ty-price-retail-title">- Retail Price</span>
+                                    </span>
+
+                                    <span class="ty-special-msg">Out of Stock</span>
+
+                                    <div class="ty-productPage-quoteBtn-wrap">
+                                        <button class="ty-productPage-quoteBtn pg-add-quote" data-pid="2154">Add
+                                            to Quote</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- ty-mainContent.end -->
+
+        </div><!-- ty-push.end -->
+    </div><!-- ty-content.end -->
+</div>
