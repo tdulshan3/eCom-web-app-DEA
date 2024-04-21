@@ -23,6 +23,10 @@
                  <button type="submit">Login</button><br>
 <!--             <input type="button" name="createaccount" value="Create Account" onclick="window.location.href='Register.jsp';">-->
             <a href="register.jsp">Create Account</a>
+                  <% String errorMessage = (String) request.getAttribute("errorMessage");
+       if (errorMessage != null) { %>
+        <p style="color: red;"><%= errorMessage %></p>
+    <% } %>
         </form>
     </body>
 </html>

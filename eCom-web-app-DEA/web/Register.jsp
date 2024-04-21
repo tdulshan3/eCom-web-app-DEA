@@ -55,10 +55,6 @@
     }
 </script>
     <input type="password" id="password2" name="password2" placeholder="Retype Password *" required>
-      <% String errorMessage = (String) request.getAttribute("errorMessage");
-       if (errorMessage != null) { %>
-        <p style="color: red;"><%= errorMessage %></p>
-    <% } %>
     <input type="text" id="firstname" name="firstname" placeholder="Firstname*" maxlength="12" required>
     
     <input type="text" id="lastname" name="lastname" placeholder="Lastname*" maxlength="15" required>
@@ -67,6 +63,10 @@
     <input type="number" id="postcode" name="postcode" placeholder="Postcode/zip*" maxlength="15" required><br>
     <input type="tel" id="pnumber" placeholder="Mobile number*" name="pnumber"><br>
     <input type="submit" value="SIGN UP">
+          <% String errorMessage = (String) request.getAttribute("errorMessage");
+       if (errorMessage != null) { %>
+        <p style="color: red;"><%= errorMessage %></p>
+    <% } %>
 </form>
 
 
