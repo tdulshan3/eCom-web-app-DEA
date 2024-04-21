@@ -18,11 +18,11 @@
             <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="Email" name="Email" placeholder="Username" autocomplete="no-fill"/>
+              <input type="Email" name="Email" placeholder="Username"  autocomplete="xyz123"/>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" name="password" placeholder="Password" autocomplete="no-fill"/>
+              <input type="password" name="password" placeholder="Password" autocomplete="new-password"/>
             </div>
             <input type="submit" value="Login" class="btn solid" />
             <% String errorMessage = (String) request.getAttribute("errorMessage");
@@ -35,11 +35,11 @@
             <h2 class="title">Sign up</h2>
             <div class="secnd">
               <i class=""></i>
-              <input type="email" id="email" name="email" placeholder="E-mail" required autocomplete="no-fill">
+              <input type="email" id="email" name="email" placeholder="E-mail" required  autocomplete="xyz123">
             </div>
             <div class="secnd">
               <i class=""></i>
-              <input type="password" id="password" name="password1" placeholder="password" oninput="checkPasswordStrength(this.value)" required autocomplete="no-fill">
+              <input type="password" id="password" name="password1" placeholder="password" oninput="checkPasswordStrength(this.value)" required autocomplete="new-password">
             </div>
             <div class="password-strength-meter">
         <div id="strength"></div>
