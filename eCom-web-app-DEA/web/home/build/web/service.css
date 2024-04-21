@@ -1,0 +1,48 @@
+body {
+    background-color:white; 
+    margin: 10px; 
+  }
+
+.white-text {
+    color: rgb(0, 0, 0);
+    font-family:'PT Sans', sans-serif ;
+  }
+  
+.topic-container {
+    display: flex; 
+    align-items: center; 
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+  }
+  
+.topic-container img {
+    margin-right: 10px; 
+  }
+  
+.topic-container span {
+    color: #358fef;
+    font-size: 35px;    
+
+  }
+
+.topic-text {
+    text-align: justify;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-family: 'PT Sans', sans-serif;
+  }
+  
+  .list-text {
+    text-align: left; 
+    background-color: #5a95fd;
+    color: rgb(255, 255, 255);
+    padding: 5px; 
+    font-size: 18px;
+    font-family: inherit;
+  }
+  
+  ul li {
+    color: rgb(0, 0, 0);
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+  }
