@@ -12,13 +12,13 @@
         <servlet-name>CheckoutRegservlet</servlet-name>
         <servlet-class>adminpackage.CheckoutRegservlet</servlet-class>
     </servlet>
+        <servlet>
+        <servlet-name>MarkDeliveredServlet</servlet-name>
+        <servlet-class>adminpackage.MarkDeliveredServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>CancelOrderServlet</servlet-name>
         <servlet-class>adminpackage.CancelOrderServlet</servlet-class>
-    </servlet>
-     <servlet>
-        <servlet-name>OrdersServlet</servlet-name>
-        <servlet-class>adminpackage.OrdersServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>cart</servlet-name>
@@ -124,18 +124,12 @@
         <servlet-name>cart</servlet-name>
         <url-pattern>/cart</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>OrdersServlet</servlet-name>
-        <url-pattern>/OrdersServlet</url-pattern>
-    </servlet-mapping>
+    
              <servlet-mapping>
         <servlet-name>CheckoutServletUnreg</servlet-name>
         <url-pattern>/CheckoutServletUnreg</url-pattern>
     </servlet-mapping>
-                 <servlet-mapping>
-        <servlet-name>SendReceiptServlet</servlet-name>
-        <url-pattern>/SendReceiptServlet</url-pattern>
-    </servlet-mapping>
+
     <!-- Other servlet-mapping entries -->
     <servlet-mapping>
         <servlet-name>CheckoutRegservlet</servlet-name>
@@ -212,6 +206,10 @@
     <servlet-mapping>
         <servlet-name>DelCartItemUnreg</servlet-name>
         <url-pattern>/DelCartItemUnreg</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>MarkDeliveredServlet</servlet-name>
+        <url-pattern>/MarkDeliveredServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

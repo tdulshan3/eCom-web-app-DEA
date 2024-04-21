@@ -16,11 +16,15 @@
 <body>
     <div class="d-flex">
         <%@ include file="./component/adminSidebar.html" %>
-        <div class="container mt-5">
-            <h1 class="mb-4">Orders</h1>
-            <table class="table table-bordered">
-                <thead class="thead-dark">
-                    <tr>
+        <div class="container">
+        <div class="d-flex justify-content-center">
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title text-center">Order Table</h1>
+                <div class="table-responsive">
+                    <table class="table table-striped mx-auto">
+                <thead>
                         <th>Order ID</th>
                         <th>userName</th>
                         <th>Contact Number</th>
@@ -102,7 +106,7 @@
             </table>
         </div>
     </div>
-  
+        </div></div></div></div></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
    
 </body>
