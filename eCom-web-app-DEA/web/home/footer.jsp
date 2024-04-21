@@ -14,7 +14,7 @@
 </head>
 <body>
     <footer>
-        <div class="footer-line">TechTitan PCs | Copyright © 2024</div>
+        <div class="footer-line">Nexus | Copyright © 2024</div>
       </footer>
 </body>
 </html>

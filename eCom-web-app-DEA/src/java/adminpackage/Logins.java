@@ -25,7 +25,7 @@ public class Logins extends HttpServlet {
             response.sendRedirect("index.jsp");
         } else if (email.equals("admin@admin.com") && !(password.equals("123456"))) {
             request.setAttribute("errorMessage", "password error");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/Login.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/login&signup.jsp");
             dispatcher.forward(request, response);
         } else {
             Dbcon db = new Dbcon();
@@ -44,17 +44,17 @@ public class Logins extends HttpServlet {
                             response.sendRedirect("index.jsp");
                         } else {
                             request.setAttribute("errorMessage", "invalid password");
-                            RequestDispatcher dispatcher = request.getRequestDispatcher("/Login.jsp");
+                            RequestDispatcher dispatcher = request.getRequestDispatcher("/login&signup.jsp");
                             dispatcher.forward(request, response);
                         }
                     } else {
                         request.setAttribute("errorMessage", "User not found");
-                        RequestDispatcher dispatcher = request.getRequestDispatcher("/Login.jsp");
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/login&signup.jsp");
                         dispatcher.forward(request, response);
                     }
                 } else {
                     request.setAttribute("errorMessage", "User not found");
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("/Login.jsp");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/login&signup.jsp");
                     dispatcher.forward(request, response);
                 }
             } catch (ClassNotFoundException | SQLException e) {

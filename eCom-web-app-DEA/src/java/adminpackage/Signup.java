@@ -28,8 +28,8 @@ public class Signup extends HttpServlet {
         String phoneNumber = request.getParameter("pnumber");
 
         if (!pw1.equals(pw2)) {
-            request.setAttribute("errorMessage", "Passwords do not match");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/register.jsp");
+            request.setAttribute("errorMessage1", "Passwords do not match");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/login&signup.jsp");
             dispatcher.forward(request, response);
             return;
         } else {
@@ -41,8 +41,8 @@ public class Signup extends HttpServlet {
                 if (checkEmailExists(dbConnector, email)) {
                     String status = getEmailStatus(dbConnector, email);
                     if ("registered".equals(status)) {
-                        request.setAttribute("errorMessage", "Email already exists");
-                        RequestDispatcher dispatcher = request.getRequestDispatcher("/register.jsp");
+                        request.setAttribute("errorMessage1", "Email already exists");
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/login&signup.jsp");
                         dispatcher.forward(request, response);
                         return;
                     } else {
@@ -56,7 +56,7 @@ public class Signup extends HttpServlet {
                     dbConnector.executePreparedStatement(query, email, pw1, firstName, lastName, address, townCity, postcode, phoneNumber, "registered");
                 }
 
-                response.sendRedirect(request.getContextPath() + "/Login.jsp");
+                response.sendRedirect(request.getContextPath() + "/login&signup.jsp");
 
             } catch (ClassNotFoundException | SQLException ex) {
                 out.println("Error: " + ex.getMessage());
