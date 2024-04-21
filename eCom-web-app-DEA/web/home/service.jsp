@@ -10,12 +10,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="service.css">
+  <link rel="stylesheet" href="css/service.css">
 </head>
 <body>
     <h1><b class="white-text">SERVICES</b></h1>
     <div class="topic-container">
-        <img src="E:\Second Year - Semester 1\Assingments\DEA\images\warranty.png" width="39" height="41"> <span>Warranty</span>
+        <img src="images/warranty.png" width="39" height="41"> <span>Warranty</span>
     </div>
     <p class="topic-text">If your product is defective, we have a warranty and a reliable complaints procedure to ensure that your needs are addressed as quickly as possible. Most of our providers are local, so we can make sure that we can provide the best service according to the conditions below.</p>
     <h2><span class="list-text">Conditions</span></h2>
@@ -32,7 +32,7 @@
 
 
     <div class="topic-container">
-        <img src="E:\Second Year - Semester 1\Assingments\DEA\images\customorder.png" width="39" height="41"> <span>Custom Orders</span>
+        <img src="images/customorder.png" width="39" height="41"> <span>Custom Orders</span>
     </div>
     <p class="topic-text">If your needs exceed what the local market offers, we provide support to meet those needs. We will continue to discover and meet these demands across the horizon. The following conditions apply.</p>
     <h2><span class="list-text">Conditions</span></h2>
@@ -42,7 +42,7 @@
     </ul>
 
     <div class="topic-container">
-        <img src="E:\Second Year - Semester 1\Assingments\DEA\images\homedeliver.png" width="39" height="41"> <span>Home Delivery</span>
+        <img src="images/homedeliver.png" width="39" height="41"> <span>Home Delivery</span>
     </div>
     <p class="topic-text">For easy access to your needs, we offer tailored delivery directly to your home within Sri Lankan borders. So far, we are also in touch with our valued customers in Jaffna. We guarantee that we are ready to deliver to any part of Sri Lanka subject to the following conditions.</p>
     <h2><span class="list-text">Conditions</span></h2>
