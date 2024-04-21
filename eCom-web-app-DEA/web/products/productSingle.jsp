@@ -239,10 +239,11 @@
     </div>
     <div class="ty-productPage-price ty-desktop-price">
         
-        <h2 class="price">25,500 LKR</h2>
+        
+        <div class="ty-productPage-quoteBtn-wrap">
+            <h2 class="price">25,500 LKR</h2>
         
         <h4 class="availability">InStock</h4>
-        <div class="ty-productPage-quoteBtn-wrap">
             <button class="add-to-cart-btn">
                 <span class="plus">+ </span>
                  Add to Cart
@@ -285,8 +286,7 @@
 	<!--scripts-->
 	<script src="js/app.js"></script>
 	<script src="packages/sequence/sequence.min.js"></script>
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        
 </body>
 </html>
 
