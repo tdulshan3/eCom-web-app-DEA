@@ -3,7 +3,8 @@ package adminpackage;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,11 +18,15 @@ public class Logins extends HttpServlet {
             throws ServletException, IOException {
         String email = request.getParameter("Email");
         String password = request.getParameter("password");
-
+        PrintWriter out = response.getWriter();
         if (email.equals("admin@admin.com") && password.equals("123456")) {
             HttpSession session = request.getSession();
             session.setAttribute("role", "admin");
             response.sendRedirect("index.jsp");
+        } else if (email.equals("admin@admin.com") && !(password.equals("123456"))) {
+            request.setAttribute("errorMessage", "password error");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/Login.jsp");
+            dispatcher.forward(request, response);
         } else {
             Dbcon db = new Dbcon();
             try {
@@ -30,7 +35,7 @@ public class Logins extends HttpServlet {
                 ResultSet rs = db.executeQueryWithPreparedStatement(query, email);
                 if (rs.next()) {
                     String status = rs.getString("status");
-                    String id = rs.getString("userid");
+                    String id = rs.getString("user_id");
                     if (status.equals("registered")) {
                         String dbPassword = rs.getString("password");
                         if (password.equals(dbPassword)) {
@@ -38,17 +43,22 @@ public class Logins extends HttpServlet {
                             session.setAttribute("userId", id);
                             response.sendRedirect("index.jsp");
                         } else {
-                            response.sendRedirect("login.jsp?error=1");
+                            request.setAttribute("errorMessage", "invalid password");
+                            RequestDispatcher dispatcher = request.getRequestDispatcher("/Login.jsp");
+                            dispatcher.forward(request, response);
                         }
                     } else {
-                        response.sendRedirect("login.jsp?error=3");
+                        request.setAttribute("errorMessage", "User not found");
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/Login.jsp");
+                        dispatcher.forward(request, response);
                     }
                 } else {
-                    response.sendRedirect("login.jsp?error=2");
+                    request.setAttribute("errorMessage", "User not found");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/Login.jsp");
+                    dispatcher.forward(request, response);
                 }
             } catch (ClassNotFoundException | SQLException e) {
-                e.printStackTrace();
-                response.sendRedirect("login.jsp?error=4");
+                out.println(e.getMessage());
             } finally {
                 try {
                     db.disconnect();
