@@ -22,7 +22,7 @@ public class Logins extends HttpServlet {
         if (email.equals("admin@admin.com") && password.equals("123456")) {
             HttpSession session = request.getSession();
             session.setAttribute("role", "admin");
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("admin.jsp");
         } else if (email.equals("admin@admin.com") && !(password.equals("123456"))) {
             request.setAttribute("errorMessage", "password error");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/login&signup.jsp");
