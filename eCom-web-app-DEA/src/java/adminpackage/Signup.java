@@ -29,6 +29,7 @@ public class Signup extends HttpServlet {
 
         if (!pw1.equals(pw2)) {
             request.setAttribute("errorMessage1", "Passwords do not match");
+            request.setAttribute("formParam", "signup");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/login&signup.jsp");
             dispatcher.forward(request, response);
             return;
@@ -41,6 +42,7 @@ public class Signup extends HttpServlet {
                 if (checkEmailExists(dbConnector, email)) {
                     String status = getEmailStatus(dbConnector, email);
                     if ("registered".equals(status)) {
+                        request.setAttribute("formParam", "signup");
                         request.setAttribute("errorMessage1", "Email already exists");
                         RequestDispatcher dispatcher = request.getRequestDispatcher("/login&signup.jsp");
                         dispatcher.forward(request, response);

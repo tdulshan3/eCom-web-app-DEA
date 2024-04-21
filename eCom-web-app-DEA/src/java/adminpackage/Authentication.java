@@ -14,10 +14,10 @@ public class Authentication {
             String userRole = (String) session.getAttribute("role");
             if (userRole != null) {
                 if (!(userRole.equals("admin"))) {
-                    response.sendRedirect("Login.jsp");
+                    response.sendRedirect("login&signup.jsp");
                 }
             }else{
-            response.sendRedirect("Login.jsp");
+            response.sendRedirect("login&signup.jsp");
             }
         }
 
