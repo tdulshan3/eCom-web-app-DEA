@@ -58,8 +58,9 @@
                                 
                                 <!-- ty-catPage-productWrap.start -->
                                 <section class="ty-catPage-productWrap ">
-                                    <div class="container">
-                                <div class="content">
+                                    
+                                        
+                                        
                                     <!-- ty-catPage-filters.start -->
                                     <div class="ty-catPage-filters">
                                         <div class="ty-catPage-filters-triggerWrap">
@@ -138,13 +139,12 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        
                                     </div>
-                                </div>
+                                    </div>
                                         
                                        
-                                           
-                                           
+                                          
+ <div class="content-pro">                                          
     <div class="row">
         <div class="col-md-4">
             <div class="box">  
@@ -279,7 +279,9 @@
                 </div>
             </div>
         </div>
+    </div>
 </div>
+                                    </div><div>
 
                                     </div>
                             </div>  
