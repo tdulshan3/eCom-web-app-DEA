@@ -14,6 +14,16 @@
         <title>JSP Page</title>
         <link href="style1.css" rel="stylesheet">
     </head>
+    <body><div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">Checkout</h1>
+            <div class="d-inline-flex">
+                <p class="m-0"><a href="">Home</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">Checkout</p>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid pt-5">
         <div class="row px-xl-5">
             <div class="col-lg-8 table-responsive mb-5">
@@ -131,7 +141,7 @@
             </div>
         </div>
     </div>
-        
+        </body>
         
    
 <!--<%-- 
