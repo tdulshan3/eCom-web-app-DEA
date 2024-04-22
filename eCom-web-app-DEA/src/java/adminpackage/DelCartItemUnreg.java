@@ -22,7 +22,7 @@ public class DelCartItemUnreg extends HttpServlet {
                         if (cookie.getName().equals("cart_details")) {
                             cartdetailsOld = cookie.getValue();
                             
-                            String newCartDetails="-1:-1/";
+                            String newCartDetails="";
                             String[] pairs = cartdetailsOld.split("/");
                             int i=0;
                             for (String a : pairs) {
