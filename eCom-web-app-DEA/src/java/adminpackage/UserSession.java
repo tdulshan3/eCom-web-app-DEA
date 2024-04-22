@@ -12,6 +12,6 @@ public class UserSession {
                 return userId;
             }
         }
-        return "not registered";
+        return "0";
     }
 }

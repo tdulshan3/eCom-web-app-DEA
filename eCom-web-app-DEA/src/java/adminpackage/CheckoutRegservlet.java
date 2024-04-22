@@ -17,10 +17,10 @@ public class CheckoutRegservlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        
-        String userId = "0";
+
+        String userId = UserSession.getUserIdFromSession(request);
         Dbcon dbConn = new Dbcon();
-        
+
         if (userId.equals("0")) {
             response.sendRedirect("non_reg_user_contact_form.jsp");
         } else {
@@ -34,16 +34,17 @@ public class CheckoutRegservlet extends HttpServlet {
             out.println("}");
             out.println("</script>");
             out.println("Thank you for Ordering....");
-            
+
             try {
                 dbConn.connect();
-                ResultSet rs = dbConn.executeQuery("SELECT cart_id FROM cart WHERE user_id = " + userId);
+                ResultSet rs = dbConn.executeQuery("SELECT * FROM cart WHERE user_id = " + userId);
                 if (rs.next()) {
                     int cartId = rs.getInt("cart_id");
-                    String queryDelUser = "DELETE FROM `order` WHERE cart_id = ?";
+                    String cartDetails = rs.getString("cart_details");
+                    String queryDelUser = "DELETE FROM `cart` WHERE cart_id = ?";
+                    String queryOrder = "INSERT INTO `order` (user_id,cart_d, status) VALUES (?,?, 'pending')";
+                    dbConn.executePreparedStatement(queryOrder, userId, cartDetails);
                     dbConn.executePreparedStatement(queryDelUser, cartId);
-                    String queryOrder = "INSERT INTO `order` (cart_id, status) VALUES (?, 'confirm')";
-                    dbConn.executePreparedStatement(queryOrder, String.valueOf(cartId));
                 } else {
                     System.out.println("No cart found for user with user_id: " + userId);
                 }
@@ -53,9 +54,5 @@ public class CheckoutRegservlet extends HttpServlet {
         }
     }
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }
 
 }

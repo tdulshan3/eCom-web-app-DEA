@@ -17,7 +17,7 @@ public class DeleteCartItem extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String userId="1";
+        String userId = UserSession.getUserIdFromSession(request);
         String itemDetails = request.getParameter("itemDetails");
         PrintWriter out =response.getWriter();
         
@@ -29,7 +29,7 @@ public class DeleteCartItem extends HttpServlet {
 
                 if (rs.next()) {
                     String cartdetailsOld = rs.getString("cart_details");
-                    String newCartDetails="-1:-1/";
+                    String newCartDetails="";
                     String[] pairs = cartdetailsOld.split("/");
                     int i=0;
                     for (String a : pairs) {
