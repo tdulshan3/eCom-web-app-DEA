@@ -1,0 +1,101 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 21, 2024, 6:17:50 PM
+    Author     : silun
+*/
+body {
+    background-color: #3e454b;
+    color: #5a95fd;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+        position:static;
+        display: block;
+        margin-left: 160px; /* Same as the width of the sidenav */
+        font-size: 28px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+         
+}
+.text {
+    color:darkgrey;
+    font-size: 16px;
+    text-align:justify;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content {
+    padding-top: 50px;
+}
+
+.about-content h2 {
+    font-size: 36px;
+}
+
+.about-content .image {
+    margin-top: 30px;
+}
+
+.about-content img {
+    display: block;
+    margin: 0 auto;
+}
+/* about.css */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#navbar {
+    background-color: #3e454b;
+    color: white;
+    padding: 10px;
+}
+
+#content {
+    display: flex;
+}
+
+#sidenavbar {
+    flex: 1;
+    background-color: #3e454b;
+    padding: 20px;
+}
+
+#about {
+    flex: 3;
+    padding: 20px;
+}
+#image{
+    width: 150%;
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 80px 100px 40px 80px;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .container {
+        max-width: 100%; /* Adjust as needed */
+        padding: 0 10px;
+    }
+
+    .image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .text {
+        text-align: left;
+    }
+}
