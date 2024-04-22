@@ -12,9 +12,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link href="style1.css" rel="stylesheet">
     </head>
-        <table border="0" cellpadding="5">
-            <thead>
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5">
+            <div class="col-lg-8 table-responsive mb-5">
+                <table class="table table-bordered text-center mb-0">
+                    <thead class="bg-secondary text-dark">
                 <tr>
                     <th>No</th>
                     <th>Product</th>
@@ -24,7 +28,7 @@
                     <th>Price</th>
                 </tr>
             </thead>
-                <tbody>
+               <tbody class="align-middle">
         <%
             int price, qty, cartId, total=0;
             String productName, cartDetails, ava, userId="0";
@@ -100,9 +104,34 @@
         %>
             </tbody>
         </table>
-        <form action="CheckoutRegservlet" method="post">   
-            <input type="submit" value="Checkout">
+          </div>
+        <div class="col-lg-4">
+               
+                <div class="card border-secondary mb-5">
+                    <div class="card-header bg-secondary border-0">
+                        <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-3 pt-1">
+                            <h6 class="font-weight-medium">Subtotal</h6>
+                            <h6 class="font-weight-medium"><%= total %></h6>
+                        </div>
+                    </div>
+                    <div class="card-footer border-secondary bg-transparent">
+                        <div class="d-flex justify-content-between mt-2">
+                            <h5 class="font-weight-bold">Total</h5>
+                            <h5 class="font-weight-bold">$160</h5>
+                        </div>
+                        <form action="CheckoutRegservlet" method="post">   
+            <input type="submit" class="btn btn-block btn-primary my-3 py-3" value="Proceed To Checkout">
         </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
         
    
 </html>
