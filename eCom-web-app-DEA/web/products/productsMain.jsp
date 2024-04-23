@@ -281,10 +281,9 @@
         </div>
     </div>
 </div>
-                                    </div><div>
-
                                     </div>
-                            </div>  
+
+                                    <div><div>
                                 </section>
                                 
                                 
@@ -301,11 +300,10 @@
                     
                 </div><!-- ty-push.end -->
             </div><!-- ty-content.end -->
-        </div><!-- ty-contentWrap.end -->
-
+       
 
         
-    </div><!-- ty-mainWrap.end -->
+    
     <script src="js/app.js"></script>
     <script src="js/guest/category.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
