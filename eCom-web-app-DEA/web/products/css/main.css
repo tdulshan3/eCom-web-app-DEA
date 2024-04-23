@@ -1733,17 +1733,19 @@ Then, in y
   max-width: 100%; /* Ensure image doesn't exceed container width */
   height: auto; /* Maintain aspect ratio */
 }
-
-/* Media query for responsive layout */
-
-@media screen and (max-width: 1530px) {
+@media screen and (max-width: 768px) {
   .container {
     flex-direction: column;
     padding: 0;}
     .content {
-    flex: 100;
+    flex: 1;
     justify-content: center;
     }
+}
+/* Media query for responsive layout */
+
+@media screen and (max-width: 1530px) {
+ 
     .content-pro{
      padding-right: 40px;
      margin-left: 1px;
