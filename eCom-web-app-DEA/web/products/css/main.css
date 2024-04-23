@@ -1717,9 +1717,9 @@ Loading Animation
 }
 .content-pro {
   flex: 100;
-  padding-right: 120px;
+  padding: 100px;
   padding-top: 30px;
-  margin-left: 500px;
+  margin-left: 370px;
 }
 Then, in y
 
@@ -1744,7 +1744,7 @@ Then, in y
 }
 /* Media query for responsive layout */
 
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 768px) {
  
     .content-pro{
      padding-right: 40px;
@@ -1882,7 +1882,7 @@ Then, in y
 
 
 
-@media (max-width: 970px) {
+@media (max-width: 1530px) {
   .product-card {
     width: 100%;
   }
