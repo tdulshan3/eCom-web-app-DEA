@@ -162,6 +162,7 @@
                     </div>
                 </div>
               </div>
+            
                 <div class="col">
               <div class="box">  
                     <div class="product-card">
@@ -288,7 +289,7 @@
                     </div>
                 </div>
               </div>
-              
+            </div>
               </div>
                 
         

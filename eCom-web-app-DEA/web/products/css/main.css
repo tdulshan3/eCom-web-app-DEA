@@ -89,7 +89,7 @@ body,
     opacity: 0.5;
     margin: 20px 0; }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 970px) {
   .ty-offCanvasNav {
     width: 40%; } }
 .ty-contentWrap {
@@ -235,7 +235,7 @@ body,
     color: #464545;
     margin-top: 0 !important; }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 970px) {
   .ty-productPage-title {
     text-align: left; } }
 .ty-productPage-contentWrap {
@@ -291,7 +291,7 @@ body,
           font-family: "FontAwesome";
           margin-right: 5px; }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 970px) {
   .ty-productPage-contentWrap .ty-productPage-content-imgHolder {
     width: 50%;
     padding: 20px; }
@@ -330,7 +330,7 @@ body,
       margin-right: 5px;
       vertical-align: inherit; }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 970px) {
   .ty-productPage-quoteBtn-wrap {
     text-align: left; } }
 .ty-productPage-info {
@@ -526,7 +526,7 @@ li.ty-catPage-productListItem {
       -o-background-size: 100%;
       background-size: 100%; }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 970px) {
   li.ty-catPage-productListItem {
     width: 50%;
     float: left; }
@@ -837,7 +837,7 @@ li.ty-filterListItem {
       content: "Add to Quote";
       margin-left: 10px; }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 970px) {
   .ty-product-quoteBtn button {
     display: inline-block;
     width: 28px;
@@ -988,7 +988,7 @@ form {
         -o-transform: scale(0.9, 0.9);
         transform: scale(0.9, 0.9); }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 970px) {
   form .ty-inputHolder {
     width: 50%;
     padding: 10px 20px;
@@ -1261,7 +1261,7 @@ Loading Animation
 .ty-modal-details {
   width: 100%;
   float: left; }
-  @media (min-width: 768px) {
+  @media (min-width: 970px) {
     .ty-modal-details {
       margin-top: 8rem; } }
 
@@ -1381,7 +1381,7 @@ Loading Animation
     -ms-transform: scale(0.9, 0.9);
     -o-transform: scale(0.9, 0.9);
     transform: scale(0.9, 0.9); }
-  @media (min-width: 768px) {
+  @media (min-width: 970px) {
     .ty-modal-ThankYou .ty-closeBtn {
       width: 300px; } }
 .ty-modal-ThankYou h1.ty-fail-title:before {
@@ -1390,8 +1390,8 @@ Loading Animation
   width: 100%;
   display: inline-block; }
 
-/* 768px */
-@media only screen and (min-width: 768px) {
+/* 970px */
+@media only screen and (min-width: 970px) {
   .ty-modal-ThankYou h1.ty-fail-title:before {
     width: auto;
     display: inline;
@@ -1430,12 +1430,12 @@ Loading Animation
         -ms-transform: scale(0.9, 0.9);
         -o-transform: scale(0.9, 0.9);
         transform: scale(0.9, 0.9); }
-      @media (min-width: 768px) {
+      @media (min-width: 970px) {
         .ty-detailsFormWrap form #ty-submit {
           width: 300px; } }
 
-/* 768px */
-@media only screen and (min-width: 768px) {
+/* 970px */
+@media only screen and (min-width: 970px) {
   .ty-detailsFormWrap form {
     width: 300px; }
     .ty-detailsFormWrap form .ty-inputHolder {
@@ -1469,7 +1469,7 @@ Loading Animation
     font-weight: bold;
     margin: 0; }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 970px) {
   .ty-title .ty-titleIconWrap {
     display: block;
     float: left;
@@ -1621,7 +1621,7 @@ Loading Animation
           width: 100%;
           height: auto; }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 970px) {
   .ty-modal-product-gallery {
     display: block; } }
 /* Modal Search */
@@ -1639,11 +1639,11 @@ Loading Animation
     padding: 1rem;
     color: #FFF;
     text-align: center; }
-    @media (min-width: 768px) {
+    @media (min-width: 970px) {
       .ty-modal-search-wrap .ty-modal-search-title input {
         text-align: left;
         font-size: 3rem; } }
-    @media (min-width: 960px) {
+    @media (min-width: 970px) {
       .ty-modal-search-wrap .ty-modal-search-title input {
         text-align: left;
         font-size: 4rem; } }
@@ -1684,7 +1684,7 @@ Loading Animation
       -ms-transform: scale(0.9, 0.9);
       -o-transform: scale(0.9, 0.9);
       transform: scale(0.9, 0.9); }
-    @media (min-width: 768px) {
+    @media (min-width: 970px) {
       .ty-modal-search-wrap .ty-more-wrap a {
         width: 300px; } }
 
@@ -1717,9 +1717,9 @@ Loading Animation
 }
 .content-pro {
   flex: 100;
-  padding: 100px;
+  padding: 0px;
   padding-top: 30px;
-  margin-left: 370px;
+  margin-left: 500px;
 }
 Then, in y
 
@@ -1733,22 +1733,23 @@ Then, in y
   max-width: 100%; /* Ensure image doesn't exceed container width */
   height: auto; /* Maintain aspect ratio */
 }
-@media screen and (max-width: 768px) {
-  .container {
+@media screen and (max-width: 970px) {
+    .container {
     flex-direction: column;
     padding: 0;}
     .content {
     flex: 1;
     justify-content: center;
     }
+    
 }
 /* Media query for responsive layout */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 970px) {
  
     .content-pro{
      padding-right: 40px;
-     margin-left: 1px;
+     margin-left: 0;
      padding-top:250px;
   }
   .image {
@@ -1880,13 +1881,13 @@ Then, in y
   margin-bottom: 10px;
 }
 
-
-
-@media (max-width: 1530px) {
+@media (max-width: 970px) {
   .product-card {
     width: 100%;
   }
 }
+
+
 .plus-btn-a {
     background-color: #358fef;
     border: 1px solid #358fef;
