@@ -145,142 +145,153 @@
                                        
                                           
  <div class="content-pro">                                          
-    <div class="row">
-        <div class="col-md-4">
-            <div class="box">  
-                <div class="product-card">
-                    <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
-                    <div class="product-info">
-                        <h2 class="product-title">Product Name</h2>
-                        <div class="product-price">$19.99</div>
-                    <button class="plus-btn-a">
-                        <span class="plus">+ </span>
-                    </button>
+    
+        <div class="container">
+            <div class="row row-cols-2 row-cols-lg-3">
+              <div class="col">
+              <div class="box">  
+                    <div class="product-card">
+                        <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
+                        <div class="product-info">
+                            <h2 class="product-title">Product Name</h2>
+                            <div class="product-price">$19.99</div>
+                        <button class="plus-btn-a">
+                            <span class="plus">+ </span>
+                        </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="box">  
-                <div class="product-card">
-                    <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
-                    <div class="product-info">
-                        <h2 class="product-title">Product Name</h2>
-                        <div class="product-price">$19.99</div>
-                    <button class="plus-btn-a">
-                        <span class="plus">+ </span>
-                    </button>
+              </div>
+                <div class="col">
+              <div class="box">  
+                    <div class="product-card">
+                        <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
+                        <div class="product-info">
+                            <h2 class="product-title">Product Name</h2>
+                            <div class="product-price">$19.99</div>
+                        <button class="plus-btn-a">
+                            <span class="plus">+ </span>
+                        </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="box">  
-                <div class="product-card">
-                    <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
-                    <div class="product-info">
-                        <h2 class="product-title">Product Name</h2>
-                        <div class="product-price">$19.99</div>
-                    <button class="plus-btn-a">
-                        <span class="plus">+ </span>
-                    </button>
+              </div>
+                <div class="col">
+              <div class="box">  
+                    <div class="product-card">
+                        <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
+                        <div class="product-info">
+                            <h2 class="product-title">Product Name</h2>
+                            <div class="product-price">$19.99</div>
+                        <button class="plus-btn-a">
+                            <span class="plus">+ </span>
+                        </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="box">  
-                <div class="product-card">
-                    <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
-                    <div class="product-info">
-                        <h2 class="product-title">Product Name</h2>
-                        <div class="product-price">$19.99</div>
-                    <button class="plus-btn-a">
-                        <span class="plus">+ </span>
-                    </button>
+              </div>
+                <div class="col">
+              <div class="box">  
+                    <div class="product-card">
+                        <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
+                        <div class="product-info">
+                            <h2 class="product-title">Product Name</h2>
+                            <div class="product-price">$19.99</div>
+                        <button class="plus-btn-a">
+                            <span class="plus">+ </span>
+                        </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div><div class="col-md-4">
-            <div class="box">  
-                <div class="product-card">
-                    <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
-                    <div class="product-info">
-                        <h2 class="product-title">Product Name</h2>
-                        <div class="product-price">$19.99</div>
-                    <button class="plus-btn-a">
-                        <span class="plus">+ </span>
-                    </button>
+              </div>
+                <div class="col">
+              <div class="box">  
+                    <div class="product-card">
+                        <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
+                        <div class="product-info">
+                            <h2 class="product-title">Product Name</h2>
+                            <div class="product-price">$19.99</div>
+                        <button class="plus-btn-a">
+                            <span class="plus">+ </span>
+                        </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div><div class="col-md-4">
-            <div class="box">  
-                <div class="product-card">
-                    <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
-                    <div class="product-info">
-                        <h2 class="product-title">Product Name</h2>
-                        <div class="product-price">$19.99</div>
-                    <button class="plus-btn-a">
-                        <span class="plus">+ </span>
-                    </button>
+              </div>
+                <div class="col">
+              <div class="box">  
+                    <div class="product-card">
+                        <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
+                        <div class="product-info">
+                            <h2 class="product-title">Product Name</h2>
+                            <div class="product-price">$19.99</div>
+                        <button class="plus-btn-a">
+                            <span class="plus">+ </span>
+                        </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div><div class="col-md-4">
-            <div class="box">  
-                <div class="product-card">
-                    <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
-                    <div class="product-info">
-                        <h2 class="product-title">Product Name</h2>
-                        <div class="product-price">$19.99</div>
-                    <button class="plus-btn-a">
-                        <span class="plus">+ </span>
-                    </button>
+              </div>
+                <div class="col">
+              <div class="box">  
+                    <div class="product-card">
+                        <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
+                        <div class="product-info">
+                            <h2 class="product-title">Product Name</h2>
+                            <div class="product-price">$19.99</div>
+                        <button class="plus-btn-a">
+                            <span class="plus">+ </span>
+                        </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div><div class="col-md-4">
-            <div class="box">  
-                <div class="product-card">
-                    <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
-                    <div class="product-info">
-                        <h2 class="product-title">Product Name</h2>
-                        <div class="product-price">$19.99</div>
-                    <button class="plus-btn-a">
-                        <span class="plus">+ </span>
-                    </button>
+              </div>
+                <div class="col">
+              <div class="box">  
+                    <div class="product-card">
+                        <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
+                        <div class="product-info">
+                            <h2 class="product-title">Product Name</h2>
+                            <div class="product-price">$19.99</div>
+                        <button class="plus-btn-a">
+                            <span class="plus">+ </span>
+                        </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div><div class="col-md-4">
-            <div class="box">  
-                <div class="product-card">
-                    <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
-                    <div class="product-info">
-                        <h2 class="product-title">Product Name</h2><div class="product-price">$19.99</div>
-                    <button class="plus-btn-a">
-                        <span class="plus">+ </span>
-                    </button>
+              </div>
+                <div class="col">
+              <div class="box">  
+                    <div class="product-card">
+                        <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
+                        <div class="product-info">
+                            <h2 class="product-title">Product Name</h2>
+                            <div class="product-price">$19.99</div>
+                        <button class="plus-btn-a">
+                            <span class="plus">+ </span>
+                        </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div><div class="col-md-4">
-            <div class="box">  
-                <div class="product-card">
-                    <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
-                    <div class="product-info">
-                        <h2 class="product-title">Product Name</h2>
-                        <div class="product-price">$19.99</div>
-                    <button class="plus-btn-a">
-                        <span class="plus">+ </span>
-                    </button>
+              </div>
+                <div class="col">
+              <div class="box">  
+                    <div class="product-card">
+                        <img class="product-image" src="https://www.nanotek.lk/uploads/product/127-20240314173757-e69d5f40b185a1f5c347924cbcdc2179_800x800.png" alt="">
+                        <div class="product-info">
+                            <h2 class="product-title">Product Name</h2>
+                            <div class="product-price">$19.99</div>
+                        <button class="plus-btn-a">
+                            <span class="plus">+ </span>
+                        </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+              </div>
+              
+              </div>
+                
+        
                                     </div>
 
                                     <div><div>
