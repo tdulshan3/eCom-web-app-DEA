@@ -89,7 +89,7 @@ body,
     opacity: 0.5;
     margin: 20px 0; }
 
-@media only screen and (min-width: 970px) {
+@media only screen and (min-width: 1200px) {
   .ty-offCanvasNav {
     width: 40%; } }
 .ty-contentWrap {
@@ -139,8 +139,8 @@ body,
       display: none;
       float: left; }
 
-/* 970px */
-@media only screen and (min-width: 970px) {
+/* 1200px */
+@media only screen and (min-width: 1200px) {
   .ty-mainContent {
     min-height: calc( 100% - 55px ); }
     .ty-mainContent section.ty-pageContentWrap .ty-pageContent {
@@ -235,7 +235,7 @@ body,
     color: #464545;
     margin-top: 0 !important; }
 
-@media only screen and (min-width: 970px) {
+@media only screen and (min-width: 1200px) {
   .ty-productPage-title {
     text-align: left; } }
 .ty-productPage-contentWrap {
@@ -291,7 +291,7 @@ body,
           font-family: "FontAwesome";
           margin-right: 5px; }
 
-@media only screen and (min-width: 970px) {
+@media only screen and (min-width: 1200px) {
   .ty-productPage-contentWrap .ty-productPage-content-imgHolder {
     width: 50%;
     padding: 20px; }
@@ -330,7 +330,7 @@ body,
       margin-right: 5px;
       vertical-align: inherit; }
 
-@media only screen and (min-width: 970px) {
+@media only screen and (min-width: 1200px) {
   .ty-productPage-quoteBtn-wrap {
     text-align: left; } }
 .ty-productPage-info {
@@ -382,10 +382,10 @@ body,
       color: #358fef;
       text-decoration: none; }
 
-@media only screen and (min-width: 425px) and (max-width: 970px) {
+@media only screen and (min-width: 425px) and (max-width: 1200px) {
   .ty-catPageTitle-cat {
     padding-left: 75px; } }
-@media only screen and (min-width: 970px) {
+@media only screen and (min-width: 1200px) {
   .ty-catPageTitle-cat {
     text-align: left;
     margin-bottom: 10px; }
@@ -459,7 +459,7 @@ li:hover #ty-new:before {
     -o-transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1);
     transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1); }
 
-@media only screen and (min-width: 970px) {
+@media only screen and (min-width: 1200px) {
   .ty-catPage-productWrap .ty-catPage-filters {
     width: 200px;
     
@@ -526,7 +526,7 @@ li.ty-catPage-productListItem {
       -o-background-size: 100%;
       background-size: 100%; }
 
-@media only screen and (min-width: 970px) {
+@media only screen and (min-width: 1200px) {
   li.ty-catPage-productListItem {
     width: 50%;
     float: left; }
@@ -607,7 +607,7 @@ li.ty-catPage-productListItem {
     
       
 
-@media only screen and (min-width: 970px) {
+@media only screen and (min-width: 1200px) {
   .ty-catPage-filters .ty-catPage-filters-triggerWrap {
     display: none; } }
 /* .ty-catPage-filterWrap */
@@ -618,7 +618,7 @@ li.ty-catPage-productListItem {
   padding: 10px;
   padding-right: 70px; }
 
-@media only screen and (min-width:970px) {
+@media only screen and (min-width:1200px) {
   .ty-catPage-filterWrap {
     padding: 10px !important; } 
 
@@ -837,7 +837,7 @@ li.ty-filterListItem {
       content: "Add to Quote";
       margin-left: 10px; }
 
-@media only screen and (min-width: 970px) {
+@media only screen and (min-width: 1200px) {
   .ty-product-quoteBtn button {
     display: inline-block;
     width: 28px;
@@ -988,7 +988,7 @@ form {
         -o-transform: scale(0.9, 0.9);
         transform: scale(0.9, 0.9); }
 
-@media only screen and (min-width: 970px) {
+@media only screen and (min-width: 1200px) {
   form .ty-inputHolder {
     width: 50%;
     padding: 10px 20px;
@@ -1211,15 +1211,15 @@ Loading Animation
           -o-transform: scale(0.8, 0.8);
           transform: scale(0.8, 0.8); }
 
-@media only screen and (min-width: 970px) {
+@media only screen and (min-width: 1200px) {
   #ty-seqProductImgSlider .ty-slideContent .ty-seq-zoom-trigger {
     display: table; } }
-@media only screen and (min-width: 970x) {
+@media only screen and (min-width: 1200x) {
   #ty-seqProductImgSlider .ty-seq-nav-btn-wrap button:hover {
     opacity: 0.8; }
   #ty-seqProductImgSlider .ty-slideContent img {
     padding: 30px; } }
-@media only screen and (min-width: 970px) {
+@media only screen and (min-width: 1200px) {
   #ty-seqProductImgSlider {
     height: 400px; }
     #ty-seqProductImgSlider .ty-slideContent {
@@ -1261,7 +1261,7 @@ Loading Animation
 .ty-modal-details {
   width: 100%;
   float: left; }
-  @media (min-width: 970px) {
+  @media (min-width: 1200px) {
     .ty-modal-details {
       margin-top: 8rem; } }
 
@@ -1381,7 +1381,7 @@ Loading Animation
     -ms-transform: scale(0.9, 0.9);
     -o-transform: scale(0.9, 0.9);
     transform: scale(0.9, 0.9); }
-  @media (min-width: 970px) {
+  @media (min-width: 1200px) {
     .ty-modal-ThankYou .ty-closeBtn {
       width: 300px; } }
 .ty-modal-ThankYou h1.ty-fail-title:before {
@@ -1390,8 +1390,8 @@ Loading Animation
   width: 100%;
   display: inline-block; }
 
-/* 970px */
-@media only screen and (min-width: 970px) {
+/* 1200px */
+@media only screen and (min-width: 1200px) {
   .ty-modal-ThankYou h1.ty-fail-title:before {
     width: auto;
     display: inline;
@@ -1430,12 +1430,12 @@ Loading Animation
         -ms-transform: scale(0.9, 0.9);
         -o-transform: scale(0.9, 0.9);
         transform: scale(0.9, 0.9); }
-      @media (min-width: 970px) {
+      @media (min-width: 1200px) {
         .ty-detailsFormWrap form #ty-submit {
           width: 300px; } }
 
-/* 970px */
-@media only screen and (min-width: 970px) {
+/* 1200px */
+@media only screen and (min-width: 1200px) {
   .ty-detailsFormWrap form {
     width: 300px; }
     .ty-detailsFormWrap form .ty-inputHolder {
@@ -1469,7 +1469,7 @@ Loading Animation
     font-weight: bold;
     margin: 0; }
 
-@media only screen and (min-width: 970px) {
+@media only screen and (min-width: 1200px) {
   .ty-title .ty-titleIconWrap {
     display: block;
     float: left;
@@ -1508,7 +1508,7 @@ Loading Animation
     width: 100%;
     float: left; }
 
-@media only screen and (min-width: 970px) {
+@media only screen and (min-width: 1200px) {
   .ty-modal-quotationList-wrap .ty-modal-title h1 {
     font-size: 4em; } }
 .ty-modal-quotationList {
@@ -1621,7 +1621,7 @@ Loading Animation
           width: 100%;
           height: auto; }
 
-@media only screen and (min-width: 970px) {
+@media only screen and (min-width: 1200px) {
   .ty-modal-product-gallery {
     display: block; } }
 /* Modal Search */
@@ -1639,11 +1639,11 @@ Loading Animation
     padding: 1rem;
     color: #FFF;
     text-align: center; }
-    @media (min-width: 970px) {
+    @media (min-width: 1200px) {
       .ty-modal-search-wrap .ty-modal-search-title input {
         text-align: left;
         font-size: 3rem; } }
-    @media (min-width: 970px) {
+    @media (min-width: 1200px) {
       .ty-modal-search-wrap .ty-modal-search-title input {
         text-align: left;
         font-size: 4rem; } }
@@ -1684,7 +1684,7 @@ Loading Animation
       -ms-transform: scale(0.9, 0.9);
       -o-transform: scale(0.9, 0.9);
       transform: scale(0.9, 0.9); }
-    @media (min-width: 970px) {
+    @media (min-width: 1200px) {
       .ty-modal-search-wrap .ty-more-wrap a {
         width: 300px; } }
 
@@ -1717,7 +1717,7 @@ Loading Animation
 }
 .content-pro {
   flex: 100;
-  padding: 0px;
+  padding: 40px;
   padding-top: 30px;
   margin-left: 500px;
 }
@@ -1733,7 +1733,7 @@ Then, in y
   max-width: 100%; /* Ensure image doesn't exceed container width */
   height: auto; /* Maintain aspect ratio */
 }
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 1200px) {
     .container {
     flex-direction: column;
     padding: 0;}
@@ -1745,7 +1745,7 @@ Then, in y
 }
 /* Media query for responsive layout */
 
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 1200px) {
  
     .content-pro{
      padding-right: 40px;
@@ -1851,7 +1851,7 @@ Then, in y
 
 .product-card:hover { /* Corrected the selector */
   
-  box-shadow: 0px 4px 60px 0px rgba(54, 144, 224, 0.6);/* Changed border to border-color */
+  box-shadow: 0px 4px 60px 0px rgba(54, 144, 224, 0.3);/* Changed border to border-color */
 }
 
 
@@ -1881,10 +1881,12 @@ Then, in y
   margin-bottom: 10px;
 }
 
-@media (max-width: 970px) {
+@media (max-width: 1530px) {
   .product-card {
+    
     width: 100%;
   }
+  
 }
 
 
