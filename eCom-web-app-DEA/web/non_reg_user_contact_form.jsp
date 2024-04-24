@@ -8,6 +8,7 @@
         <link href="style1.css" rel="stylesheet">
     </head>
     <body>
+        <%@ include file="navbar.jsp" %>
         <div class="container-fluid bg-secondary mb-5">
         <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
             <h1 class="font-weight-semi-bold text-uppercase mb-3">Checkout</h1>

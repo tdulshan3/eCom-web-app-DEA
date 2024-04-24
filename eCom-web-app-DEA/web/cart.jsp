@@ -15,7 +15,7 @@
         <link href="style1.css" rel="stylesheet">
     </head>
     <body>
-
+<%@ include file="navbar.jsp" %>
         <%
             String userId = UserSession.getUserIdFromSession(request);
             int cartId1 = 0;
