@@ -5,6 +5,7 @@
 <html lang="en">
     <head>
         <title>Products</title>
+        
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
@@ -15,25 +16,27 @@
         <script src="packages/jQuery/jQuery-2.1.4.min.js"></script>
         <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>  
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
     </head>
     <body>
-        <%@ include file="navbar.jsp" %>
+        
         <!-- ty-mainWrap.start -->
         <div class="ty-mainWrap">
+            
             <div class="ty-offCanvasNav">
                 <button class="ty-catNav-trigger-close"><span><i class="fa fa-times" aria-hidden="true"></i></span></button>
 
-                <h2>Catergories</h2>
 
             </div>
 
 
             <!-- ty-overlay-trigger.start -->
             <div class="ty-overlay-trigger ty-catNav-trigger-close"></div>
-
+                
 
             <!-- ty-contentWrap.start -->
             <div class="ty-contentWrap container-fluid">
+                
                 <!-- ty-content.start -->
                 <div class="ty-content col-xs-12 clearfix">
                     <!-- ty-gameBG.start -->
@@ -44,11 +47,12 @@
                     <div class="ty-push">
                         <!-- ty-mainContent.start -->
                         <div class="ty-mainContent">
-
+                           <%@ include file="navbar.jsp" %> 
                             <!-- ty-pageContentWrap.start -->
                             <section class="ty-pageContentWrap">
+                                
                                 <a href="#showHere"></a>
-
+                                
                                 <%@ include file="sidebar.jsp" %>
                                 <!-- ty-pageContent.start -->
                                 <div class="ty-pageContent">
@@ -139,19 +143,19 @@
                                                         <li class="ty-filterListItem">
                                                             <input class="ty-filterListItem-input" type="checkbox"
                                                                    value="14 INCHES">
-                                                            <label for="attr-option-96|0" class="ty-filterListItem-label">14
+                                                            <label for="attr-option-96|0" id="attr-option-17|5" class="ty-filterListItem-label">14
                                                                 INCHES</label>
                                                         </li>
                                                         <li class="ty-filterListItem">
                                                             <input class="ty-filterListItem-input" type="checkbox"
                                                                    value="14 INCHES">
-                                                            <label for="attr-option-96|0" class="ty-filterListItem-label">14
+                                                            <label for="attr-option-96|2" class="ty-filterListItem-label">14
                                                                 INCHES</label>
                                                         </li>
                                                         <li class="ty-filterListItem">
                                                             <input class="ty-filterListItem-input" type="checkbox"
                                                                    value="14 INCHES">
-                                                            <label for="attr-option-96|0" class="ty-filterListItem-label">14
+                                                            <label for="attr-option-96|3" class="ty-filterListItem-label">14
                                                                 INCHES</label>
                                                         </li>
 
@@ -225,7 +229,7 @@
 
                                 </div><!-- ty-push.end -->
                         </div><!-- ty-content.end -->
-
+                    </div></div>
 
 
 

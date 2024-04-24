@@ -22,11 +22,7 @@
                           </ul>
                       </div>
                       <div class="right">
-                          <ul class="flexitem main-links">
-                             <li><a href="./login&signup.jsp">Sign In / Sign Up</a></li>
-                             <li><a href="#">My Account</a></li>
-                            </li>
-                          </ul>
+                          
                       </div>
                  </div>
                </div>
