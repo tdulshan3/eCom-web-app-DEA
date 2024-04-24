@@ -1,8 +1,3 @@
-<!-- <%-- 
-    Document   : productSingle
-    Created on : 18-Apr-2024, 21:54:03
-    Author     : Janaka Ishan
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%> -->
 <!DOCTYPE html>
