@@ -20,7 +20,7 @@
                     <div class="ty-catContent">
                         <div class="ty-catIconWrap"></div>
                         <div class="ty-catTitle">
-                            <a style="color:black;text-decoration:none;" href="productsMain.jsp?cat=<%=categoryId%>"> <span><%= categoryName %></span> </a>
+                            <a style="text-decoration:none;" href="productsMain.jsp?cat=<%=categoryId%>"> <span><%= categoryName %></span> </a>
                         </div>
                     </div>
                 </a>
