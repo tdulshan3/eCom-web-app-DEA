@@ -50,9 +50,6 @@
                            <%@ include file="navbar.jsp" %> 
                             <!-- ty-pageContentWrap.start -->
                             <section class="ty-pageContentWrap">
-                                
-                                <a href="#showHere"></a>
-                                
                                 <%@ include file="sidebar.jsp" %>
                                 <!-- ty-pageContent.start -->
                                 <div class="ty-pageContent">
@@ -185,7 +182,7 @@
                                             <div class="col-lg-4 col-md-6 mb-4">
                                                 <div class="box">  
                                                     <div class="product-card">
-                                                        <img class="product-image" src="./uploads/<%= rs.getString("img_path")%>" alt="">
+                                                        <img class="product-image" src="../uploads/<%= rs.getString("img_path")%>" alt="">
                                                         <div class="product-info">
                                                             <a style="color:black;text-decoration:none;" href="productSingle.jsp?id=<%=id%>"> <h4 class="product-title"><%=name%></h4></a>
                                                             <div class="product-price">LKR <%=price%></div>

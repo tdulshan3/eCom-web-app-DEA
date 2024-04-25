@@ -37,7 +37,7 @@
 
                             <%@ include file="sidebar.jsp" %>
 
-                            <%                                Dbcon dbConnector = new Dbcon();
+                            <%  Dbcon dbConnector = new Dbcon();
                                 dbConnector.connect();
                                 int productId = Integer.parseInt(request.getParameter("id"));
                                 try {
@@ -100,7 +100,7 @@
 
                                 </div>
                                 <div class="image">
-                                    <img src="./uploads/<%= rs.getString("img_path")%>" alt="">
+                                    <img src="../uploads/<%= rs.getString("img_path")%>" alt="">
                                 </div>
                             </div>
                             <%

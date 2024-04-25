@@ -1,11 +1,29 @@
-/* base */
-/*COLORS*/
-/* Buttons */
-/*------------------------------------------
-	Mixins --- Media Query Management
-------------------------------------------*/
-/*Resets*/
-/*General*/
+/* Styles for top video */
+
+.top-video {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+/* Styles for bottom card slider */
+
+
+
+/* Make the video responsive */
+@media screen and (max-width: 768px) {
+    .top-video {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+
+
+
+
+
 ul {
   list-style: none; }
 
@@ -120,18 +138,21 @@ body,
 .ty-mainContent {
   width: 100%;
   float: left;
-  min-height: 100%; }
+  min-height: 100%;
+  
+}
   .ty-mainContent section.ty-pageContentWrap {
     width: 100%;
     float: left;
     position: relative;
+    padding-top: 10px;
     
   }
     .ty-mainContent section.ty-pageContentWrap .ty-pageContent {
       width: 100%;
-      margin-top: 100px;
       float: left;
-      margin-bottom: 10px; }
+      margin-left: -10px;
+}
     .ty-mainContent section.ty-pageContentWrap .ty-cat {
       width: 250px;
       height: auto;
@@ -1910,5 +1931,36 @@ Then, in y
     color: #358fef;
 }
 
+@media screen and (max-width: 1200px) {
+ 
+    .content-home-pro{
+     padding:50px;
+  }
+  .image {
+    order: -1; 
+  }
+}
+.content-home-pro {
+  flex: 100;
+  padding-top: 50px;
+}
+.half-line-home {
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* Move the line to the center horizontally */
+    transform: translateX(-50%); /* Adjust to center the line */
+    width: 10%; /* Adjust width of the line */
+    height: 5px; /* Adjust thickness of the line */
+    background-color: #6f6f6f; /* Adjust color of the line */
+}
 
+.ty-productTitle-home {
+    position: relative;
+    font-size: 48px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    padding-bottom: 10px; 
+    margin-bottom: 30px;/* Adjust spacing between heading and line */
+}
 /* Rest of your CSS styles */
