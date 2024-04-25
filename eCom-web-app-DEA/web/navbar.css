@@ -1,0 +1,142 @@
+.site-header {
+  background-color: rgba(0,0,0, 0.6);
+  box-shadow:  0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: #fff;
+}
+
+.logo {
+  padding-left: 150px;
+  padding-right: 100px;
+  font-size: 24px;
+  font-weight: bold;
+}
+.logo a {
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+}
+
+.logo a img {
+  width: 100px;
+  
+  vertical-align: middle;
+}
+
+.logo a span {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff0000;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 10px;
+}
+.main-menu ul {
+    
+  padding: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-menu li {
+  display: inline-block;
+  margin-right: 50px;
+  
+}
+
+.main-menu li:last-child {
+  margin-right: 0;
+}
+
+.main-menu a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 300;
+  transition: color 0.3s ease; /* Added transition effect */
+}
+
+.main-menu a:hover {
+  /* Change to desired hover color */
+  font-weight: 500;
+  border-bottom: 2px solid #fff;
+}
+
+.user-actions {
+  padding: 10px;
+  display: flex;
+  align-items: center; /* Center align the items */
+}
+
+.user-actions button {
+  background: none;
+  border: none;
+}
+
+.user-actions .btn-signin,
+.user-actions .btn-signup,
+.user-actions .btn-cart {
+  text-decoration: none;
+  color: #fff;
+  margin-left: 20px;
+  font-size: 12px;
+}
+
+.cart {
+  padding-left: 20px;
+  margin-left: auto; /* Align cart to the right */
+}
+
+.cart a {
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+}
+@media only screen and (min-width: 1200px) {
+    .logo {
+        padding-left: 100px;
+    }
+}
+.cart a img {
+  width: 30px;
+  vertical-align: middle;
+}
+
+.cart a span {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff0000;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 10px;
+}
+.btn-signin {
+    background-color: #358fef;
+    border: 1px solid #358fef;
+    border-radius: 50px;
+    color: #fff;
+    padding:5px 15px; /* Adjust padding for better button size */
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-signin:hover {
+    background-color: #666;
+    transform: scale(1.1);
+    border-color: #fff; /* Adjust border color on hover */
+    color: #fff;
+}
