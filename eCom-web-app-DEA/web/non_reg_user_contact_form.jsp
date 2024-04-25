@@ -1,19 +1,17 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Checkout</title>
-        <link rel="stylesheet" href="./products/css/font-awesome.min.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Checkout Page</title>
         <link rel="stylesheet" href="./products/css/main.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
-        <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>
-
     </head>
     <body>
         <%@ include file="navbar.jsp" %>
-        <div class="containe">
-            <div class="content">
+        <div class="container-form">
+            <div class="left-container">
+                <!-- Content for the left container -->
+                <h2 class="form-title">Billing Information</h2>
                 <form action="CheckoutServletUnreg" method="POST" class="checkout-form">
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -39,25 +37,29 @@
                         <label for="pnumber">Mobile Number</label>
                         <input type="tel" id="pnumber" name="pnumber" required>
                     </div>
-                    <div class="image">
-                    <div class="payment-options">
-                        <h4>Payment</h4>
-                        <div class="form-group">
-                            <input type="radio" id="directcheck" name="payment">
-                            <label for="directcheck">Direct Check</label>
-                        </div>
 
-                        <div class="form-group">
-                            <input type="radio" id="banktransfer" name="payment">
-                            <label for="banktransfer">Bank Transfer</label>
-                        </div>
+            </div>
+            
+            <div class="right-container">
+                <!-- Content for the right container -->
+                
+                <div class="payment-options">
+            <h2>Payment</h2>
+            <div class="form-group">
+                <input type="radio" id="directcheck" name="payment">
+                <label for="directcheck">Direct Check</label>
+            </div>
 
-                        <input type="submit" value="Place Order" class="submit-button">
-                    </div>
+            <div class="form-group">
+                <input type="radio" id="banktransfer" name="payment">
+                <label for="banktransfer">Bank Transfer</label>
+            </div>
 
-                </form>
+            <input type="submit" value="Place Order" class="submit-button">
+        </div>
+            
+            </form>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
     </body>
 </html>

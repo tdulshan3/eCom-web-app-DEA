@@ -1966,6 +1966,83 @@ Then, in y
 
 
 
+.container-form {
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    
+}
+
+.left-container, .right-container {
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.left-container {
+    width: 40%;
+    flex: 2;
+}
+
+.right-container {
+    flex: 1;
+    width: 60%;
+
+}
+
+@media screen and (max-width: 1200px) {
+    .left-container, .right-container {
+        width: 100%;
+    }
+}
+
+
+
+
+/* Form styles */
+.form-title {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Payment options styles */
+
 
 
 
@@ -1974,134 +2051,5 @@ Then, in y
 /* Custom CSS for form styling */
 
 
-.container-form {
-    max-width: 500px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.content-form {
-    padding: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    font-weight: bold;
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="tel"],
-.form-group input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.form-group input[type="radio"] {
-    margin-right: 5px;
-}
-
-.submit-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.submit-button:hover {
-    background-color: #45a049;
-}
-.payment-options {
-    text-align: right;
-}
-
-.payment-options .form-group {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-@media screen and (max-width: 600px) {
-    .payment-options {
-        text-align: left;
-    }
-
-    .payment-options {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-    }
-
-    .payment-options .form-group {
-        margin-right: 0;
-    }
-}
-
-
-.container-form {
-    width: 80%;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.content-form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.form-group label {
-    float: left;
-    width: 30%;
-    font-weight: bold;
-}
-
-.form-group input {
-    float: left;
-    width: 70%;
-}
-
-@media screen and (max-width: 600px) {
-    .form-group label,
-    .form-group input {
-        width: 100%;
-        float: none;
-    }
-}
-
-.submit-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.submit-button:hover {
-    background-color: #45a049;
-}
 
 /* Rest of your CSS styles */
