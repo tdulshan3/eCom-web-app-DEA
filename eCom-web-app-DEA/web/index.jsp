@@ -9,9 +9,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <!--Main Style Sheet-->
-        <link rel="stylesheet" href="./products/css/main.css">
+        
         <link rel="stylesheet" href="./products/css/font-awesome.min.css">
-        <link rel="stylesheet" href="./products/css/mainProduct.css">
+        
         <link rel="stylesheet" href="./products/css/main.css">
         <link rel="stylesheet" href="./products/css/font-awesome.min.css">
         <script src="./products/packages/jQuery/jQuery-2.1.4.min.js"></script>
@@ -146,7 +146,8 @@
                 </div>
             </div>
         </div>
-        <!--scripts--><script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <!--scripts-->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
         <script src="./products/js/app.js"></script>
