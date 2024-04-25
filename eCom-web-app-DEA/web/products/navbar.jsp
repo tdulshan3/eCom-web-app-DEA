@@ -9,7 +9,7 @@
 
 <header class="site-header">
   <div class="container">
-    <div class="logo">Your Logo</div>
+    <div class="logo">HutTech Computers</div>
     <nav class="main-menu">
       <ul>
         <li><a href="../index.jsp">Home</a></li>

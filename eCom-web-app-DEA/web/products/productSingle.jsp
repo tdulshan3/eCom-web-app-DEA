@@ -37,7 +37,7 @@
 
                             <%@ include file="sidebar.jsp" %>
 
-                            <%                                Dbcon dbConnector = new Dbcon();
+                            <%  Dbcon dbConnector = new Dbcon();
                                 dbConnector.connect();
                                 int productId = Integer.parseInt(request.getParameter("id"));
                                 try {
