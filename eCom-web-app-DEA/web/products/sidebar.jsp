@@ -16,11 +16,11 @@
 %>
             <!-- ty-catListItem.start -->
             <li class="ty-catListItem">
-                <a href="<%= categoryId %>.html"> <!-- Assuming categoryId corresponds to the page URL -->
+                <a href="productsMain.jsp?cat=<%=categoryId%>">
                     <div class="ty-catContent">
                         <div class="ty-catIconWrap"></div>
                         <div class="ty-catTitle">
-                            <a style="text-decoration:none;" href="productsMain.jsp?cat=<%=categoryId%>"> <span><%= categoryName %></span> </a>
+                             <span><%= categoryName %></span>
                         </div>
                     </div>
                 </a>
