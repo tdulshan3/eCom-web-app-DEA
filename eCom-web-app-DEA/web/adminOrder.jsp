@@ -3,7 +3,7 @@
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="adminpackage.Authentication" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,158 +14,96 @@
     <link href="./admin.css" rel="stylesheet">
 </head>
 <body>
-        <%
-         Authentication.redirectIfNotAuthenticated(request, response);
-        %>
     <div class="d-flex">
         <%@ include file="./component/adminSidebar.html" %>
-        <div class="container">
-            <div class="d-flex justify-content-center">
-                <div class="container mt-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h1 class="card-title text-center">Order Table</h1>
-                            <div class="table-responsive">
-                                <table class="table table-striped mx-auto">
-                                    <thead>
-                                        <tr>
-                                            <th>Order ID</th>
-                                            <th>userName</th>
-                                            <th>Contact Number</th>
-                                            <th>Email</th>
-                                            <th>Address</th>
-                                            <th>Products</th>
-                                            <th>Total</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <%
-                                            Dbcon dbConn = new Dbcon();
-                                            dbConn.connect();
+        <div class="container mt-5">
+            <h1 class="mb-4">Orders</h1>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Order ID</th>
+                        <th>userName</th>
+                        <th>Contact Number</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Product Name</th>
+                        <th>Status</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% 
+                        String orderId;
+                        String userName;
+                        String contactNumber;
+                        String email;
+                        String address;
+                        String productName;
+                        String status;
+                        String price;
+                        String quantity;
+                        String total;
+                        Dbcon dbConn = new Dbcon();
+                        dbConn.connect();
 
-                                            ResultSet rs1 = dbConn.executeQuery("SELECT * FROM `order`");
-                                           
-                                            while (rs1.next()) {
-                                                String orderId = rs1.getString("order_id");
-                                                int userId = rs1.getInt("user_id");
-                                                String status = rs1.getString("status");
-                                                String cartDetails = rs1.getString("cart_d");
-                                                ResultSet rs2 = dbConn.executeQuery("SELECT * FROM user WHERE user_id=" + userId);
-                                                if(rs2.next()){
-                                                String userName = rs2.getString("FirstName") + " " + rs2.getString("LastName");
-                                                String contactNumber = rs2.getString("Phone");
-                                                String email = rs2.getString("email");
-                                                String address = rs2.getString("Address") + ", " + rs2.getString("City") + ", " + rs2.getString("Postcode");
-                                                String productDetails = getProductDetails(cartDetails, dbConn);
-                                                int total = getTotalAmount(cartDetails, dbConn);
-                                                out.println("<tr>");
-                                                out.print("<td>" + orderId + "</td>");
-                                                out.print("<td>" + userName + "</td>");
-                                                out.print("<td>" + contactNumber + "</td>");
-                                                out.print("<td>" + email + "</td>");
-                                                out.print("<td>" + address + "</td>");
-                                                out.print("<td>" + productDetails + "</td>");
-                                                out.print("<td>" + total + "</td>");
-                                                out.print("<td>" + status + "</td>");
-                                                out.print("<td>");
-                                                // Form for canceling order
-                                                if (status.equals("pending")) {
-                                                    %>
-                                                    <form action='CancelOrderServlet' method='post'>
-                                                        <input type='hidden' name='orderId' value='<%= orderId %>'/>
-                                                        <input type='hidden' name='status' value='canceled'/>
-                                                        <button type='submit' class='btn btn-danger'>Cancel</button>
-                                                    </form> <br>
-                                                    <% 
-                                                }
-                                                // Form for marking as delivered
-                                                if (status.equals("pending")) {
-                                                    %>
-                                                    <form action='MarkDeliveredServlet' method='post'>
-                                                        <input type='hidden' name='orderId' value='<%= orderId %>'/>
-                                                        <input type='hidden' name='status' value='delivered'/>
-                                                        <button type='submit' class='btn btn-primary'>Delivered</button>
-                                                    </form>
-                                                    <%
-                                                }
-                                                out.print("</td>");
-                                                out.println("</tr>");
-                                            }}
-                                        %>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        ResultSet rsCart = dbConn.executeQuery("SELECT o.order_id, u.FirstName AS userName, u.Phone AS contactNumber, u.email, u.Address, p.name AS product_name, o.status, p.price, p.quantity AS quantity,(p.quantity * p.price) AS total " +
+                                    "FROM `order` o " +
+                                    "JOIN cart c ON o.cart_id = c.cart_id " +
+                                    "JOIN user u ON c.user_id = u.user_id " +
+                                    "JOIN products p ON CAST(SUBSTRING_INDEX(c.cart_details, '/', 1) AS UNSIGNED) = p.product_id"
+                        );
+                        while (rsCart.next()) {
+                            orderId = rsCart.getString("order_id");
+                            userName = rsCart.getString("userName");
+                            contactNumber = rsCart.getString("contactNumber");
+                            email = rsCart.getString("email");
+                            address = rsCart.getString("Address");
+                            productName = rsCart.getString("product_name");
+                            status = rsCart.getString("status");
+                            price = rsCart.getString("price");
+                            quantity = rsCart.getString("quantity");
+                            total = rsCart.getString("total");
+
+                            out.println("<tr>");
+                            out.print("<td>" + orderId + "</td>");
+                            out.print("<td>" + userName + "</td>");
+                            out.print("<td>" + contactNumber + "</td>");
+                            out.print("<td>" + email + "</td>");
+                            out.print("<td>" + address + "</td>");
+                            out.print("<td>" + productName + "</td>");
+                            out.print("<td>" + status + "</td>");
+                            out.print("<td>" + price + "</td>");
+                            out.print("<td>" + quantity + "</td>");
+                            out.print("<td>" + total + "</td>");
+                            out.print("<td>");
+                            // Form for canceling order
+                             if (status.equals("pending")){
+                            out.print("<form action='CancelOrderServlet' method='post'>");
+                            out.print("<input type='hidden' name='orderId' value='" + orderId + "'/>");
+                            out.print("<input type='hidden' name='status' value='canceled'/>");
+                            out.print("<button type='submit' class='btn btn-danger'>Cancel</button>");
+                            out.print("</form>");}
+                            // Form for marking as delivered
+                            if (status.equals("pending")) {
+                                out.print("<form action='MarkDeliveredServlet' method='post'>");
+                                out.print("<input type='hidden' name='orderId' value='" + orderId + "'/>");
+                                out.print("<input type='hidden' name='status' value='delivered'/>");
+                                out.print("<button type='submit' class='btn btn-primary'>Delivered</button>");
+                                out.print("</form>");
+                            }
+                            out.print("</td>");
+                            out.println("</tr>");
+                        }
+                    %>
+                </tbody>
+            </table>
         </div>
     </div>
+  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+   
 </body>
 </html>
-
-<%!
-String getProductDetails(String cartDetails, Dbcon dbConn) throws SQLException {
-
-    StringBuilder productDetails = new StringBuilder();
-    productDetails.append("<ul>");
-
-    String[] pairs = cartDetails.split("/");
-
-    for (String pair : pairs) {
-
-        String[] parts = pair.split(":");
-
-        int productId = Integer.parseInt(parts[0]);
-
-        int quantity = Integer.parseInt(parts[1]);
-
-        ResultSet rsProduct = dbConn.executeQuery("SELECT name, price, quantity FROM products WHERE product_id=" + productId);
-
-        while (rsProduct.next()) {
-
-            String productName = rsProduct.getString("name");
-
-            int price = rsProduct.getInt("price");
-
-            int qty = rsProduct.getInt("quantity");
-
-            productDetails.append("<li>").append(productName).append(" (Qty: ").append(quantity).append(")</li>");
-
-        }
-
-        rsProduct.close();
-
-    }
-
-    productDetails.append("</ul>");
-
-    return productDetails.toString();
-
-}
-%>
-
-<%!
-    int getTotalAmount(String cartDetails, Dbcon dbConn) throws SQLException {
-        int total = 0;
-        String[] pairs = cartDetails.split("/");
-
-        for (String pair : pairs) {
-            String[] parts = pair.split(":");
-            int productId = Integer.parseInt(parts[0]);
-            int quantity = Integer.parseInt(parts[1]);
-
-            ResultSet rsProduct = dbConn.executeQuery("SELECT price FROM products WHERE product_id=" + productId);
-            if (rsProduct.next()) {
-                int price = rsProduct.getInt("price");
-                total += price * quantity;
-            }
-            rsProduct.close();
-        }
-
-        return total;
-    }
-%>
