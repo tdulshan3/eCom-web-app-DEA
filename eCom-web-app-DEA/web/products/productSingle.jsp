@@ -1,5 +1,5 @@
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%> -->
+<%@page contentType="text/html" pageEncoding="UTF-8"%> 
 <!DOCTYPE html>
 <html lang="en">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -100,7 +100,7 @@
 
                                 </div>
                                 <div class="image">
-                                    <img src="./uploads/<%= rs.getString("img_path")%>" alt="">
+                                    <img src="../uploads/<%= rs.getString("img_path")%>" alt="">
                                 </div>
                             </div>
                             <%

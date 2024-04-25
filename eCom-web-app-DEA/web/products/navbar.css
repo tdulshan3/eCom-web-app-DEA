@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 7px;
   
 }
 
@@ -18,7 +18,7 @@
 }
 
 .main-menu ul {
-  padding: 10px;
+  padding: 4px;
   list-style: none;
   margin: 0;
   padding: 0;

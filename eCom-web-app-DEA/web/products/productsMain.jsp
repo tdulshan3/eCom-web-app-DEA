@@ -1,11 +1,13 @@
 <%@ page import="adminpackage.Dbcon" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="java.util.Arrays" %>
+<%@ page import="java.util.HashSet" %>
+<%@ page import="java.util.Set" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Products</title>
-        
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
@@ -16,27 +18,28 @@
         <script src="packages/jQuery/jQuery-2.1.4.min.js"></script>
         <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>  
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
     </head>
     <body>
-        
+        <%@ include file="navbar.jsp" %>
+        <%
+                            // Get the manufacturer parameter(s) from the URL
+                            String[] manufParams1 = request.getParameterValues("manu");
+                            Set<String> manuSet = manufParams1 != null ? new HashSet<String>(Arrays.asList(manufParams1)) : new HashSet<String>();
+
+                            // Get the specification parameter(s) from the URL
+                            String[] specParams1 = request.getParameterValues("sp");
+                            Set<String> specSet = specParams1 != null ? new HashSet<String>(Arrays.asList(specParams1)) : new HashSet<String>();
+                        %>
         <!-- ty-mainWrap.start -->
         <div class="ty-mainWrap">
-            
             <div class="ty-offCanvasNav">
                 <button class="ty-catNav-trigger-close"><span><i class="fa fa-times" aria-hidden="true"></i></span></button>
-
-
+                <h2>Catergories</h2>
             </div>
-
-
             <!-- ty-overlay-trigger.start -->
             <div class="ty-overlay-trigger ty-catNav-trigger-close"></div>
-                
-
             <!-- ty-contentWrap.start -->
             <div class="ty-contentWrap container-fluid">
-                
                 <!-- ty-content.start -->
                 <div class="ty-content col-xs-12 clearfix">
                     <!-- ty-gameBG.start -->
@@ -47,12 +50,11 @@
                     <div class="ty-push">
                         <!-- ty-mainContent.start -->
                         <div class="ty-mainContent">
-                           <%@ include file="navbar.jsp" %> 
+
                             <!-- ty-pageContentWrap.start -->
                             <section class="ty-pageContentWrap">
-                                
                                 <a href="#showHere"></a>
-                                
+
                                 <%@ include file="sidebar.jsp" %>
                                 <!-- ty-pageContent.start -->
                                 <div class="ty-pageContent">
@@ -64,26 +66,25 @@
 
                                         <% } else {
                                             Dbcon dbConnector = new Dbcon();
-                                             try{
-                                            dbConnector.connect();
-                                            String sql = "SELECT * FROM category WHERE category_id = " + catId;
-                                            ResultSet rs = dbConnector.executeQuery(sql);
-                                            if (rs.next()) {
-                                                String categoryName = rs.getString("category_name");
+                                            try {
+                                                dbConnector.connect();
+                                                String sql = "SELECT * FROM category WHERE category_id = " + catId;
+                                                ResultSet rs = dbConnector.executeQuery(sql);
+                                                if (rs.next()) {
+                                                    String categoryName = rs.getString("category_name");
                                         %>
-                                                     <h1 style="text-align:center;"><%=categoryName  %></h1>
+                                        <h1 style="text-align:center;"><%=categoryName%></h1>
 
-                                        <%}  dbConnector.disconnect(); 
-                                } catch (Exception e) {
-                                    e.printStackTrace(); 
-                                }} %>
+                                        <%}
+                                                    dbConnector.disconnect();
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+                                            } %>
                                     </div>
 
                                     <!-- ty-catPage-productWrap.start -->
                                     <section class="ty-catPage-productWrap ">
-
-
-
                                         <!-- ty-catPage-filters.start -->
                                         <div class="ty-catPage-filters">
                                             <div class="ty-catPage-filters-triggerWrap">
@@ -94,74 +95,115 @@
                                                 </button>
                                             </div>
 
-                                            <!-- ty-catPage-filterWrap.start -->
-                                            <div class="ty-catPage-filterWrap">
-                                                <div class="ty-catPage-filter-priceRange-sliderWrap">
-                                                    <span>
-                                                        <label for="ty-priceRange">Price</label>
-                                                        <input type="text" class="ty-priceRange" id="ty-priceRange"
-                                                               readonly>
-                                                    </span>
+                                            <form action="./productsMain.jsp" method="get">
+                                                <% if (!(catId == null || catId.isEmpty())) {%>
+                                                <input type="hidden" name="cat" value="<%=catId%>"> 
+                                                <%
+                                                    } %>
 
-                                                    <div class="ty-catPage-priceRange-sliderHolder">
-                                                        <div data-min="3500" data-max="1679001" data-suffix="LKR"
-                                                             class="ty-catPage-priceRange-slider"></div>
+                                                   <input type="submit" value="Filter">
+                                                <!-- ty-catPage-filterWrap.start -->
+                                                <div class="ty-catPage-filterWrap">
+                                                    <div class="ty-catPage-filter-priceRange-sliderWrap">
+                                                        <span>
+                                                            <label for="ty-priceRange">Price</label>
+                                                            <input type="text" class="ty-priceRange" id="ty-priceRange"
+                                                                   readonly>
+                                                            <input type="hidden" name="Price" id="ty-priceRange" value="">
+                                                        </span>
+
+                                                        <div class="ty-catPage-priceRange-sliderHolder">
+                                                            <div data-min="3500" data-max="1500000" data-suffix="LKR"
+                                                                 class="ty-catPage-priceRange-slider"></div>
+                                                        </div>
                                                     </div>
+
+
+
+                                                    <div class="ty-filterListWrap" data-attribute-id="20">
+                                                        <h4>MANUFACTURER</h4>
+
+                                                        <ul class="ty-filterList ty-one">
+                                                            <%
+                                                                Dbcon dbConnector = new Dbcon();
+                                                                try {
+                                                                    dbConnector.connect();
+                                                                    String sql0 = "SELECT DISTINCT manufacturer_id FROM products WHERE category_id =" + catId;
+                                                                    ResultSet rs0 = dbConnector.executeQuery(sql0);
+                                                                    StringBuilder manuIds = new StringBuilder();
+                                                                    while (rs0.next()) {
+                                                                        manuIds.append(rs0.getInt("manufacturer_id")).append(",");
+                                                                    }
+                                                                    rs0.close();
+                                                                    if (manuIds.length() > 0) {
+                                                                        manuIds.setLength(manuIds.length() - 1);
+                                                                    }
+                                                                    String sql = "SELECT * FROM `manufacturer` WHERE manufacturer_id IN (" + manuIds + ")";
+                                                                    ResultSet rs = dbConnector.executeQuery(sql);
+                                                                    while (rs.next()) {
+                                                                        String manuName = rs.getString("manufacturer_name");
+                                                                        int manuId = rs.getInt("manufacturer_id");
+                                                            %>
+                                                            <li>
+
+                                                               <input type="checkbox" name="manu" class="ty-filterListItem-input" value="<%=manuId%>" <%= manuSet.contains(String.valueOf(manuId)) ? "checked" : "" %>>
+                                                                <label class="ty-filterListItem-label"><%=manuName%></label>
+                                                            </li>
+                                                            <%}
+                                                                    dbConnector.disconnect();
+                                                                } catch (Exception e) {
+                                                                    e.printStackTrace();
+                                                                } %>
+                                                        </ul>
+                                                    </div>
+                                                    <% if (!(catId == null || catId.isEmpty())) {
+                                                            dbConnector.connect();
+                                                    %> 
+                                                    <!-- ty-filterListWrap.start -->
+                                                    <div class="ty-filterListWrap">
+                                                        <%
+                                                            try {
+                                                                dbConnector.connect();
+
+                                                                String sql = "SELECT * FROM `spces_type` WHERE category_id = " + catId;
+                                                                ResultSet rs = dbConnector.executeQuery(sql);
+
+                                                                while (rs.next()) {
+                                                                    String specsName = rs.getString("spec_type_name");
+                                                                    int specsId = rs.getInt("spces_type_id");
+                                                        %>
+                                                        <h4><%=specsName%></h4>
+
+                                                        <ul class="ty-filterList ty-one">
+                                                            <%
+                                                                String sql1 = "SELECT * FROM `specs` WHERE specs_type_id = " + specsId;
+                                                                ResultSet rs1 = dbConnector.executeQuery(sql1);
+                                                                while (rs1.next()) {
+                                                                    String specName = rs1.getString("spec_name");
+                                                                    int specId = rs1.getInt("id");
+                                                            %>
+                                                            <li>
+                                                               <input type="checkbox" name="sp" class="ty-filterListItem-input" value="<%=specId%>" <%= specSet.contains(String.valueOf(specId)) ? "checked" : "" %>>
+                                                                <label class="ty-filterListItem-label"><%=specName%></label>
+                                                            </li>
+                                                            <%
+                                                                }
+                                                                rs1.close();
+                                                            %>
+                                                        </ul>
+                                                        <%
+                                                                }
+                                                                rs.close();
+                                                                dbConnector.disconnect();
+                                                            } catch (Exception e) {
+                                                                e.printStackTrace();
+                                                            }
+                                                        %>
+                                                    </div>
+                                                    <% }  %>
                                                 </div>
-
-
-
-                                                <div class="ty-filterListWrap" data-attribute-id="20">
-                                                    <h4>MANUFACTURER</h4>
-                                                    <ul class="ty-filterList ty-one">
-                                                        <li class="ty-filterListItem">
-                                                            <input class="ty-filterListItem-input" type="checkbox"
-                                                                   value="Acer">
-                                                            <label for="attr-option-20|0"
-                                                                   class="ty-filterListItem-label">Acer</label>
-                                                        </li>
-                                                        <li class="ty-filterListItem">
-                                                            <input class="ty-filterListItem-input" type="checkbox"
-                                                                   value="Acer">
-                                                            <label for="attr-option-20|0"
-                                                                   class="ty-filterListItem-label">Acer</label>
-                                                        </li>
-                                                        <li class="ty-filterListItem">
-                                                            <input class="ty-filterListItem-input" type="checkbox"
-                                                                   value="Acer">
-                                                            <label for="attr-option-20|0"
-                                                                   class="ty-filterListItem-label">Acer</label>
-                                                        </li>
-
-                                                    </ul>
-                                                </div>
-                                                <!-- ty-filterListWrap.start -->
-                                                <div class="ty-filterListWrap" data-attribute-id="96">
-                                                    <h4>Specs</h4>
-                                                    <ul class="ty-filterList ty-one">
-                                                        <!-- ty-filterListItem.start -->
-                                                        <li class="ty-filterListItem">
-                                                            <input class="ty-filterListItem-input" type="checkbox"
-                                                                   value="14 INCHES">
-                                                            <label for="attr-option-96|0" id="attr-option-17|5" class="ty-filterListItem-label">14
-                                                                INCHES</label>
-                                                        </li>
-                                                        <li class="ty-filterListItem">
-                                                            <input class="ty-filterListItem-input" type="checkbox"
-                                                                   value="14 INCHES">
-                                                            <label for="attr-option-96|2" class="ty-filterListItem-label">14
-                                                                INCHES</label>
-                                                        </li>
-                                                        <li class="ty-filterListItem">
-                                                            <input class="ty-filterListItem-input" type="checkbox"
-                                                                   value="14 INCHES">
-                                                            <label for="attr-option-96|3" class="ty-filterListItem-label">14
-                                                                INCHES</label>
-                                                        </li>
-
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                               
+                                            </form>
                                         </div>
                                 </div>
 
@@ -172,9 +214,51 @@
                                     <div class="container">
                                         <div class="row row-cols-lg-3 row-cols-md-2 ">
                                             <%                    try {
-                                                    Dbcon dbConnector = new Dbcon();
+
                                                     dbConnector.connect();
-                                                    ResultSet rs = dbConnector.executeQuery("SELECT * FROM products");
+
+                                                    String query = "SELECT * FROM products WHERE 1=1";
+
+                                                    String catParam = request.getParameter("cat");
+                                                    if (catParam != null && !catParam.isEmpty()) {
+                                                        query += " AND category_id = " + catParam;
+                                                    }
+
+                                                    String priceParam = request.getParameter("Price");
+                                                    if (priceParam != null && !priceParam.isEmpty()) {
+                                                        String[] prices = priceParam.split("-");
+                                                        double minPrice = Double.parseDouble(prices[0].replace(" LKR", "").trim());
+                                                        double maxPrice = Double.parseDouble(prices[1].replace(" LKR", "").trim());
+                                                        query += " AND price BETWEEN " + minPrice + " AND " + maxPrice;
+                                                    }
+
+                                                    String[] manufParams = request.getParameterValues("manu");
+                                                    if (manufParams != null && manufParams.length > 0) {
+
+                                                        query += " AND manufacturer_id IN (";
+                                                        for (int i = 0; i < manufParams.length; i++) {
+                                                            query += manufParams[i];
+                                                            if (i < manufParams.length - 1) {
+                                                                query += ", ";
+                                                            }
+                                                        }
+                                                        query += ")";
+                                                    }
+
+                                                    // Get the specification parameter(s)
+                                                    String[] specParams = request.getParameterValues("sp");
+                                                    if (specParams != null && specParams.length > 0) {
+                                                        query += " AND specs IN (";
+                                                        for (int i = 0; i < specParams.length; i++) {
+                                                            query += specParams[i];
+                                                            if (i < specParams.length - 1) {
+                                                                query += ", ";
+                                                            }
+                                                        }
+                                                        query += ")";
+                                                    }
+
+                                                    ResultSet rs = dbConnector.executeQuery(query);
 
                                                     while (rs.next()) {
                                                         String id = rs.getString("product_id");
@@ -182,10 +266,11 @@
                                                         double price = rs.getDouble("price");
 
                                             %>
+
                                             <div class="col-lg-4 col-md-6 mb-4">
                                                 <div class="box">  
                                                     <div class="product-card">
-                                                        <img class="product-image" src="./uploads/<%= rs.getString("img_path")%>" alt="">
+                                                        <img class="product-image" src="../uploads/<%= rs.getString("img_path")%>" alt="">
                                                         <div class="product-info">
                                                             <a style="color:black;text-decoration:none;" href="productSingle.jsp?id=<%=id%>"> <h4 class="product-title"><%=name%></h4></a>
                                                             <div class="product-price">LKR <%=price%></div>
@@ -201,38 +286,22 @@
                                             </div>
                                             <%
                                                     }
-                                                    dbConnector.disconnect(); // Close the database connection after use
+                                                    dbConnector.disconnect();
                                                 } catch (Exception e) {
-                                                    e.printStackTrace(); // Handle any exceptions
+                                                    e.printStackTrace();
                                                 }
                                             %>
                                         </div>
                                     </div>
 
-
                                 </div>
 
                                 <div><div>
                                         </section>
-
-
-
-
-
-
-
-
-
-
-
                                     </div><!-- ty-mainContent.end -->
 
                                 </div><!-- ty-push.end -->
                         </div><!-- ty-content.end -->
-                    </div></div>
-
-
-
                         <script src="js/app.js"></script>
                         <script src="js/guest/category.js"></script>
                         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
