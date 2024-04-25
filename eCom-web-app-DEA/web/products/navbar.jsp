@@ -31,13 +31,4 @@
   </div>
 </header>
 
-<main>
-  <!-- Your main content goes here -->
-</main>
 
-<footer>
-  <!-- Your footer content goes here -->
-</footer>
-
-</body>
-</html>

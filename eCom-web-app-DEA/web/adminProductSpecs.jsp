@@ -76,7 +76,7 @@
                 var selectId = selectElement.id;
                 var selectedOption = selectElement.options[selectElement.selectedIndex];
                 if (selectedOption.value !== '') {
-                    params.push(selectId + ':' + selectedOption.value + ';');
+                    params.push(selectedOption.value);
                 }
             });
             url += params.join();
