@@ -5,13 +5,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Product</title>
+        <title>NEWLINE Computers</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <!--Main Style Sheet-->
-        
+
         <link rel="stylesheet" href="./products/css/font-awesome.min.css">
-        
+
         <link rel="stylesheet" href="./products/css/main.css">
         <link rel="stylesheet" href="./products/css/font-awesome.min.css">
         <script src="./products/packages/jQuery/jQuery-2.1.4.min.js"></script>
@@ -25,7 +25,7 @@
         <!-- ty-mainWrap.start -->
         <div class="ty-mainWrap">
             <div class="ty-offCanvasNav">
-                
+
                 <button class="ty-catNav-trigger-close"><span><i class="fa fa-times" aria-hidden="true"></i></span></button>
             </div>
             <!-- ty-overlay-trigger.start -->
@@ -38,7 +38,7 @@
                     <div class="ty-gameBG"></div>
                     <div class="ty-push">
                         <!-- ty-mainContent.start -->
-                        
+
                         <div class="ty-mainContent">
                             <!-- ty-pageContentWrap.start -->
                             <section class="ty-pageContentWrap">
@@ -60,19 +60,30 @@
                                                 <video class="top-video" autoplay muted loop>
                                                     <source class="d-block w-100" src="hp-hero-dualchamber.webm" type="video/mp4">
                                                 </video>
-
+                                                <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0, 0, 0, 0.4); padding: 10px;">
+                                                    <h1>Desktop Computers</h1>
+                                                    <p>Unlock unparalleled computing power with high-performance desktop computers engineered to handle demanding tasks and immersive gaming experiences with ease.</p>
+                                                </div>
                                             </div>
                                             <div class="carousel-item">
                                                 <video class="top-video" autoplay muted loop>
                                                     <source class="d-block w-100" src="hp_icue-link-hx.webm" type="video/mp4">
 
                                                 </video>
+                                                <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0, 0, 0, 0.4); padding: 10px;">
+                                                    <h1>Cooling & Lightning</h1>
+                                                    <p>Elevate your gaming experience with cutting-edge cooling solutions and mesmerizing RGB lighting. Unlock superior thermal performance and unleash a captivating visual spectacle that radiates style and personality.</p>
+                                                </div>
                                             </div>
                                             <div class="carousel-item">
                                                 <video class="top-video" autoplay muted loop>
                                                     <source class="d-block w-100" src="hp-loop-k65-plus-wl.webm" type="video/mp4">
 
                                                 </video>
+                                                <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0, 0, 0, 0.4); padding: 10px;">
+                                                    <h1>Keyboard & Mouse</h1>
+                                                    <p>Command your gameplay with precision keyboards offering customizable layouts and responsive inputs, paired with high-performance gaming mice delivering pinpoint accuracy and lightning-fast reflexes</p>
+                                                </div>
                                             </div>
                                         </div>
                                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -93,14 +104,14 @@
                                             Featured Products
                                             <span class="half-line-home"></span>
                                         </h1>
-                                        
+
                                         <div class="container">
                                             <div class="row row-cols-lg-3 row-cols-md-2 ">
 
                                                 <%  try {
                                                         Dbcon dbConnector = new Dbcon();
                                                         dbConnector.connect();
-                                                        ResultSet rs = dbConnector.executeQuery("SELECT * FROM products");
+                                                        ResultSet rs = dbConnector.executeQuery("SELECT * FROM products ORDER BY product_id DESC LIMIT 3");
 
                                                         while (rs.next()) {
                                                             String id = rs.getString("product_id");
@@ -113,9 +124,9 @@
                                                         <div class="product-card">
                                                             <img class="product-image" src="./uploads/<%= rs.getString("img_path")%>" alt="">
                                                             <div class="product-info">
-                                                                <a style="color:black;text-decoration:none;" href="productSingle.jsp?id=<%=id%>"> <h4 class="product-title"><%=name%></h4></a>
+                                                                <a href="./products/productSingle.jsp?id=<%=id%>"> <h4 class="product-title"><%=name%></h4></a>
                                                                 <div class="product-price">LKR <%=price%></div>
-                                                                <form action="../cart" method="post">
+                                                                <form action="cart" method="post">
                                                                     <input type="hidden" name="p_id" value=<%=id%> />
                                                                     <input type="hidden" name="qty" value="1"/>              
                                                                     <input type="submit" class="plus-btn-a" value="+"/>

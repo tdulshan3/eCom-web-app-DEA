@@ -16,7 +16,7 @@
 %>
             <!-- ty-catListItem.start -->
             <li class="ty-catListItem">
-                <a href="productsMain.jsp?cat=<%=categoryId%>">
+                <a href="/eCom-web-app-DEA/products/productsMain.jsp?cat=<%=categoryId%>">
                     <div class="ty-catContent">
                         <div class="ty-catIconWrap"></div>
                         <div class="ty-catTitle">

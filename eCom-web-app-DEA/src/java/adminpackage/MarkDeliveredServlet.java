@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import adminpackage.Dbcon;
+import java.sql.ResultSet;
 
 /**
  *
@@ -28,8 +29,21 @@ public class MarkDeliveredServlet extends HttpServlet {
         Dbcon dbConn = new Dbcon();
         try {
             dbConn.connect();
+            ResultSet ord = dbConn.executeQuery("SELECT * FROM `order` WHERE order_id=" + orderId);
+            if(ord.next()){
+            String cartD = ord.getString("cart_d");
+            String[] productIdQtyPairs = cartD.split("/");
+            for (String pair : productIdQtyPairs) {
+                String[] productIdQty = pair.split(":");
+                int productId = Integer.parseInt(productIdQty[0]);
+                int quantity = Integer.parseInt(productIdQty[1]);
+
+                dbConn.executePreparedStatement("UPDATE products SET quantity = quantity - ? WHERE product_id = ?", quantity, productId);
+            }
+            }
             dbConn.executePreparedStatement("UPDATE `order` SET status=? WHERE order_id=?", status, orderId);
-            response.sendRedirect("adminOrder.jsp"); // Redirect back to the orders page
+            
+            response.sendRedirect("adminOrder.jsp"); 
         } catch (Exception e) {
             // Handle error
             e.printStackTrace();

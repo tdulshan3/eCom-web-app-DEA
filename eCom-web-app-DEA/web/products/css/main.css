@@ -1718,9 +1718,13 @@ Loading Animation
 
 
 
-
-
 .container {
+    display: flex;
+    padding: 80px;
+
+}
+
+.container-main {
     display: flex;
     padding: 80px;
 
@@ -1756,7 +1760,11 @@ Then, in y
     height: auto; /* Maintain aspect ratio */
 }
 @media screen and (max-width: 1200px) {
-    .container {
+    .container{
+        flex-direction: column;
+        padding: 0;
+    }
+    .container-main {
         flex-direction: column;
         padding: 0;}
     .content {
@@ -1775,6 +1783,7 @@ Then, in y
         padding-top:250px;
     }
     .image {
+        padding: 30px;
         order: -1; 
     }
 }
@@ -1901,7 +1910,18 @@ Then, in y
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
+    color: #000;
 }
+.a-product{
+    text-decoration: none;
+}
+.a-product:hover{
+  text-decoration: none; /* Remove underline */
+  color: #358fef; /* Inherit color from parent */
+ /* Remove background color */
+}
+
+
 
 @media (max-width: 1530px) {
     .product-card {
@@ -2000,34 +2020,6 @@ Then, in y
     }
 }
 
-
-
-
-/* Form styles */
-.form-title {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #666;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-}
 
 
 /* Payment options styles */

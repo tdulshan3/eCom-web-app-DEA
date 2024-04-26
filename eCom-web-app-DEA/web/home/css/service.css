@@ -1,8 +1,11 @@
 body {
-  background-color:#a6d7ea; 
-  margin: 10; 
+  background-color:#f8f8ff; 
+  margin: 0; 
 }
 
+.con{
+    margin: 30px;
+}
 .white-text {
   color: rgb(0, 0, 0);
   font-family:'PT Sans', sans-serif ;

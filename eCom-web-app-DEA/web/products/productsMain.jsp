@@ -14,22 +14,23 @@
         <!--Main Style Sheet-->
         <link rel="stylesheet" href="css/mainProduct.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="navbar.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <script src="packages/jQuery/jQuery-2.1.4.min.js"></script>
         <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>  
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
-        <%@ include file="navbar.jsp" %>
+        <%@ include file="../navbar.jsp" %>
         <%
-                            // Get the manufacturer parameter(s) from the URL
-                            String[] manufParams1 = request.getParameterValues("manu");
-                            Set<String> manuSet = manufParams1 != null ? new HashSet<String>(Arrays.asList(manufParams1)) : new HashSet<String>();
+            // Get the manufacturer parameter(s) from the URL
+            String[] manufParams1 = request.getParameterValues("manu");
+            Set<String> manuSet = manufParams1 != null ? new HashSet<String>(Arrays.asList(manufParams1)) : new HashSet<String>();
 
-                            // Get the specification parameter(s) from the URL
-                            String[] specParams1 = request.getParameterValues("sp");
-                            Set<String> specSet = specParams1 != null ? new HashSet<String>(Arrays.asList(specParams1)) : new HashSet<String>();
-                        %>
+            // Get the specification parameter(s) from the URL
+            String[] specParams1 = request.getParameterValues("sp");
+            Set<String> specSet = specParams1 != null ? new HashSet<String>(Arrays.asList(specParams1)) : new HashSet<String>();
+        %>
         <!-- ty-mainWrap.start -->
         <div class="ty-mainWrap">
             <div class="ty-offCanvasNav">
@@ -101,7 +102,7 @@
                                                 <%
                                                     } %>
 
-                                                   <input type="submit" value="Filter">
+                                                <input type="submit" value="Filter">
                                                 <!-- ty-catPage-filterWrap.start -->
                                                 <div class="ty-catPage-filterWrap">
                                                     <div class="ty-catPage-filter-priceRange-sliderWrap">
@@ -146,7 +147,7 @@
                                                             %>
                                                             <li>
 
-                                                               <input type="checkbox" name="manu" class="ty-filterListItem-input" value="<%=manuId%>" <%= manuSet.contains(String.valueOf(manuId)) ? "checked" : "" %>>
+                                                                <input type="checkbox" name="manu" class="ty-filterListItem-input" value="<%=manuId%>" <%= manuSet.contains(String.valueOf(manuId)) ? "checked" : ""%>>
                                                                 <label class="ty-filterListItem-label"><%=manuName%></label>
                                                             </li>
                                                             <%}
@@ -183,7 +184,7 @@
                                                                     int specId = rs1.getInt("id");
                                                             %>
                                                             <li>
-                                                               <input type="checkbox" name="sp" class="ty-filterListItem-input" value="<%=specId%>" <%= specSet.contains(String.valueOf(specId)) ? "checked" : "" %>>
+                                                                <input type="checkbox" name="sp" class="ty-filterListItem-input" value="<%=specId%>" <%= specSet.contains(String.valueOf(specId)) ? "checked" : ""%>>
                                                                 <label class="ty-filterListItem-label"><%=specName%></label>
                                                             </li>
                                                             <%
@@ -202,7 +203,7 @@
                                                     </div>
                                                     <% }  %>
                                                 </div>
-                                               
+
                                             </form>
                                         </div>
                                 </div>
@@ -248,18 +249,13 @@
                                                     // Get the specification parameter(s)
                                                     String[] specParams = request.getParameterValues("sp");
                                                     if (specParams != null && specParams.length > 0) {
-                                                        query += " AND specs IN (";
-                                                        for (int i = 0; i < specParams.length; i++) {
-                                                            query += specParams[i];
-                                                            if (i < specParams.length - 1) {
-                                                                query += ", ";
-                                                            }
-                                                        }
-                                                        query += ")";
+                                                        String regexPattern = "(^|,)(" + String.join("|", specParams) + ")(,|$)";
+                                                        query += " AND specs REGEXP '" + regexPattern + "'";
                                                     }
 
                                                     ResultSet rs = dbConnector.executeQuery(query);
 
+                                                   
                                                     while (rs.next()) {
                                                         String id = rs.getString("product_id");
                                                         String name = rs.getString("name");
@@ -267,22 +263,27 @@
 
                                             %>
 
-                                            <div class="col-lg-4 col-md-6 mb-4">
-                                                <div class="box">  
-                                                    <div class="product-card">
-                                                        <img class="product-image" src="../uploads/<%= rs.getString("img_path")%>" alt="">
-                                                        <div class="product-info">
-                                                            <a style="color:black;text-decoration:none;" href="productSingle.jsp?id=<%=id%>"> <h4 class="product-title"><%=name%></h4></a>
-                                                            <div class="product-price">LKR <%=price%></div>
-                                                            <form action="../cart" method="post">
-                                                                <input type="hidden" name="p_id" value=<%=id%> />
-                                                                <input type="hidden" name="qty" value="1"/>              
-                                                                <input type="submit" class="plus-btn-a" value="+"/>
-                                                            </form>
 
+                                            <div class="col-lg-4 col-md-6 mb-4">
+                                                <a class="a-product" href="productSingle.jsp?id=<%=id%>">
+                                                    <div class="box">
+
+                                                        <div class="product-card">
+                                                            <img class="product-image" src="../uploads/<%= rs.getString("img_path")%>" alt="">
+                                                            <div class="product-info">
+                                                                <h4 class="product-title"><%=name%></h4>
+                                                                <div class="product-price">LKR <%=price%></div>
+                                                                <form action="../cart" method="post">
+                                                                    <input type="hidden" name="p_id" value=<%=id%> />
+                                                                    <input type="hidden" name="qty" value="1"/>              
+                                                                    <input type="submit" class="plus-btn-a" value="+"/>
+                                                                </form>
+
+                                                            </div>
                                                         </div>
+
                                                     </div>
-                                                </div>
+                                                </a>               
                                             </div>
                                             <%
                                                     }

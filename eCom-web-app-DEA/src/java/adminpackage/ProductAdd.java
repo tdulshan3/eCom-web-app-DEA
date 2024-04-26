@@ -18,6 +18,8 @@ import javax.servlet.http.Part;
 
 public class ProductAdd extends HttpServlet {
 
+    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -45,6 +47,9 @@ public class ProductAdd extends HttpServlet {
         int categoryId = Integer.parseInt(getValueOrDefault(request.getParameter("category_id"), "0"));
         int manufacturerId = Integer.parseInt(getValueOrDefault(request.getParameter("manufacturer_id"), "0"));
         int quantity = Integer.parseInt(getValueOrDefault(request.getParameter("quantity"), "0"));
+
+        description = sanitizeInput(description);
+        specifications = sanitizeInput(specifications);
 
         Dbcon dbConnector = new Dbcon();
         PrintWriter out = response.getWriter();
@@ -75,5 +80,13 @@ public class ProductAdd extends HttpServlet {
 
     private String getValueOrDefault(String value) {
         return getValueOrDefault(value, "");
+    }
+
+    private String sanitizeInput(String input) {
+        if (input != null) {
+
+            return input.replaceAll("[^a-zA-Z0-9\\s]", "");
+        }
+        return input;
     }
 }

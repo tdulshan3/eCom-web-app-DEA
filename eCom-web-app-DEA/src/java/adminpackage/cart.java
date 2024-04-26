@@ -25,6 +25,8 @@ public class cart extends HttpServlet {
         String userId = UserSession.getUserIdFromSession(request);
         String cartDetailsOld = "";
 
+        
+
         Dbcon dbConn = new Dbcon();
         PrintWriter out = response.getWriter();
 
@@ -76,7 +78,12 @@ public class cart extends HttpServlet {
                             dbConn.executePreparedStatement(queryOrder, userId, cart_details);
                         }
                     }
-                    response.sendRedirect("test_product.jsp");
+                    String referer = request.getHeader("referer");
+                    if (referer != null && !referer.isEmpty()) {
+                        response.sendRedirect(referer);
+                    } else {
+                        
+                    }
                 }
 
             } else {
@@ -126,9 +133,9 @@ public class cart extends HttpServlet {
                 cartCookie.setPath("/");
                 response.addCookie(cartCookie);
                 String referer = request.getHeader("Referer");
-                if (referer != null && !referer.isEmpty()){        
-            response.sendRedirect(referer);
-        } 
+                if (referer != null && !referer.isEmpty()) {
+                    response.sendRedirect(referer);
+                }
 
             }
 

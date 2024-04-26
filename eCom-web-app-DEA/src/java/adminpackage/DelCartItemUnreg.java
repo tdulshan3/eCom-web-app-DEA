@@ -14,6 +14,7 @@ public class DelCartItemUnreg extends HttpServlet {
             throws ServletException, IOException {
         
         String itemDetails = request.getParameter("itemDetails");
+       
         
         String cartdetailsOld;
         Cookie[] cookies = request.getCookies();
@@ -36,7 +37,7 @@ public class DelCartItemUnreg extends HttpServlet {
                             }
                             Cookie cartCookie = new Cookie("cart_details", newCartDetails);
                             cartCookie.setMaxAge(3600); 
-                            cartCookie.setPath("/"); // Set cookie path
+                            cartCookie.setPath("/"); 
 
                             response.addCookie(cartCookie);
                             response.sendRedirect("cart.jsp");

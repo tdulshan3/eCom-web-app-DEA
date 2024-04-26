@@ -15,7 +15,7 @@
         <link href="style1.css" rel="stylesheet">
     </head>
     <body>
-
+        <%@ include file="navbar.jsp" %>
         <%
             String userId = UserSession.getUserIdFromSession(request);
             int cartId1 = 0;
@@ -58,43 +58,46 @@
                                         for (Cookie cookie : cookies) {
                                             if (cookie.getName().equals("cart_details")) {
                                                 cartDetails = cookie.getValue();
-                                                String[] pairs = cartDetails.split("/");
-                                                Integer i = 0;
-                                                for (String pair : pairs) {
-                                                    i++;
-                                                    String[] parts = pair.split(":");
-                                                    int productId = Integer.parseInt(parts[0]);
-                                                    int quantity = Integer.parseInt(parts[1]);
-                                                    ResultSet rsProduct = dbConn.executeQuery("SELECT name, price, quantity FROM products WHERE product_id=" + productId);
-                                                    if (rsProduct.next()) {
-                                                        productName = rsProduct.getString("name");
-                                                        price = rsProduct.getInt("price");
+                                                if (cartDetails != null && !cartDetails.isEmpty()) {
+                                                    String[] pairs = cartDetails.split("/");
 
-                                                        qty = rsProduct.getInt("quantity");
-                                                        total += price * quantity;
+                                                    Integer i = 0;
+                                                    for (String pair : pairs) {
+                                                        i++;
+                                                        String[] parts = pair.split(":");
+                                                        int productId = Integer.parseInt(parts[0]);
+                                                        int quantity = Integer.parseInt(parts[1]);
+                                                        ResultSet rsProduct = dbConn.executeQuery("SELECT name, price, quantity FROM products WHERE product_id=" + productId);
+                                                        if (rsProduct.next()) {
+                                                            productName = rsProduct.getString("name");
+                                                            price = rsProduct.getInt("price");
 
-                                                        if (qty == 0) {
-                                                            ava = "outofstock";
-                                                        } else {
-                                                            ava = "instock";
+                                                            qty = rsProduct.getInt("quantity");
+                                                            total += price * quantity;
+
+                                                            if (qty == 0) {
+                                                                ava = "outofstock";
+                                                            } else {
+                                                                ava = "instock";
+                                                            }
+                                                            out.print("<tr><td>" + Integer.toString(i) + "</td><td>" + productName + "</td><td>" + ava + "</td><td>" + price + "</td><td>"
+                                                                    + "<div style='display: flex; align-items: center;'>"
+                                                                    + "<form action='cart' method='post' style='margin-right: 5px;'>"
+                                                                    + "<input type='hidden' name='p_id' value='" + productId + "' />"
+                                                                    + "<input type='hidden' name='qty' value='1' />"
+                                                                    + "<input type='submit' value='+' />"
+                                                                    + "</form>"
+                                                                    + quantity
+                                                                    + "<form action='cart' method='post' style='margin-left: 5px;'>"
+                                                                    + "<input type='hidden' name='p_id' value='" + productId + "' />"
+                                                                    + "<input type='hidden' name='qty' value='-1' />"
+                                                                    + "<input type='submit' value='-' />"
+                                                                    + "</form>"
+                                                                    + "</div>"
+                                                                    + "</td><td>" + price * quantity + "</td><td><form action='DelCartItemUnreg' method='post'><input type='hidden' name='itemDetails' value='" + productId + ":" + quantity + "'><input type='submit' value='Delete'></form></td></tr>");
                                                         }
-                                                       out.print("<tr><td>" + Integer.toString(i) + "</td><td>" + productName + "</td><td>" + ava + "</td><td>" + price + "</td><td>" +
-          "<div style='display: flex; align-items: center;'>" +
-          "<form action='cart' method='post' style='margin-right: 5px;'>" +
-          "<input type='hidden' name='p_id' value='" + productId + "' />" +
-          "<input type='hidden' name='qty' value='1' />" +
-          "<input type='submit' value='+' />" +
-          "</form>" +
-          quantity +
-          "<form action='cart' method='post' style='margin-left: 5px;'>" +
-          "<input type='hidden' name='p_id' value='" + productId + "' />" +
-          "<input type='hidden' name='qty' value='-1' />" +
-          "<input type='submit' value='-' />" +
-          "</form>" +
-          "</div>" +
-          "</td><td>" + price * quantity + "</td><td><form action='DelCartItemUnreg' method='post'><input type='hidden' name='itemDetails' value='" + productId + ":" + quantity + "'><input type='submit' value='Delete'></form></td></tr>");}
+                                                    }
                                                 }
-
                                                 break;
                                             }
                                         }
@@ -125,7 +128,22 @@
                                                     } else {
                                                         ava = "instock";
                                                     }
-                                                    out.print("<tr><td>" + Integer.toString(i) + "</td><td>" + productName + "</td><td>" + ava + "</td><td>" + price + "</td><td>" + quantity + "</td><td>" + price * quantity + "</td><td><form action='DeleteCartItem' method='post'><input type='hidden' name='itemDetails' value='" + productId + ":" + quantity + "'><input type='submit' value='Delete'></form></td></tr>");
+                                                    out.print("<tr><td>" + Integer.toString(i) + "</td><td>" + productName + "</td><td>" + ava + "</td><td>LKR" + price + "</td><td>"
+                                                            + "<div style='display: flex; align-items: center;'>"
+                                                            + "<form action='cart' method='post' style='margin-right: 5px;'>"
+                                                            + "<input type='hidden' name='p_id' value='" + productId + "' />"
+                                                            + "<input type='hidden' name='qty' value='1' />"
+                                                            + "<input type='submit' value='+' />"
+                                                            + "</form>"
+                                                            + quantity
+                                                            + "<form action='cart' method='post' style='margin-left: 5px;'>"
+                                                            + "<input type='hidden' name='p_id' value='" + productId + "' />"
+                                                            + "<input type='hidden' name='qty' value='-1' />"
+                                                            + "<input type='submit' value='-' />"
+                                                            + "</form>"
+                                                            + "</div>"
+                                                            + "</td><td>LKR "
+                                                            + price * quantity + "</td><td><form action='DeleteCartItem' method='post'><input type='hidden' name='itemDetails' value='" + productId + ":" + quantity + "'><input type='submit' value='Delete'></form></td></tr>");
                                                 }
                                             }
                                             cartId1 = cartId;
@@ -146,17 +164,18 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between mb-3 pt-1">
                                 <h6 class="font-weight-medium">Subtotal</h6>
-                                <h6 class="font-weight-medium"><%= total%></h6>
+                                <h6 class="font-weight-medium">LKR <%= total%></h6>
                             </div>
                         </div>
                         <div class="card-footer border-secondary bg-transparent">
                             <div class="d-flex justify-content-between mt-2">
                                 <h5 class="font-weight-bold">Total</h5>
-                                <h5 class="font-weight-bold"><%= total%></h5>
+                                <h5 class="font-weight-bold">LKR <%= total%></h5>
                             </div>
                             <form action="CheckoutRegservlet" method="post">   
                                 <input type="submit" class="btn btn-block btn-primary my-3 py-3" value="Proceed To Checkout">
                             </form>
+
                             <%  if (userId.equals("0")) { %>
 
                             <form action='DelCartUnReg' method='post'><input type='submit' class="btn btn-block btn-primary my-3 py-3" value='Clear All'></form>

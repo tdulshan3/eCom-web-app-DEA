@@ -9,16 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class DelCartUnReg extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Cookie cartCookie = new Cookie("cart_details", "-1:-1/");
-        cartCookie.setMaxAge(1); 
-        cartCookie.setPath("/"); 
+        cartCookie.setMaxAge(1);
+        cartCookie.setPath("/");
         response.addCookie(cartCookie);
-        response.sendRedirect("cart.jsp");
         
-    }
+        response.sendRedirect("cart.jsp");
 
+    }
 
 }
