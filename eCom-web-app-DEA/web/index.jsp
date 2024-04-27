@@ -151,6 +151,7 @@
 
 
 <%@ include file="other.html" %>
+<%@ include file="footer.html" %>
                             </section>
                         </div>
                     </div>

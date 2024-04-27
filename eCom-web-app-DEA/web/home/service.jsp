@@ -59,6 +59,7 @@
                 <li>Delivery is entrusted to specialized delivery companies.</li>
             </ul>
         </div>
+        <%@ include file="../footer.html" %>
     </body>
 </html>
 
