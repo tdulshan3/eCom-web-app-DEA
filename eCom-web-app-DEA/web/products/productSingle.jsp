@@ -21,7 +21,7 @@
 
     </head>
     <body>
-        <%@ include file="../navbar.jsp" %>
+        
         <div class="ty-mainWrap">
             <div class="ty-offCanvasNav">
 
@@ -39,7 +39,7 @@
                         <!-- ty-mainContent.start -->
 
                         <div class="ty-mainContent">
-                            <!-- ty-pageContentWrap.start -->
+                           <%@ include file="../navbar.jsp" %>
                             <section class="ty-pageContentWrap">
                                 <a href="#showHere"></a>
 
