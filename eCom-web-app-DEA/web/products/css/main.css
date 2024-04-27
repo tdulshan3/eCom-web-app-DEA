@@ -2004,7 +2004,7 @@ Then, in y
     background-color: #fff;
     padding: 50px;
     max-width: 500px;
-    border: 6px solid #666;
+    box-shadow:  0px 4px 8px 5px rgba(0, 0, 0, 0.1);
 }
 
 .left-container {
