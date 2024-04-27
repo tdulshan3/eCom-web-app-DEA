@@ -21,7 +21,7 @@
         <script src="packages/jQuery/jQuery-2.1.4.min.js"></script>
     </head>
     <body>
-        <%@ include file="navbar.jsp" %>
+        
         <!-- ty-mainWrap.start -->
         <div class="ty-mainWrap">
             <div class="ty-offCanvasNav">
@@ -40,9 +40,8 @@
                         <!-- ty-mainContent.start -->
 
                         <div class="ty-mainContent">
-                            <!-- ty-pageContentWrap.start -->
+                            <%@ include file="navbar.jsp" %>
                             <section class="ty-pageContentWrap">
-                                <a href="#showHere"></a>
                                 <%@ include file="./products/sidebar.jsp" %>
                                 <!-- ty-pageContent.start -->
                                 <div class="ty-cat">

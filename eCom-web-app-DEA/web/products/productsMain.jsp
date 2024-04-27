@@ -38,7 +38,7 @@
                 <h2>Catergories</h2>
             </div>
             <!-- ty-overlay-trigger.start -->
-            <div class="ty-overlay-trigger ty-catNav-trigger-close"></div>
+            
             <!-- ty-contentWrap.start -->
             <div class="ty-contentWrap container-fluid">
                 <!-- ty-content.start -->

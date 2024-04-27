@@ -73,7 +73,7 @@ body,
 .ty-contentWrap {
     width: 100%;
     height: 100%;
-    overflow: hidden; }
+}
 
 .ty-mainWrap {
     background: #f8f8ff; }
@@ -1916,9 +1916,9 @@ Then, in y
     text-decoration: none;
 }
 .a-product:hover{
-  text-decoration: none; /* Remove underline */
-  color: #358fef; /* Inherit color from parent */
- /* Remove background color */
+    text-decoration: none; /* Remove underline */
+    color: #358fef; /* Inherit color from parent */
+    /* Remove background color */
 }
 
 
@@ -1987,50 +1987,99 @@ Then, in y
 
 
 
+/* General Styles */
+
+
 .container-form {
     display: flex;
-    
     justify-content: center;
-    align-items: center;
-    padding: 50px;
-    
+    align-items: flex-start;
+    padding: 30px;
+    margin-top: 50px;
+
 }
 
-.left-container, .right-container {
-    padding: 20px;
-    box-sizing: border-box;
+.left-container,
+.right-container {
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    max-width: 500px;
+    border: 6px solid #666;
 }
 
 .left-container {
-    width: 40%;
-    flex: 2;
+    flex-basis: 60%;
+    margin-right: 200px;
 }
 
 .right-container {
-    flex: 1;
-    width: 60%;
+    flex-basis: 40%;
 
 }
 
-@media screen and (max-width: 1200px) {
-    .left-container, .right-container {
+/* Form Styles */
+.form-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.checkout-form .form-group {
+    margin-bottom: 20px;
+}
+
+.checkout-form label {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.checkout-form input[type="text"],
+.checkout-form input[type="email"],
+.checkout-form input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+.checkout-form input[type="text"],
+.checkout-form input[type="email"],
+.checkout-form input[type="tel"]::after {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #blue;
+}
+
+.radio-bt{
+    margin-right: 10px;
+    margin-bottom: 20px;
+    margin-left: 120px;
+}
+
+.bt-wrap-sub {
+    margin: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .container-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-container,
+    .right-container {
         width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .radio-bt{
+        margin-left: 50px;
     }
 }
-
-
-
-/* Payment options styles */
-
-
-
-
-
-
-/* Custom CSS for form styling */
-
-
-
-/* Rest of your CSS styles */
