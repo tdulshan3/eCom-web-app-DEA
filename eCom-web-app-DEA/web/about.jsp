@@ -31,7 +31,7 @@
 
 <br><br>
 
-<div class="container">
+<div class="containerX">
         <div class="row row-cols-lg-3 row-cols-md-2">
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">

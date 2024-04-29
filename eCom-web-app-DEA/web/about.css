@@ -18,6 +18,13 @@ body {
     margin-top: 10px;
 }
 
+.containerX{
+    
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: #fff;
+}
 @media (max-width: 767px) {
     .card-img-top {
         height: 200px;
