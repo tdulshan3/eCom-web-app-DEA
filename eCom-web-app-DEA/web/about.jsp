@@ -102,7 +102,8 @@
                 <div class="card h-100">
                     <img src="profile/madara.png" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
-                        <h3 class="card-text">U.W.V.Piyumika</h3>
+                        <h3 class="card-text">E.M.M.D.Ekanayake</h3>
+                        <p>28308</p>
                     </div>
                 </div>
             </div>
