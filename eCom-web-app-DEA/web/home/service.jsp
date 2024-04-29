@@ -13,13 +13,15 @@
         <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="css/service.css">
+        <link rel="icon" type="image/png" sizes="32x32" href="16.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="32.png">
         <title>Service</title>
     </head>
     <body>
 
         <%@ include file="../navbar.jsp" %>
         <div class="con">
-            
+
             <h1><b class="white-text">SERVICES</b></h1>
             <div class="topic-container">
                 <img src="images/warranty.png" width="39" height="41"> <span>Warranty</span>

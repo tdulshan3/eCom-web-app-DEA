@@ -10,7 +10,8 @@
 
         <!--Main Style Sheet-->
         <link rel="stylesheet" href="./products/css/font-awesome.min.css">
-
+<link rel="icon" type="image/png" sizes="32x32" href="16.png">
+<link rel="icon" type="image/png" sizes="16x16" href="32.png">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <script src="packages/jQuery/jQuery-2.1.4.min.js"></script>

@@ -1866,6 +1866,23 @@ Then, in y
     font-weight: bold;
 }
 
+.product-card1 {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    width: 300px;
+    min-height: 440px;
+    margin: 20px;
+    background-color: white;
+    transition: border-color 0.3s ease; 
+    box-shadow:  0px 4px 8px 0px rgba(0, 0, 0, 0.1);
+    padding: 20px;/* Added transition property */
+}
+
+.product-card1:hover { /* Corrected the selector */
+    box-shadow: 0px 4px 60px 0px rgba(54, 144, 224, 0.3);/* Changed border to border-color */
+}
 
 .product-card {
     display: flex;
@@ -1873,6 +1890,7 @@ Then, in y
     border: 1px solid #ddd;
     overflow: hidden;
     width: 300px;
+    min-height: 450px;
     margin: 20px;
     background-color: white;
     transition: border-color 0.3s ease; 
@@ -1889,6 +1907,8 @@ Then, in y
 .product-image {
     width: 100%;
     height: auto;
+    aspect-ratio: 1 / 1; 
+    object-fit: cover;
 }
 
 .product-info {
@@ -1926,9 +1946,15 @@ Then, in y
 @media (max-width: 1530px) {
     .product-card {
 
-        width: 100%;
+        width: 80%;
+        
     }
 
+     .product-card1 {
+
+        width: 100%;
+        
+    }
 }
 
 

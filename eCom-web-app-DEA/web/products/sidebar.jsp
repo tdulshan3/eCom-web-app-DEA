@@ -4,6 +4,7 @@
 <%@ page import="java.sql.SQLException" %>
 <div class="ty-cat">
     <ul class="ty-catList">
+    
 <% 
     try {
         Dbcon dbConnector = new Dbcon();

@@ -8,6 +8,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Product Details</title>
+                <link rel="icon" type="image/png" sizes="32x32" href="16.png">
+<link rel="icon" type="image/png" sizes="16x16" href="32.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link href="./admin.css" rel="stylesheet">
         <style>

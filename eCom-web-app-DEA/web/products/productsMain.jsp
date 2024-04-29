@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="navbar.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="icon" type="image/png" sizes="32x32" href="16.png">
+<link rel="icon" type="image/png" sizes="16x16" href="32.png">
         <script src="packages/jQuery/jQuery-2.1.4.min.js"></script>
         <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>  
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -38,7 +40,7 @@
                 <h2>Catergories</h2>
             </div>
             <!-- ty-overlay-trigger.start -->
-            
+
             <!-- ty-contentWrap.start -->
             <div class="ty-contentWrap container-fluid">
                 <!-- ty-content.start -->
@@ -139,8 +141,17 @@
                                                                     if (manuIds.length() > 0) {
                                                                         manuIds.setLength(manuIds.length() - 1);
                                                                     }
+                                                                    
+                                                                    String sqlToExecute;
+                                                                    String sqlx = "SELECT * FROM `manufacturer`";
                                                                     String sql = "SELECT * FROM `manufacturer` WHERE manufacturer_id IN (" + manuIds + ")";
-                                                                    ResultSet rs = dbConnector.executeQuery(sql);
+                                                                    if (catId.isEmpty()) {
+                                                                        sqlToExecute = sqlx;
+                                                                    } else {
+                                                                        sqlToExecute = sql;
+                                                                    }
+
+                                                                    ResultSet rs = dbConnector.executeQuery(sqlToExecute);
                                                                     while (rs.next()) {
                                                                         String manuName = rs.getString("manufacturer_name");
                                                                         int manuId = rs.getInt("manufacturer_id");
@@ -255,7 +266,6 @@
 
                                                     ResultSet rs = dbConnector.executeQuery(query);
 
-                                                   
                                                     while (rs.next()) {
                                                         String id = rs.getString("product_id");
                                                         String name = rs.getString("name");
@@ -268,7 +278,7 @@
                                                 <a class="a-product" href="productSingle.jsp?id=<%=id%>">
                                                     <div class="box">
 
-                                                        <div class="product-card">
+                                                        <div class="product-card1">
                                                             <img class="product-image" src="../uploads/<%= rs.getString("img_path")%>" alt="">
                                                             <div class="product-info">
                                                                 <h4 class="product-title"><%=name%></h4>

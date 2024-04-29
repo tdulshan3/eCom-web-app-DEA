@@ -5,17 +5,18 @@
 }
 
 .footer-section {
-    background-color: rgb(33,42,74);
+    
+    background-color: rgb(0, 0, 0, 0.8);
     width: 100%;
     height: auto;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     box-sizing: border-box;
 }
 
 .footer-para1 {
     color: white;
     font-size: 18px;
-    padding: 20px 0;
+    padding: 10px 0;
     text-align: center;
 }
 
@@ -27,7 +28,7 @@
 .footer-para2 {
     color: white;
     font-size: 20px;
-    padding: 20px 0 0 20px;
+    padding: 10px 0 0 20px;
     font-weight: 800;
 }
 

@@ -52,10 +52,6 @@
 
                 Dbcon dbConn = new Dbcon();
                 dbConn.connect();
-                ResultSet user = dbConn.executeQuery("SELECT * FROM `user` WHERE user_id=" + userId1);
-                if (user.next()) {
-                    Uname = user.getString("FirstName");
-                }
                 ResultSet rsCart = dbConn.executeQuery("SELECT cart_details FROM cart WHERE user_id=" + userId1);
                 if (rsCart.next()) {
                     cartDetails1 = rsCart.getString("cart_details");
@@ -77,7 +73,7 @@
 
 
                     <a href="/eCom-web-app-DEA/">
-                        <img src="logo-dark.png" alt="Cart">
+                        <img src="lg.PNG" alt="Cart">
                     </a>
 
 
@@ -93,7 +89,7 @@
                     <%if (userId1.equals("0")) { %>
                     <button ><a href="/eCom-web-app-DEA/login&signup.jsp" class="btn-signin">Sign In</a></button>
                     <%} else {%>
-                    <button onclick="showLogoutDialog()"><a href="#" class="btn-signin" ><%=Uname%></a></button>
+                    <button onclick="showLogoutDialog()"><a href="#" class="btn-signin" >Sign Out</a></button>
                             <%}%>
 
                     <div class="cart">

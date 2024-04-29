@@ -13,6 +13,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cart</title>
         <link href="style1.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        
+                    <link rel="icon" type="image/png" sizes="32x32" href="16.png">
+<link rel="icon" type="image/png" sizes="16x16" href="32.png">
     </head>
     <body>
         <%@ include file="navbar.jsp" %>
@@ -21,11 +25,11 @@
             int cartId1 = 0;
 
         %>
-        <div class="container-fluid bg-secondary mb-5">
+        <div class="container-fluid con1 mb-5">
             <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
                 <h1 class="font-weight-semi-bold text-uppercase mb-3">Cart</h1>
                 <div class="d-inline-flex">
-                    <p class="m-0"><a href="">Home</a></p>
+                    <p class="m-0"><a href="/eCom-web-app-DEA/">Home</a></p>
                     <p class="m-0 px-2">-</p>
                     <p class="m-0">Cart</p>
                 </div>
@@ -85,16 +89,16 @@
                                                                     + "<form action='cart' method='post' style='margin-right: 5px;'>"
                                                                     + "<input type='hidden' name='p_id' value='" + productId + "' />"
                                                                     + "<input type='hidden' name='qty' value='1' />"
-                                                                    + "<input type='submit' value='+' />"
+                                                                    + "<input type='submit' class='btn btn-dark' value='+' />"
                                                                     + "</form>"
                                                                     + quantity
                                                                     + "<form action='cart' method='post' style='margin-left: 5px;'>"
                                                                     + "<input type='hidden' name='p_id' value='" + productId + "' />"
                                                                     + "<input type='hidden' name='qty' value='-1' />"
-                                                                    + "<input type='submit' value='-' />"
+                                                                    + "<input type='submit' class='btn btn-dark' value='-' />"
                                                                     + "</form>"
                                                                     + "</div>"
-                                                                    + "</td><td>" + price * quantity + "</td><td><form action='DelCartItemUnreg' method='post'><input type='hidden' name='itemDetails' value='" + productId + ":" + quantity + "'><input type='submit' value='Delete'></form></td></tr>");
+                                                                    + "</td><td>" + price * quantity + "</td><td><form action='DelCartItemUnreg' method='post'><input type='hidden' name='itemDetails' value='" + productId + ":" + quantity + "'><input type='submit' value='Delete' class='btn btn-danger'></form></td></tr>");
                                                         }
                                                     }
                                                 }
@@ -133,17 +137,17 @@
                                                             + "<form action='cart' method='post' style='margin-right: 5px;'>"
                                                             + "<input type='hidden' name='p_id' value='" + productId + "' />"
                                                             + "<input type='hidden' name='qty' value='1' />"
-                                                            + "<input type='submit' value='+' />"
+                                                            + "<input type='submit' class='btn btn-dark' value='+' />"
                                                             + "</form>"
                                                             + quantity
                                                             + "<form action='cart' method='post' style='margin-left: 5px;'>"
                                                             + "<input type='hidden' name='p_id' value='" + productId + "' />"
                                                             + "<input type='hidden' name='qty' value='-1' />"
-                                                            + "<input type='submit' value='-' />"
+                                                            + "<input type='submit' class='btn btn-dark' value='-' />"
                                                             + "</form>"
                                                             + "</div>"
                                                             + "</td><td>LKR "
-                                                            + price * quantity + "</td><td><form action='DeleteCartItem' method='post'><input type='hidden' name='itemDetails' value='" + productId + ":" + quantity + "'><input type='submit' value='Delete'></form></td></tr>");
+                                                            + price * quantity + "</td><td><form action='DeleteCartItem' method='post'><input type='hidden' name='itemDetails' value='" + productId + ":" + quantity + "'><input type='submit' class='btn btn-danger' value='Delete'></form></td></tr>");
                                                 }
                                             }
                                             cartId1 = cartId;
@@ -158,7 +162,7 @@
                 <div class="col-lg-4">
 
                     <div class="card border-secondary mb-5">
-                        <div class="card-header bg-secondary border-0">
+                        <div class="card-header con1 border-0">
                             <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
                         </div>
                         <div class="card-body">
@@ -173,23 +177,24 @@
                                 <h5 class="font-weight-bold">LKR <%= total%></h5>
                             </div>
                             <form action="CheckoutRegservlet" method="post">   
-                                <input type="submit" class="btn btn-block btn-primary my-3 py-3" value="Proceed To Checkout">
+                                <input type="submit" class="btn btn-block btn-primary my-3 py-3 w-100" value="Proceed To Checkout">
                             </form>
 
                             <%  if (userId.equals("0")) { %>
 
-                            <form action='DelCartUnReg' method='post'><input type='submit' class="btn btn-block btn-primary my-3 py-3" value='Clear All'></form>
+                            <form action='DelCartUnReg' method='post'><input type='submit' class="btn btn-block btn-primary my-3 py-3 w-100" value='Clear All'></form>
 
                             <% } else {%> 
 
-                            <form action='deleteCart' method='post'><input  type='hidden' name='cartId' value=<%=cartId1%>><input class="btn btn-block btn-primary my-3 py-3" type='submit' value='Clear All'></form>
+                            <form action='deleteCart' method='post'><input  type='hidden' name='cartId' value=<%=cartId1%>><input class="btn btn-block btn-primary my-3 py-3 w-100" type='submit' value='Clear All'></form>
                                 <% }%> 
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-                        <%@ include file="footer.html" %>
+                        <div class="mt-5">
+                            <%@ include file="footer.html" %></div>
     </body>
 
 

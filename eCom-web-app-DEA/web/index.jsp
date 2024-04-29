@@ -5,11 +5,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>NEWLINE Computers</title>
+        <title>Only-PC</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <!--Main Style Sheet-->
-
+<link rel="icon" type="image/png" sizes="32x32" href="16.png">
+<link rel="icon" type="image/png" sizes="16x16" href="32.png">
         <link rel="stylesheet" href="./products/css/font-awesome.min.css">
 
         <link rel="stylesheet" href="./products/css/main.css">
@@ -21,7 +22,7 @@
         <script src="packages/jQuery/jQuery-2.1.4.min.js"></script>
     </head>
     <body>
-        
+
         <!-- ty-mainWrap.start -->
         <div class="ty-mainWrap">
             <div class="ty-offCanvasNav">
@@ -119,6 +120,7 @@
 
                                                 %>
                                                 <div class="col-lg-4 col-md-6 mb-4">
+                                                    <a class="a-product" href="./products/productSingle.jsp?id=<%=id%>" >
                                                     <div class="box">  
                                                         <div class="product-card">
                                                             <img class="product-image" src="./uploads/<%= rs.getString("img_path")%>" alt="">
@@ -126,14 +128,16 @@
                                                                 <a href="./products/productSingle.jsp?id=<%=id%>"> <h4 class="product-title"><%=name%></h4></a>
                                                                 <div class="product-price">LKR <%=price%></div>
                                                                 <form action="cart" method="post">
-                                                                    <input type="hidden" name="p_id" value=<%=id%> />
+                                                                    <input type="hidden" name="p_id" value="<%=id%>" />
                                                                     <input type="hidden" name="qty" value="1"/>              
                                                                     <input type="submit" class="plus-btn-a" value="+"/>
                                                                 </form>
 
+                                                            
                                                             </div>
                                                         </div>
-                                                    </div>
+
+                                                    </div></a>
                                                 </div>
                                                 <%
                                                         }
@@ -149,15 +153,15 @@
                                 </div>
 
 
-<%@ include file="other.html" %>
-<%@ include file="footer.html" %>
+                                <%@ include file="other.html" %>
+                                <%@ include file="footer.html" %>
                             </section>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-                                             
+
         <!--scripts-->
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
