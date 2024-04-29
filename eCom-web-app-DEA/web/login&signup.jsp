@@ -27,8 +27,11 @@
                             <input type="password" name="password" placeholder="Password" autocomplete="new-password"/>
                         </div>
                         <input type="submit" value="Login" class="btn solid" />
-                        <% String errorMessage = (String) request.getAttribute("errorMessage");
+                        <% 
+                //getting an attribute from Logins.java servlet
+                String errorMessage = (String) request.getAttribute("errorMessage");
                 String errorMessage1 = (String) request.getAttribute("errorMessage1");
+                //if there an error this will display it
                 if (errorMessage != null) {%>
                         <p style="color: red;"><%= errorMessage%></p>
                         <% } %>
@@ -110,6 +113,7 @@
                         </div>
                         <input type="submit" class="btn" value="SIGN UP" />
                         <%
+                //if there an error message this will display it
                 if (errorMessage1 != null) {%>
                         <p style="color: red;"><%= errorMessage1%></p>
                         <% }%>
@@ -145,19 +149,20 @@
             </div>
         </div>
         <script>
-
+        //this assign the url parameter to formParam  const variable
             const formParam = '<%= request.getAttribute("formParam")%>';
                     const container = document.querySelector(".container");
                     const signInBtn = document.querySelector("#sign-in-btn");
                     const signUpBtn = document.querySelector("#sign-up-btn");
+        //this function will show signing form to user
                     function showSignInForm() {
                         container.classList.remove("sign-up-mode");
                     }
-
+        //this function will show signup form to user  
             function showSignUpForm() {
                 container.classList.add("sign-up-mode");
             }
-
+        //this will change the form according to the browser url parameter
             if (formParam === 'signup') {
                 showSignUpForm();
             } else {
