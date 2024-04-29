@@ -26,11 +26,12 @@ public class DeleteCartItem extends HttpServlet {
         Dbcon dbConn = new Dbcon();
         try {
         dbConn.connect();
-            
+                //delete cart items from database - registered user.
                 ResultSet rs = dbConn.executeQuery("SELECT cart_details FROM cart WHERE user_id = " + userId);
 
                 if (rs.next()) {
                     String cartdetailsOld = rs.getString("cart_details");
+                    //replace values with "" and update cart with new value.
                     String newCartDetails="";
                     String[] pairs = cartdetailsOld.split("/");
                     int i=0;

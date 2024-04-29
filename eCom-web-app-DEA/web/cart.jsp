@@ -55,22 +55,26 @@
                                 String productName, cartDetails, ava;
                                 Dbcon dbConn = new Dbcon();
                                 dbConn.connect();
+                                //check user.
                                 if (userId.equals("0")) {
-
+                                    //if user is unregistered access cookies to display products.
                                     Cookie[] cookies = request.getCookies();
                                     if (cookies != null) {
                                         for (Cookie cookie : cookies) {
                                             if (cookie.getName().equals("cart_details")) {
                                                 cartDetails = cookie.getValue();
                                                 if (cartDetails != null && !cartDetails.isEmpty()) {
+                                                    //split string for aray from '/'.
                                                     String[] pairs = cartDetails.split("/");
-
+                                                    //productID':'Quantity
                                                     Integer i = 0;
                                                     for (String pair : pairs) {
                                                         i++;
+                                                        //split product Id and quantity.
                                                         String[] parts = pair.split(":");
                                                         int productId = Integer.parseInt(parts[0]);
                                                         int quantity = Integer.parseInt(parts[1]);
+                                                        //get product details using product id.
                                                         ResultSet rsProduct = dbConn.executeQuery("SELECT name, price, quantity FROM products WHERE product_id=" + productId);
                                                         if (rsProduct.next()) {
                                                             productName = rsProduct.getString("name");
@@ -78,12 +82,13 @@
 
                                                             qty = rsProduct.getInt("quantity");
                                                             total += price * quantity;
-
+                                                            //check availability of product
                                                             if (qty == 0) {
                                                                 ava = "outofstock";
                                                             } else {
                                                                 ava = "instock";
                                                             }
+                                                            //display product
                                                             out.print("<tr><td>" + Integer.toString(i) + "</td><td>" + productName + "</td><td>" + ava + "</td><td>" + price + "</td><td>"
                                                                     + "<div style='display: flex; align-items: center;'>"
                                                                     + "<form action='cart' method='post' style='margin-right: 5px;'>"
@@ -102,12 +107,14 @@
                                                         }
                                                     }
                                                 }
+                                                //if found cookie then stop serching
                                                 break;
                                             }
                                         }
                                     }
-
+                                //if user is registered.
                                 } else {
+                                    //get cart details from database
                                     ResultSet rsCart = dbConn.executeQuery("SELECT cart_id, cart_details FROM cart WHERE user_id= " + userId);
                                     if (rsCart.next()) {
                                         cartDetails = rsCart.getString("cart_details");
@@ -179,12 +186,18 @@
                             <form action="CheckoutRegservlet" method="post">   
                                 <input type="submit" class="btn btn-block btn-primary my-3 py-3 w-100" value="Proceed To Checkout">
                             </form>
-
-                            <%  if (userId.equals("0")) { %>
+                            
+                             
+                            <%
+                                //unregister user clear cart button
+                                if (userId.equals("0")) { 
+                            %>
 
                             <form action='DelCartUnReg' method='post'><input type='submit' class="btn btn-block btn-primary my-3 py-3 w-100" value='Clear All'></form>
-
-                            <% } else {%> 
+                            
+                            <%
+                                /*register user clear cart button*/} else {
+                            %> 
 
                             <form action='deleteCart' method='post'><input  type='hidden' name='cartId' value=<%=cartId1%>><input class="btn btn-block btn-primary my-3 py-3 w-100" type='submit' value='Clear All'></form>
                                 <% }%> 

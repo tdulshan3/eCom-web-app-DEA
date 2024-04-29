@@ -15,14 +15,14 @@ public class DelCartItemUnreg extends HttpServlet {
         
         String itemDetails = request.getParameter("itemDetails");
        
-        
+        //delete cart items from cookies - unregistered user
         String cartdetailsOld;
         Cookie[] cookies = request.getCookies();
                 if (cookies != null) {
                     for (Cookie cookie : cookies) {
                         if (cookie.getName().equals("cart_details")) {
                             cartdetailsOld = cookie.getValue();
-                            
+                            //replace cookies with "".
                             String newCartDetails="";
                             String[] pairs = cartdetailsOld.split("/");
                             int i=0;
@@ -35,6 +35,7 @@ public class DelCartItemUnreg extends HttpServlet {
                                 i++;
                                 
                             }
+                            
                             Cookie cartCookie = new Cookie("cart_details", newCartDetails);
                             cartCookie.setMaxAge(3600); 
                             cartCookie.setPath("/"); 

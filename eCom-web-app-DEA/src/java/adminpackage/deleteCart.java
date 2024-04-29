@@ -23,6 +23,7 @@ public class deleteCart extends HttpServlet {
         Dbcon dbConn = new Dbcon();
         try {
             dbConn.connect();
+            //reset cart value to "".
             String queryDelcart = "UPDATE cart SET cart_details = '' WHERE cart_id = ?";
             dbConn.executePreparedStatement(queryDelcart, cartId);
         } catch (SQLException ex) {
