@@ -95,7 +95,8 @@
                 <div class="card h-100">
                     <img src="profile/pamali.png" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
-                        <h3 class="card-text">M.A.H.P.S.Mudannayaka</h3>
+                        <h3 class="card-text">S.M.P.J.Samarakoon</h3>
+                        <p>28931</p>
                     </div>
                 </div>
             </div>
