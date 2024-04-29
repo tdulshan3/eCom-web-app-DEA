@@ -11,7 +11,7 @@
        
         HttpSession session1 = request.getSession(false);
 
-        <%-- Remove UserId Session From Server--%>
+       <%-- Remove UserId Session from Server--%>
         if (session1 != null) {
             
             session1.removeAttribute("userId");
