@@ -19,10 +19,12 @@ public class Logins extends HttpServlet {
         String email = request.getParameter("Email");
         String password = request.getParameter("password");
         PrintWriter out = response.getWriter();
+        //Check User is Admin or Not        
         if (email.equals("admin@admin.com") && password.equals("123456")) {
             HttpSession session = request.getSession();
             session.setAttribute("role", "admin");
             response.sendRedirect("admin.jsp");
+        //Send an error massage if admin password is wrong
         } else if (email.equals("admin@admin.com") && !(password.equals("123456"))) {
             request.setAttribute("errorMessage", "password error");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/login&signup.jsp");
