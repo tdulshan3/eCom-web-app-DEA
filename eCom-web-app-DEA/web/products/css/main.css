@@ -2109,3 +2109,37 @@ Then, in y
         margin-left: 50px;
     }
 }
+
+
+.filter-btn {
+  display: inline-block;
+  padding: 4px 16px;
+  font-size: 14px;
+  font-weight: normal;
+  text-decoration: none;
+  border-radius: 30px;
+  color: #fff;
+  background-color: #358fef;
+  border: 1px solid #358fef;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+}
+
+
+
+.filter-btn:hover {
+  opacity: 1;
+  background-color: #fff;
+  color: #358fef;
+  border: 1px solid #358fef;
+  transform: scale(1, 1);
+}
+.filt-btn{
+    align-items: center;
+    margin-left: 15px;
+   
+}
+

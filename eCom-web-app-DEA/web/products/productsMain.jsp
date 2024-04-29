@@ -104,12 +104,12 @@
                                                 <%
                                                     } %>
 
-                                                <input type="submit" value="Filter">
+                                                <span class="filt-btn"><button class="filter-btn" type="submit" >Filter</button></span>    
                                                 <!-- ty-catPage-filterWrap.start -->
                                                 <div class="ty-catPage-filterWrap">
                                                     <div class="ty-catPage-filter-priceRange-sliderWrap">
                                                         <span>
-                                                            <label for="ty-priceRange">Price</label>
+                                                            <label for="ty-priceRange">Price </label>
                                                             <input type="text" class="ty-priceRange" id="ty-priceRange"
                                                                    readonly>
                                                             <input type="hidden" name="Price" id="ty-priceRange" value="">
