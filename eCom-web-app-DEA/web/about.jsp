@@ -69,7 +69,8 @@
                 <div class="card h-100">
                     <img src="profile/janaka.jpg" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
-                        <h3 class="card-text">I.M.N.M.Dissanayaka</h3>
+                        <h3 class="card-text">W.D.J.I.Senarathna</h3>
+                        <p>29015</p>
                     </div>
                 </div>
             </div>
