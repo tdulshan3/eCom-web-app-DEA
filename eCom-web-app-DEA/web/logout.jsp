@@ -11,7 +11,7 @@
        
         HttpSession session1 = request.getSession(false);
 
-        
+        <%-- Remove UserId Session From Server--%>
         if (session1 != null) {
             
             session1.removeAttribute("userId");
@@ -20,7 +20,7 @@
             session1.invalidate();
         }
 
-      
+       <%-- Redirect To Index.jsp--%>
         response.sendRedirect("index.jsp");
     %>
     </body>
