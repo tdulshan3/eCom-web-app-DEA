@@ -77,7 +77,8 @@
                 <div class="card h-100">
                     <img src="profile/supuni.jpg" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
-                        <h3 class="card-text">W.A.W.Amandi</h3>
+                        <h3 class="card-text">D.G.S.Madushani</h3>
+                        <p>28355</p>
                     </div>
                 </div>
             </div>
