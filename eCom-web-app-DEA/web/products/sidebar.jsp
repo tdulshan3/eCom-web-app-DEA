@@ -4,6 +4,16 @@
 <%@ page import="java.sql.SQLException" %>
 <div class="ty-cat">
     <ul class="ty-catList">
+         <li class="ty-catListItem">
+                <a href="/eCom-web-app-DEA/products/productsMain.jsp">
+                    <div class="ty-catContent">
+                        <div class="ty-catIconWrap"></div>
+                        <div class="ty-catTitle">
+                             <span>All Products</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
     
 <% 
     try {

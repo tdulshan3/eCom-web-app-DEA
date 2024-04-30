@@ -145,8 +145,8 @@
                                                                     String sqlToExecute;
                                                                     String sqlx = "SELECT * FROM `manufacturer`";
                                                                     String sql = "SELECT * FROM `manufacturer` WHERE manufacturer_id IN (" + manuIds + ")";
-                                                                    if (catId.isEmpty()) {
-                                                                        sqlToExecute = sqlx;
+                                                                    if (manuIds.length() <= 0) {
+                                                                       sqlToExecute = sqlx;
                                                                     } else {
                                                                         sqlToExecute = sql;
                                                                     }

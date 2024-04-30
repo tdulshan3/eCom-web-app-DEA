@@ -9,8 +9,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <!--Main Style Sheet-->
-<link rel="icon" type="image/png" sizes="32x32" href="16.png">
-<link rel="icon" type="image/png" sizes="16x16" href="32.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="16.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="32.png">
         <link rel="stylesheet" href="./products/css/font-awesome.min.css">
 
         <link rel="stylesheet" href="./products/css/main.css">
@@ -121,23 +121,23 @@
                                                 %>
                                                 <div class="col-lg-4 col-md-6 mb-4">
                                                     <a class="a-product" href="./products/productSingle.jsp?id=<%=id%>" >
-                                                    <div class="box">  
-                                                        <div class="product-card">
-                                                            <img class="product-image" src="./uploads/<%= rs.getString("img_path")%>" alt="">
-                                                            <div class="product-info">
-                                                                <a href="./products/productSingle.jsp?id=<%=id%>"> <h4 class="product-title"><%=name%></h4></a>
-                                                                <div class="product-price">LKR <%=price%></div>
-                                                                <form action="cart" method="post">
-                                                                    <input type="hidden" name="p_id" value="<%=id%>" />
-                                                                    <input type="hidden" name="qty" value="1"/>              
-                                                                    <input type="submit" class="plus-btn-a" value="+"/>
-                                                                </form>
+                                                        <div class="box">  
+                                                            <div class="product-card">
+                                                                <img class="product-image" src="./uploads/<%= rs.getString("img_path")%>" alt="">
+                                                                <div class="product-info">
+                                                                    <a href="./products/productSingle.jsp?id=<%=id%>"> <h4 class="product-title"><%=name%></h4></a>
+                                                                    <div class="product-price">LKR <%=price%></div>
+                                                                    <form action="cart" method="post">
+                                                                        <input type="hidden" name="p_id" value="<%=id%>" />
+                                                                        <input type="hidden" name="qty" value="1"/>              
+                                                                        <input type="submit" class="plus-btn-a" value="+"/>
+                                                                    </form>
 
-                                                            
+
+                                                                </div>
                                                             </div>
-                                                        </div>
 
-                                                    </div></a>
+                                                        </div></a>
                                                 </div>
                                                 <%
                                                         }
@@ -151,7 +151,7 @@
 
                                     </div>
                                 </div>
-
+                                      
 
                                 <%@ include file="other.html" %>
                                 <%@ include file="footer.html" %>
