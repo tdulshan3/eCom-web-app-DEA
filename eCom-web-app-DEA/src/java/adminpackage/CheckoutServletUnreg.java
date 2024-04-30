@@ -20,6 +20,7 @@ public class CheckoutServletUnreg extends HttpServlet {
             throws ServletException, IOException {
 
         PrintWriter out = response.getWriter();
+        //get parameters from contact form.
         String email = request.getParameter("email");
         String firstName = request.getParameter("firstname");
         String lastName = request.getParameter("lastname");
@@ -29,6 +30,7 @@ public class CheckoutServletUnreg extends HttpServlet {
         String phoneNumber = request.getParameter("pnumber");
         String userstatus = "unregistered";
         String cart_details;
+        //get cart details from cookies
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {

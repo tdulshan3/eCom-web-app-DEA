@@ -19,8 +19,10 @@ public class cart extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //get parameters from product pages and cart.
         String p_id = request.getParameter("p_id");
         String qty = request.getParameter("qty");
+        //setup cart details using product Id and quantity.
         String cart_details = p_id + ":" + qty + "/";
         String userId = UserSession.getUserIdFromSession(request);
         String cartDetailsOld = "";
@@ -31,7 +33,9 @@ public class cart extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         try {
+            //check user is registered or not.
             if (!userId.equals("0")) {
+                //if user is registered
                 dbConn.connect();
                 ResultSet rsUser = dbConn.executeQuery("SELECT status FROM user WHERE user_id = " + userId);
                 if (rsUser.next()) {

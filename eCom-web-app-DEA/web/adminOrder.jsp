@@ -16,9 +16,16 @@
         <link href="./admin.css" rel="stylesheet">
     </head>
     <body>
+  <%-- 
+    This section checks if the user is authenticated. 
+    If not authenticated, it redirects the user to the login page.
+--%>
         <%
             Authentication.redirectIfNotAuthenticated(request, response);
         %>
+         <%--  Display a table to show order details.
+                Each row represents an order with its corresponding information.
+         --%>
         <div class="d-flex">
             <%@ include file="./component/adminSidebar.html" %>
             <div class="container">
@@ -44,16 +51,22 @@
                                         </thead>
                                         <tbody>
                                             <%
+                                                 // Establish a database connection
                                                 Dbcon dbConn = new Dbcon();
                                                 dbConn.connect();
+                                                
+                                                 // Execute a SQL query to retrieve order data
 
                                                 ResultSet rs1 = dbConn.executeQuery("SELECT * FROM `order`");
+                                                
+                                                // Iterate over the result set to fetch each order record
 
                                                 while (rs1.next()) {
                                                     String orderId = rs1.getString("order_id");
                                                     int userId = rs1.getInt("user_id");
                                                     String status = rs1.getString("status");
                                                     String cartDetails = rs1.getString("cart_d");
+                                                    // Retrieve user information associated with the order
                                                     ResultSet rs2 = dbConn.executeQuery("SELECT * FROM user WHERE user_id=" + userId);
                                                     if (rs2.next()) {
                                                         String userName = rs2.getString("FirstName") + " " + rs2.getString("LastName");
@@ -62,6 +75,7 @@
                                                         String address = rs2.getString("Address") + ", " + rs2.getString("City") + ", " + rs2.getString("Postcode");
                                                         String productDetails = getProductDetails(cartDetails, dbConn);
                                                         int total = getTotalAmount(cartDetails, dbConn);
+                                                         // Display order details in table rows
                                                         out.println("<tr>");
                                                         out.print("<td>" + orderId + "</td>");
                                                         out.print("<td>" + userName + "</td>");
@@ -75,6 +89,7 @@
                                                         // Form for canceling order
                                                         if (status.equals("pending")) {
                                             %>
+                                            
                                         <form action='CancelOrderServlet' method='post'>
                                             <input type='hidden' name='orderId' value='<%= orderId%>'/>
                                             <input type='hidden' name='status' value='canceled'/>
@@ -111,35 +126,39 @@
 </html>
 
 <%!
+    //Retrieves product details from the database based on cart details
     String getProductDetails(String cartDetails, Dbcon dbConn) throws SQLException {
-
+// Initialize a StringBuilder to construct the product details HTML
         StringBuilder productDetails = new StringBuilder();
         productDetails.append("<ul>");
-
+  // Split the cart details into individual pairs (product ID and quantity)
         String[] pairs = cartDetails.split("/");
-
+ // Iterate over each pair in the cart details
         for (String pair : pairs) {
+            // Split the pair into product ID and quantity
 
             String[] parts = pair.split(":");
+              // Extract product ID and quantity
 
             int productId = Integer.parseInt(parts[0]);
 
             int quantity = Integer.parseInt(parts[1]);
+            // Execute a query to retrieve product information based on product ID
 
             ResultSet rsProduct = dbConn.executeQuery("SELECT name, price, quantity FROM products WHERE product_id=" + productId);
-
+           // Iterate over the result set to fetch product details
             while (rsProduct.next()) {
-
+          // Retrieve product name from the result set
                 String productName = rsProduct.getString("name");
-
+         // Retrieve product price from the result set
                 int price = rsProduct.getInt("price");
-
+        // Retrieve product quantity from the result set
                 int qty = rsProduct.getInt("quantity");
-
+          // Append product details to the StringBuilder
                 productDetails.append("<li>").append(productName).append(" (Qty: ").append(quantity).append(")</li>");
 
             }
-
+            // Close the result set after use
             rsProduct.close();
 
         }
@@ -152,20 +171,28 @@
 %>
 
 <%!
+    //Calculates the total amount of the products in the cart.
     int getTotalAmount(String cartDetails, Dbcon dbConn) throws SQLException {
+      // Initialize total amount to zero
         int total = 0;
+        // Split the cart details into individual pairs (product ID and quantity)
         String[] pairs = cartDetails.split("/");
-
+       // Iterate over each pair in the cart details
         for (String pair : pairs) {
+            // Split the pair into product ID and quantity
             String[] parts = pair.split(":");
+            // Extract product ID and quantity
             int productId = Integer.parseInt(parts[0]);
             int quantity = Integer.parseInt(parts[1]);
-
+            // Execute a query to retrieve the price of the product based on product ID
             ResultSet rsProduct = dbConn.executeQuery("SELECT price FROM products WHERE product_id=" + productId);
             if (rsProduct.next()) {
+                // Retrieve the price of the product from the result set
                 int price = rsProduct.getInt("price");
+                // Calculate the subtotal for the current product and add it to the total
                 total += price * quantity;
             }
+            // Close the result set after use
             rsProduct.close();
         }
 

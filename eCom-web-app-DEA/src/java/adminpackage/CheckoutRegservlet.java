@@ -20,9 +20,10 @@ public class CheckoutRegservlet extends HttpServlet {
 
         String userId = UserSession.getUserIdFromSession(request);
         Dbcon dbConn = new Dbcon();
-
+        //if user is not registered rederect to contact form
         if (userId.equals("0")) {
             response.sendRedirect("non_reg_user_contact_form.jsp");
+        //if user registered get confirmation from user
         } else {
             out.println("<script type=\"text/javascript\">");
             out.println("var result = confirm('Are you sure you want to confirm the order?');");
@@ -34,7 +35,7 @@ public class CheckoutRegservlet extends HttpServlet {
             out.println("}");
             out.println("</script>");
             out.println("Thank you for Ordering....");
-            
+            //save order in database.
             try {
                 dbConn.connect();
                 ResultSet rs = dbConn.executeQuery("SELECT * FROM cart WHERE user_id = " + userId);

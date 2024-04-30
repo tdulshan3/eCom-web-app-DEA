@@ -70,7 +70,8 @@
                 <div class="card h-100">
                     <img src="profile/janaka.jpg" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
-                        <h3 class="card-text">I.M.N.M.Dissanayaka</h3>
+                        <h3 class="card-text">W.D.J.I.Senarathna</h3>
+                        <p>29015</p>
                     </div>
                 </div>
             </div>
@@ -78,7 +79,8 @@
                 <div class="card h-100">
                     <img src="profile/supuni.jpg" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
-                        <h3 class="card-text">W.A.W.Amandi</h3>
+                        <h3 class="card-text">D.G.S.Madushani</h3>
+                        <p>28355</p>
                     </div>
                 </div>
             </div>
@@ -86,7 +88,8 @@
                 <div class="card h-100">
                     <img src="profile/ira.jpg" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
-                        <h3 class="card-text">K.L.D.Anuradha</h3>
+                        <h3 class="card-text">J.H.A.H.Divyanjalee</h3>
+                        <P>29337</P>
                     </div>
                 </div>
             </div>
@@ -94,7 +97,8 @@
                 <div class="card h-100">
                     <img src="profile/pamali.png" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
-                        <h3 class="card-text">M.A.H.P.S.Mudannayaka</h3>
+                        <h3 class="card-text">S.M.P.J.Samarakoon</h3>
+                        <p>28931</p>
                     </div>
                 </div>
             </div>
@@ -102,7 +106,8 @@
                 <div class="card h-100">
                     <img src="profile/madara.png" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
-                        <h3 class="card-text">U.W.V.Piyumika</h3>
+                        <h3 class="card-text">E.M.M.D.Ekanayake</h3>
+                        <p>28308</p>
                     </div>
                 </div>
             </div>
@@ -110,7 +115,8 @@
                 <div class="card h-100">
                     <img src="profile/siluni.png" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
-                        <h3 class="card-text">A.N.R.Perera</h3>
+                        <h3 class="card-text">A.A.S.S Athapaththu</h3>
+                        <p>28270</p>
                     </div>
                 </div>
             </div>
