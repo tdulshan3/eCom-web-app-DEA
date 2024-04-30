@@ -38,7 +38,7 @@
                     <img src="profile/dulshan.jpeg" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
                         <h4 class="card-text">T.R.D.T.Dulshan</h4>
-                        <p class="card-text">28282</p>
+                        <p class="card-text">28994</p>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                     <img src="profile/dilina.jpeg" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
                         <h4 class="card-text">H.P.G.D.Mewan</h4>
-                        <p class="card-text">28282</p>
+                        <p class="card-text">28775</p>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                     <img src="profile/malinda.jpeg" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
                         <h4 class="card-text">T.M.Uduwana</h4>
-                        <p class="card-text">28282</p>
+                        <p class="card-text">29318</p>
                     </div>
                 </div>
             </div>
