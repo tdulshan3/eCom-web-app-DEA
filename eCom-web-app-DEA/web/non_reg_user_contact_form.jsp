@@ -40,6 +40,10 @@
                         <input type="text" id="firstname" name="firstname" required>
                     </div>
                     <div class="form-group">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" id="firstname" name="lastname" required>
+                    </div>
+                    <div class="form-group">
                         <label for="address">Home Address</label>
                         <input type="text" id="address" name="address" required>
                     </div>

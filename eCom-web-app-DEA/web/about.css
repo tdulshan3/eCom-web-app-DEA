@@ -12,10 +12,10 @@ body {
     height: 0;
     object-fit: cover;
 }
+
 .card-text {
-    color:black;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .containerX{

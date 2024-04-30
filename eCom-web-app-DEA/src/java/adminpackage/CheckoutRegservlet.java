@@ -34,7 +34,7 @@ public class CheckoutRegservlet extends HttpServlet {
             out.println("}");
             out.println("</script>");
             out.println("Thank you for Ordering....");
-
+            
             try {
                 dbConn.connect();
                 ResultSet rs = dbConn.executeQuery("SELECT * FROM cart WHERE user_id = " + userId);
@@ -45,6 +45,7 @@ public class CheckoutRegservlet extends HttpServlet {
                     String queryOrder = "INSERT INTO `order` (user_id,cart_d, status) VALUES (?,?, 'pending')";
                     dbConn.executePreparedStatement(queryOrder, userId, cartDetails);
                     dbConn.executePreparedStatement(queryDelUser, cartId);
+                    response.sendRedirect("index.jsp");
                 } else {
                     System.out.println("No cart found for user with user_id: " + userId);
                 }

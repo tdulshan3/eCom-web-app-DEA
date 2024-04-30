@@ -61,7 +61,8 @@
                 <div class="card h-100">
                     <img src="profile/thira.jpg" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
-                        <h3 class="card-text">N.S.Y.Jayathilaka</h3>
+                        <h3 class="card-text">K.A.A.T Kulasooriya</h3>
+                        <p class="card-text">28282</p>
                     </div>
                 </div>
             </div>

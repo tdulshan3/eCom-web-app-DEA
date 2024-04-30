@@ -53,31 +53,8 @@ public class CheckoutServletUnreg extends HttpServlet {
                             // Insert data into the cart table
                             String queryOrder = "INSERT INTO `order` (user_id,cart_d, status) VALUES (?,?, 'pending')";
                             dbConn.executePreparedStatement(queryOrder, userId, cart_details);
-                            String redirectUrl = "./DelCartUnReg";
-                            String form = "<html><head><script>"
-                                    + "function postRedirect(url, params) {"
-                                    + "    var form = document.createElement('form');"
-                                    + "    form.method = 'post';"
-                                    + "    form.action = url;"
-                                    + "    for (var key in params) {"
-                                    + "        if (params.hasOwnProperty(key)) {"
-                                    + "            var input = document.createElement('input');"
-                                    + "            input.type = 'hidden';"
-                                    + "            input.name = key;"
-                                    + "            input.value = params[key];"
-                                    + "            form.appendChild(input);"
-                                    + "        }"
-                                    + "    }"
-                                    + "    document.body.appendChild(form);"
-                                    + "    form.submit();"
-                                    + "}"
-                                    + "postRedirect('" + redirectUrl + "', {});"
-                                    + "</script></head><body></body></html>";
-
-                            response.setContentType("text/html");
-                            response.setCharacterEncoding("UTF-8");
-                            response.getWriter().write(form);
-
+                            request.getRequestDispatcher("DelCartUnReg").forward(request, response);
+                            
                         } else {
                             out.println("No user found with the given email.");
                         }

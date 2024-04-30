@@ -97,7 +97,7 @@
                         <a href="/eCom-web-app-DEA/cart.jsp">
                             <img src="icons8-cart-64.png" alt="logo">
 
-                            <span> <%= totalQuantity%> </span>
+                             <span> <%= totalQuantity > 0 ? totalQuantity : 0%> </span>
 
 
                         </a>
