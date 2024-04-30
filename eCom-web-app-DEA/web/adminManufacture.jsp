@@ -13,6 +13,7 @@
     </head>
     <body>
             <%
+                //check user admin or not using Authentication Class
          Authentication.redirectIfNotAuthenticated(request, response);
         %>
         <div class="d-flex">
@@ -26,17 +27,19 @@
                 <br>
 
                 <div id="addManufacturer" style="display: none;">
+                    <%-- adding admin manufacture adding forum--%>
                     <%@ include file="./component/adminManufactureAdd.html" %>
                 </div>
 
                 <div id="showManufacturer">
+                    <%-- adding admin manufacture table--%>
                     <%@ include file="./component/adminManufactureShow.jsp" %>
                 </div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script>
-            
+            //this will hide or show form and table according to button click
             document.getElementById("toggleButton").addEventListener("click", function () {
                 var addManufacturer = document.getElementById("addManufacturer");
                 var showManufacturer = document.getElementById("showManufacturer");

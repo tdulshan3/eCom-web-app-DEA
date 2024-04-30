@@ -19,18 +19,20 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class updateQuantity extends HttpServlet {
 
-     @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        //getting url parameters
         int productId = Integer.parseInt(request.getParameter("id"));
         int newQuantity = Integer.parseInt(request.getParameter("quantity"));
         Dbcon dbConnector = new Dbcon();
         try {
             dbConnector.connect();
+            //update products quantity where product id is equal to url parametrs
             dbConnector.executePreparedStatement("UPDATE products SET quantity = ? WHERE product_id = ?", newQuantity, productId);
             dbConnector.disconnect();
-           
+
         } catch (ClassNotFoundException | SQLException e) {
-          
+
         }
     }
 }

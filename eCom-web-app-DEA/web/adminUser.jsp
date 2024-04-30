@@ -15,6 +15,7 @@
 </head>
 <body>
         <%
+            //check user admin or not using Authentication Class
          Authentication.redirectIfNotAuthenticated(request, response);
         %>
     <div class="d-flex">
@@ -34,6 +35,7 @@
                         <th>Address</th>
                         <th>Phone</th>
                         <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,6 +43,7 @@
                         Dbcon db = new Dbcon();
                         try {
                             db.connect();
+                            //get all users from user table
                             ResultSet resultSet = db.executeQuery("SELECT * FROM user");
                             while(resultSet.next()) {
                     %>
@@ -50,6 +53,7 @@
                         <td><%= resultSet.getString("Address") + ", " + resultSet.getString("City") + ", " + resultSet.getString("Postcode") %></td>
                         <td><%= resultSet.getString("Phone") %></td>
                         <td><%= resultSet.getString("status") %></td>
+                        <td><a href="./userDelete?id=<%= resultSet.getString("user_id")%>" class="btn btn-danger">Delete</a></td>
                     </tr>
                     <% 
                             }

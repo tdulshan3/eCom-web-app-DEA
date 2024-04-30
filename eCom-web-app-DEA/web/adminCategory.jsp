@@ -13,10 +13,11 @@
     </head>
     <body>
             <%
+                //check user admin or not using Authentication Class
          Authentication.redirectIfNotAuthenticated(request, response);
         %>
         <div class="d-flex">
-            
+            <%-- adding sidebar--%>
             <%@ include file="./component/adminSidebar.html" %>
 
             <div class="container mt-4">
@@ -27,17 +28,19 @@
                 <br>
 
                 <div id="addCategory" style="display: none;">
+                    <%-- adding admin category adding form--%>
                     <%@ include file="./component/adminCategoryAdd.html" %>
                 </div>
 
                 <div id="showCategory">
+                    <%-- adding admin category table--%>
                     <%@ include file="./component/adminCategoryShow.jsp" %>
                 </div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script>
-            
+            //this will hide or show form and table according to button click
             document.getElementById("toggleButton").addEventListener("click", function () {
                 var addCategory = document.getElementById("addCategory");
                 var showCategory = document.getElementById("showCategory");

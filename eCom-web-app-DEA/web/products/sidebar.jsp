@@ -19,6 +19,7 @@
     try {
         Dbcon dbConnector = new Dbcon();
         dbConnector.connect();
+        //getting all details from category table and render them as list items
         ResultSet rs = dbConnector.executeQuery("SELECT * FROM category ORDER BY category_name ASC");
 
         while (rs.next()) {

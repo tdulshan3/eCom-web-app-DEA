@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package adminpackage;
 
 import java.io.IOException;
@@ -15,16 +10,16 @@ import java.sql.SQLException;
 
 public class CategoryDelete extends HttpServlet {
 
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         PrintWriter out = response.getWriter();
-
+        PrintWriter out = response.getWriter();
+        //get category id using url parameters
         String categoryId = request.getParameter("category_id");
         Dbcon dbConnector = new Dbcon();
-         try {
+        try {
             dbConnector.connect();
+            //delete category that have categoryid of recived parameter from category table
             String query = "DELETE FROM category WHERE category_id = ?";
             dbConnector.executePreparedStatement(query, categoryId);
             dbConnector.disconnect();

@@ -1,11 +1,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="adminpackage.Dbcon" %>
 <%@ page import="java.sql.ResultSet" %>
-<% 
-Dbcon dbConnector = new Dbcon();
-dbConnector.connect();
-ResultSet rs = dbConnector.executeQuery("SELECT * FROM manufacturer");
-ResultSet rs1 = dbConnector.executeQuery("SELECT * FROM category");
+<%
+    Dbcon dbConnector = new Dbcon();
+    dbConnector.connect();
+//getting all manufaturer details from manufacturer table
+    ResultSet rs = dbConnector.executeQuery("SELECT * FROM manufacturer");
+    //get all categories details from category table 
+    ResultSet rs1 = dbConnector.executeQuery("SELECT * FROM category");
 %>
 <div class="card" style="max-width: 800px; margin: 5rem auto;">
     <div class="card-header">
@@ -39,11 +41,12 @@ ResultSet rs1 = dbConnector.executeQuery("SELECT * FROM category");
                             <select class="form-control" id="category" name="category_id" required>
                                 <option value="" selected disabled>-- Select category --</option>
                                 <%
-                                while (rs1.next()) {
-                                %>
-                                <option value="<%= rs1.getInt("category_id") %>"><%= rs1.getString("category_name") %></option>
+                                    while (rs1.next()) {
+                                        //rendering all categories in category table as a select eleemtns inside option eleemnt
+%>
+                                <option value="<%= rs1.getInt("category_id")%>"><%= rs1.getString("category_name")%></option>
                                 <%
-                                }
+                                    }
                                 %>
                             </select>
                         </div>
@@ -52,11 +55,12 @@ ResultSet rs1 = dbConnector.executeQuery("SELECT * FROM category");
                             <select class="form-control" id="manufacturer" name="manufacturer_id" required>
                                 <option value="" selected disabled>-- Select Manufacturer --</option>
                                 <%
-                                while (rs.next()) {
-                                %>
-                                <option value="<%= rs.getInt("manufacturer_id") %>"><%= rs.getString("manufacturer_name") %></option>
+                                    while (rs.next()) {
+                                        //rendering all manufacturer in manuafacturer table as a select eleemtns inside option eleemnt
+%>
+                                <option value="<%= rs.getInt("manufacturer_id")%>"><%= rs.getString("manufacturer_name")%></option>
                                 <%
-                                }
+                                    }
                                 %>
                                 d
                             </select>
@@ -77,6 +81,6 @@ ResultSet rs1 = dbConnector.executeQuery("SELECT * FROM category");
             </form>
         </div>
     </div>
-<%
-dbConnector.disconnect();
-%>
+    <%
+        dbConnector.disconnect();
+    %>

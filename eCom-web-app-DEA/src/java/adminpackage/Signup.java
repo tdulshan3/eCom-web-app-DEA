@@ -33,7 +33,7 @@ public class Signup extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/login&signup.jsp");
             dispatcher.forward(request, response);
             return;
-        
+
         } else {
 //if both password's are equal this execute
             try {
@@ -57,7 +57,7 @@ public class Signup extends HttpServlet {
                     }
 
                 } else {
-                //if user detail not available in user table this will create a record about user
+                    //if user detail not available in user table this will create a record about user
                     String query = "INSERT INTO user (email, Password, FirstName, LastName, Address, City, Postcode, Phone, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     dbConnector.executePreparedStatement(query, email, pw1, firstName, lastName, address, townCity, postcode, phoneNumber, "registered");
                 }
@@ -70,11 +70,13 @@ public class Signup extends HttpServlet {
         }
     }
 //this function will check email is exist on user table or not by using email as a parameter 
+
     private boolean checkEmailExists(Dbcon dbConnector, String email) throws SQLException {
         ResultSet rs = dbConnector.executeQueryWithPreparedStatement("SELECT * FROM user WHERE email = ?", email);
         return rs.next();
     }
 //this function will check, status of user in user table using email as a parameter
+
     private String getEmailStatus(Dbcon dbConnector, String email) throws SQLException {
         ResultSet rs = dbConnector.executeQueryWithPreparedStatement("SELECT status FROM user WHERE email = ?", email);
         if (rs.next()) {

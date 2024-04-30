@@ -22,11 +22,13 @@ public class updatePrice extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        //getting url parameters
         int productId = Integer.parseInt(request.getParameter("id"));
         double newPrice = Double.parseDouble(request.getParameter("price"));
         Dbcon dbConnector = new Dbcon();
         try {
             dbConnector.connect();
+            //update products price where product id is equal to url parametrs
             dbConnector.executePreparedStatement("UPDATE products SET price = ? WHERE product_id = ?", newPrice, productId);
             dbConnector.disconnect();
            

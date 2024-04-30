@@ -29,6 +29,7 @@
                                 try {
                                     Dbcon dbConnector = new Dbcon();
                                     dbConnector.connect();
+                                    //get all categories details from category table and show them in table
                                     ResultSet rs = dbConnector.executeQuery("SELECT * FROM category");
                                     while (rs.next()) {
                                         String categoryId = rs.getString("category_id");

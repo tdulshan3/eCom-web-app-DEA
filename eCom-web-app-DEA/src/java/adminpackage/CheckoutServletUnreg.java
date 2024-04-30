@@ -39,6 +39,16 @@ public class CheckoutServletUnreg extends HttpServlet {
                     Dbcon dbConn = new Dbcon();
                     try {
                         dbConn.connect();
+                        
+                        //if user alredy have an account this will redirect them to loginpage
+                        String isRegSql = "SELECT * FROM user WHERE email = '" + email + "' AND status = 'registered'";
+                        ResultSet rsx = dbConn.executeQuery(isRegSql);
+                        if (rsx.next()) {
+                            out.println("<script>");
+                            out.println("alert('You already have an account.');");
+                            out.println("window.location.href = 'login&signup.jsp';"); 
+                            out.println("</script>");
+                        }
 
                         // Delete Duplicates
                         String queryDelUser = "DELETE FROM user WHERE email = ?";
@@ -56,7 +66,7 @@ public class CheckoutServletUnreg extends HttpServlet {
                             String queryOrder = "INSERT INTO `order` (user_id,cart_d, status) VALUES (?,?, 'pending')";
                             dbConn.executePreparedStatement(queryOrder, userId, cart_details);
                             request.getRequestDispatcher("DelCartUnReg").forward(request, response);
-                            
+
                         } else {
                             out.println("No user found with the given email.");
                         }

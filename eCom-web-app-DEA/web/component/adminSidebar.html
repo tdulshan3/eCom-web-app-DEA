@@ -1,29 +1,29 @@
 
 <body>
-  <div class="sidebar d-flex flex-column">
-    <nav class="nav flex-column">
-      <a class="nav-link" href="admin.jsp">Product Dashboard</a>
-      <a class="nav-link" href="adminProduct.jsp" >New Product</a>
-      <a class="nav-link" href="adminUser.jsp" >Users</a>
-      <a class="nav-link" href="adminOrder.jsp" >Orders</a>
-      <a class="nav-link" href="adminManufacture.jsp" >Manufactures</a>
-      <a class="nav-link" href="adminCategory.jsp" >Categories</a>
-    </nav>
-  </div>
+    <div class="sidebar d-flex flex-column">
+        <nav class="nav flex-column">
+            <a class="nav-link" href="admin.jsp">Product Dashboard</a>
+            <a class="nav-link" href="adminProduct.jsp" >New Product</a>
+            <a class="nav-link" href="adminUser.jsp" >Users</a>
+            <a class="nav-link" href="adminOrder.jsp" >Orders</a>
+            <a class="nav-link" href="adminManufacture.jsp" >Manufactures</a>
+            <a class="nav-link" href="adminCategory.jsp" >Categories</a>
+        </nav>
+    </div>
     <script>
-    // Get the current URL
-    var currentUrl = window.location.href;
+        // Get the current URL
+        var currentUrl = window.location.href;
 
-    // Get all navigation links
-    var navLinks = document.querySelectorAll('.nav-link');
+        // Get all navigation links
+        var navLinks = document.querySelectorAll('.nav-link');
 
-    // Loop through each navigation link
-    navLinks.forEach(function(link) {
-      // Check if the href attribute matches the current URL
-      if (link.href === currentUrl) {
-        // Add 'active' class to the matching link
-        link.classList.add('active');
-      }
-    });
-  </script>
+        // Loop through each navigation link
+        navLinks.forEach(function (link) {
+            // Check if the href attribute matches the current URL
+            if (link.href === currentUrl) {
+                // Add 'active' class to the matching link
+                link.classList.add('active');
+            }
+        });
+    </script>
 </body>

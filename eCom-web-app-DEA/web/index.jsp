@@ -41,13 +41,16 @@
                         <!-- ty-mainContent.start -->
 
                         <div class="ty-mainContent">
+                            <%-- adding navbar--%>
                             <%@ include file="navbar.jsp" %>
                             <section class="ty-pageContentWrap">
+                                <%-- adding category sidebar--%>
                                 <%@ include file="./products/sidebar.jsp" %>
                                 <!-- ty-pageContent.start -->
                                 <div class="ty-cat">
 
                                 </div>
+
                                 <div class="ty-pageContent">
                                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                         <ol class="carousel-indicators">
@@ -108,7 +111,8 @@
                                         <div class="container">
                                             <div class="row row-cols-lg-3 row-cols-md-2 ">
 
-                                                <%  try {
+                                                <%                                                    //getting three latest product in products table
+                                                    try {
                                                         Dbcon dbConnector = new Dbcon();
                                                         dbConnector.connect();
                                                         ResultSet rs = dbConnector.executeQuery("SELECT * FROM products ORDER BY product_id DESC LIMIT 3");
@@ -151,9 +155,10 @@
 
                                     </div>
                                 </div>
-                                      
 
+                                <%-- adding other html to index.jsp--%>
                                 <%@ include file="other.html" %>
+                                <%-- adding footer to index..jsp--%>
                                 <%@ include file="footer.html" %>
                             </section>
                         </div>

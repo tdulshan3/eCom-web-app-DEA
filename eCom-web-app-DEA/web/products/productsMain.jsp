@@ -12,12 +12,12 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
         <!--Main Style Sheet-->
-        <link rel="stylesheet" href="css/mainProduct.css">
+        
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="navbar.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="icon" type="image/png" sizes="32x32" href="16.png">
-<link rel="icon" type="image/png" sizes="16x16" href="32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="32.png">
         <script src="packages/jQuery/jQuery-2.1.4.min.js"></script>
         <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>  
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -65,17 +65,21 @@
                                     <div class="ty-catPageTitle-cat">
                                         <% String catId = request.getParameter("cat"); %>
                                         <% if (catId == null || catId.isEmpty()) { %>
+                                        <%-- if there no category parameter in url this will show all products as a title--%>
                                         <h1 style="text-align:center;">All Products</h1>
 
                                         <% } else {
+                                            //if there catgory parameter then this will excute
                                             Dbcon dbConnector = new Dbcon();
                                             try {
                                                 dbConnector.connect();
+                                                //this will get category details from category table using category id
                                                 String sql = "SELECT * FROM category WHERE category_id = " + catId;
                                                 ResultSet rs = dbConnector.executeQuery(sql);
                                                 if (rs.next()) {
                                                     String categoryName = rs.getString("category_name");
                                         %>
+                                        <%-- after getting category name this will display it as a title--%>
                                         <h1 style="text-align:center;"><%=categoryName%></h1>
 
                                         <%}
@@ -97,9 +101,10 @@
                                                     <span></span>
                                                 </button>
                                             </div>
-
+                                            <%-- this is filtering form--%>
                                             <form action="./productsMain.jsp" method="get">
                                                 <% if (!(catId == null || catId.isEmpty())) {%>
+                                                <%-- if there categoryid parameter this will make store it on hidden input to send it when form submit--%>
                                                 <input type="hidden" name="cat" value="<%=catId%>"> 
                                                 <%
                                                     } %>
@@ -131,23 +136,27 @@
                                                                 Dbcon dbConnector = new Dbcon();
                                                                 try {
                                                                     dbConnector.connect();
+                                                                    //this will get manufacture id of all products avilable with same category id from url paramter in products table
                                                                     String sql0 = "SELECT DISTINCT manufacturer_id FROM products WHERE category_id =" + catId;
                                                                     ResultSet rs0 = dbConnector.executeQuery(sql0);
                                                                     StringBuilder manuIds = new StringBuilder();
                                                                     while (rs0.next()) {
+                                                                        //add those manufacture ids to string
                                                                         manuIds.append(rs0.getInt("manufacturer_id")).append(",");
                                                                     }
                                                                     rs0.close();
                                                                     if (manuIds.length() > 0) {
                                                                         manuIds.setLength(manuIds.length() - 1);
                                                                     }
-                                                                    
+
                                                                     String sqlToExecute;
                                                                     String sqlx = "SELECT * FROM `manufacturer`";
                                                                     String sql = "SELECT * FROM `manufacturer` WHERE manufacturer_id IN (" + manuIds + ")";
+                                                                    //if manuid string legth is 0 this will get all manufactures from manufacture table
                                                                     if (manuIds.length() <= 0) {
-                                                                       sqlToExecute = sqlx;
+                                                                        sqlToExecute = sqlx;
                                                                     } else {
+                                                                        //else this will only get manufatures who have product in that category 
                                                                         sqlToExecute = sql;
                                                                     }
 
@@ -157,7 +166,7 @@
                                                                         int manuId = rs.getInt("manufacturer_id");
                                                             %>
                                                             <li>
-
+                                                                <%-- chis will render checkbox according to the sql command and if we select them data send as a parameter--%>
                                                                 <input type="checkbox" name="manu" class="ty-filterListItem-input" value="<%=manuId%>" <%= manuSet.contains(String.valueOf(manuId)) ? "checked" : ""%>>
                                                                 <label class="ty-filterListItem-label"><%=manuName%></label>
                                                             </li>
@@ -176,7 +185,7 @@
                                                         <%
                                                             try {
                                                                 dbConnector.connect();
-
+                                                                //this will get all specstype in specstype table using category id as paramter
                                                                 String sql = "SELECT * FROM `spces_type` WHERE category_id = " + catId;
                                                                 ResultSet rs = dbConnector.executeQuery(sql);
 
@@ -184,10 +193,12 @@
                                                                     String specsName = rs.getString("spec_type_name");
                                                                     int specsId = rs.getInt("spces_type_id");
                                                         %>
+                                                        <%-- now ths will render those data as a titles of filters--%>
                                                         <h4><%=specsName%></h4>
 
                                                         <ul class="ty-filterList ty-one">
                                                             <%
+                                                                //this will get all specs in specs table using spectypeid from previos sql excute
                                                                 String sql1 = "SELECT * FROM `specs` WHERE specs_type_id = " + specsId;
                                                                 ResultSet rs1 = dbConnector.executeQuery(sql1);
                                                                 while (rs1.next()) {
@@ -228,14 +239,14 @@
                                             <%                    try {
 
                                                     dbConnector.connect();
-
+                                                    //this will a half written sql 
                                                     String query = "SELECT * FROM products WHERE 1=1";
-
+                                                    //if there any catgoryid param this will add to that query
                                                     String catParam = request.getParameter("cat");
                                                     if (catParam != null && !catParam.isEmpty()) {
                                                         query += " AND category_id = " + catParam;
                                                     }
-
+                                                    //if there any price param this will add to that query as a price range
                                                     String priceParam = request.getParameter("Price");
                                                     if (priceParam != null && !priceParam.isEmpty()) {
                                                         String[] prices = priceParam.split("-");
@@ -243,7 +254,7 @@
                                                         double maxPrice = Double.parseDouble(prices[1].replace(" LKR", "").trim());
                                                         query += " AND price BETWEEN " + minPrice + " AND " + maxPrice;
                                                     }
-
+                                                    //if there any manufactureids param this will add to that query
                                                     String[] manufParams = request.getParameterValues("manu");
                                                     if (manufParams != null && manufParams.length > 0) {
 
@@ -257,7 +268,7 @@
                                                         query += ")";
                                                     }
 
-                                                    // Get the specification parameter(s)
+                                                    // if there any specs parameters this will Get the specification parameter(s) and add them to query
                                                     String[] specParams = request.getParameterValues("sp");
                                                     if (specParams != null && specParams.length > 0) {
                                                         String regexPattern = "(^|,)(" + String.join("|", specParams) + ")(,|$)";
@@ -272,7 +283,8 @@
                                                         double price = rs.getDouble("price");
 
                                             %>
-
+                                            
+                                            <%-- this will render those data as a card--%>
 
                                             <div class="col-lg-4 col-md-6 mb-4">
                                                 <a class="a-product" href="productSingle.jsp?id=<%=id%>">

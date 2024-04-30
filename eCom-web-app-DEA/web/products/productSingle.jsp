@@ -48,37 +48,40 @@
 
                                 <%@ include file="sidebar.jsp" %>
 
-                                <%  Dbcon dbConnector = new Dbcon();
+                                <%  
+                                    
+                                    Dbcon dbConnector = new Dbcon();
                                     dbConnector.connect();
+                                    //creating prooductid variable and asign a url parameter value to it
                                     int productId = Integer.parseInt(request.getParameter("id"));
                                     try {
+                                        //getting products details from product table using productid variable 
                                         ResultSet rs = dbConnector.executeQuery("SELECT * FROM products WHERE product_id =" + productId);
                                         if (rs.next()) {
+                                            
                                             String name = rs.getString("name");
                                             String description = rs.getString("description");
+                                            //crop description length if its longer 
                                             if (description.length() > 400) {
                                                 description = description.substring(0, 400) + "...";
                                             }
+                                            //crop specification length if its longer 
                                             String specifications = rs.getString("specifications");
                                             if (specifications.length() > 400) {
                                                 specifications = specifications.substring(0, 400) + "...";
                                             }
                                             double price = rs.getDouble("price");
                                             int categoryId = rs.getInt("category_id");
-                                            int manufacturerId = rs.getInt("manufacturer_id");
-                                            int quantity = rs.getInt("quantity");
+                                            
 
+                                            //get category name fromc category table using product table category id
                                             ResultSet rsCategory = dbConnector.executeQuery("SELECT category_name FROM category WHERE category_id = " + categoryId);
                                             String categoryName = "";
                                             if (rsCategory.next()) {
                                                 categoryName = rsCategory.getString("category_name");
                                             }
 
-                                            ResultSet rsManufacturer = dbConnector.executeQuery("SELECT manufacturer_name FROM manufacturer WHERE manufacturer_id = " + manufacturerId);
-                                            String manufacturerName = "";
-                                            if (rsManufacturer.next()) {
-                                                manufacturerName = rsManufacturer.getString("manufacturer_name");
-                                            }
+                                            
                                 %>
                                 <div class="container-main">
                                     <div class="content">
@@ -92,6 +95,8 @@
                                                 <p >
                                                     <%=description%>
                                                 </p>
+                                                <br>
+                                                <p ><b>Specifications : </b><span style="font-size: 15px;"><%=specifications%></span></p>
                                             </div>
 
                                             <h2 class="price">LKR <%=price%></h2>

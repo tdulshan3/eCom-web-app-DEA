@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package adminpackage;
 
 import java.io.IOException;
@@ -21,6 +16,7 @@ public class ManufactureAdd extends HttpServlet {
             throws ServletException, IOException {
         Dbcon dbConnector = new Dbcon();
         PrintWriter out = response.getWriter();
+        //get parameter from post request
         String name = Optional.ofNullable(request.getParameter("Manufacturer_name"))
                 .map(String::trim)
                 .filter(s -> !s.isEmpty())
@@ -29,6 +25,7 @@ public class ManufactureAdd extends HttpServlet {
         try {
 
             dbConnector.connect();
+            //insert name variable into manufacturer table
             String insertQuery = "INSERT INTO manufacturer (manufacturer_name) VALUES (?)";
             dbConnector.executePreparedStatementInt(insertQuery, name);
             dbConnector.disconnect();

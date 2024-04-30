@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 import java.util.Optional;
+
 /**
  *
  * @author USER
@@ -22,8 +23,9 @@ public class SpecsTypeAdd extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         Dbcon dbConnector = new Dbcon();
+        Dbcon dbConnector = new Dbcon();
         PrintWriter out = response.getWriter();
+        //getting paramaetrs and assign them to variable called name and categoryid 
         String name = Optional.ofNullable(request.getParameter("Specs_name"))
                 .map(String::trim)
                 .filter(s -> !s.isEmpty())
@@ -37,8 +39,9 @@ public class SpecsTypeAdd extends HttpServlet {
         try {
 
             dbConnector.connect();
+            //insert those varibles to specs_type table 
             String insertQuery = "INSERT INTO spces_type (category_id,spec_type_name) VALUES (?,?)";
-            dbConnector.executePreparedStatement(insertQuery,categoryId,name);
+            dbConnector.executePreparedStatement(insertQuery, categoryId, name);
             dbConnector.disconnect();
             out.println("Success");
         } catch (ClassNotFoundException | SQLException ex) {

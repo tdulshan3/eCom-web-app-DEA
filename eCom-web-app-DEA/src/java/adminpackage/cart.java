@@ -27,8 +27,6 @@ public class cart extends HttpServlet {
         String userId = UserSession.getUserIdFromSession(request);
         String cartDetailsOld = "";
 
-        
-
         Dbcon dbConn = new Dbcon();
         PrintWriter out = response.getWriter();
 
@@ -86,7 +84,7 @@ public class cart extends HttpServlet {
                     if (referer != null && !referer.isEmpty()) {
                         response.sendRedirect(referer);
                     } else {
-                        
+
                     }
                 }
 

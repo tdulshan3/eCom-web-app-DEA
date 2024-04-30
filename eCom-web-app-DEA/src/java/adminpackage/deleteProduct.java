@@ -19,15 +19,16 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class deleteProduct extends HttpServlet {
 
-     @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         PrintWriter out = response.getWriter();
-
+        PrintWriter out = response.getWriter();
+        //getting url parameters
         String productId = request.getParameter("id");
         Dbcon dbConnector = new Dbcon();
-         try {
+        try {
             dbConnector.connect();
+            //delete the row of products table where id is equal to url parameter
             String query = "DELETE FROM products WHERE product_id = ?";
             dbConnector.executePreparedStatement(query, productId);
             dbConnector.disconnect();
@@ -35,4 +36,5 @@ public class deleteProduct extends HttpServlet {
         } catch (ClassNotFoundException | SQLException ex) {
             out.println("Exception occurred: " + ex.getMessage());
         }
-    }}
+    }
+}

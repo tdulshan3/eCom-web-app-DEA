@@ -18,8 +18,7 @@ public class deleteCart extends HttpServlet {
             throws ServletException, IOException {
 
         String cartId = request.getParameter("cartId");
-        
-        
+
         Dbcon dbConn = new Dbcon();
         try {
             dbConn.connect();
@@ -35,7 +34,7 @@ public class deleteCart extends HttpServlet {
         if (referer != null && !referer.isEmpty()) {
             response.sendRedirect(referer);
         } else {
-           
+
         }
     }
 }

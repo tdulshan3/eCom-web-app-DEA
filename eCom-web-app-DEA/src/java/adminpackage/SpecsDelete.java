@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
+
 /**
  *
  * @author USER
@@ -23,10 +24,12 @@ public class SpecsDelete extends HttpServlet {
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
 
+        //get url parameter and asign into variable called specsid
         String specsId = request.getParameter("specs_id");
         Dbcon dbConnector = new Dbcon();
-         try {
+        try {
             dbConnector.connect();
+            //delete row in specs table where id is eequal to variable from url parameter
             String query = "DELETE FROM specs WHERE id = ?";
             dbConnector.executePreparedStatement(query, specsId);
             dbConnector.disconnect();
@@ -36,5 +39,4 @@ public class SpecsDelete extends HttpServlet {
         }
     }
 
-    
 }

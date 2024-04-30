@@ -4,7 +4,7 @@
         <servlet-name>CheckoutServletUnreg</servlet-name>
         <servlet-class>adminpackage.CheckoutServletUnreg</servlet-class>
     </servlet>
-        <servlet>
+    <servlet>
         <servlet-name>SendReceiptServlet</servlet-name>
         <servlet-class>adminpackage.SendReceiptServlet</servlet-class>
     </servlet>
@@ -12,7 +12,7 @@
         <servlet-name>CheckoutRegservlet</servlet-name>
         <servlet-class>adminpackage.CheckoutRegservlet</servlet-class>
     </servlet>
-        <servlet>
+    <servlet>
         <servlet-name>MarkDeliveredServlet</servlet-name>
         <servlet-class>adminpackage.MarkDeliveredServlet</servlet-class>
     </servlet>
@@ -40,7 +40,7 @@
         <servlet-name>DelCartItemUnreg</servlet-name>
         <servlet-class>adminpackage.DelCartItemUnreg</servlet-class>
     </servlet>
- <servlet>   
+    <servlet>
         <servlet-name>CategoryAdd</servlet-name>
         <servlet-class>adminpackage.CategoryAdd</servlet-class>
     </servlet>
@@ -72,7 +72,7 @@
         <servlet-name>Signup</servlet-name>
         <servlet-class>adminpackage.Signup</servlet-class>
     </servlet>
-        <servlet>
+    <servlet>
         <servlet-name>Logins</servlet-name>
         <servlet-class>adminpackage.Logins</servlet-class>
     </servlet>
@@ -108,6 +108,10 @@
         <servlet-name>updateQuantity</servlet-name>
         <servlet-class>adminpackage.updateQuantity</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>userDelete</servlet-name>
+        <servlet-class>adminpackage.userDelete</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Logins</servlet-name>
         <url-pattern>/Logins</url-pattern>
@@ -116,20 +120,18 @@
         <servlet-name>DelCartUnReg</servlet-name>
         <url-pattern>/DelCartUnReg</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>CancelOrderServlet</servlet-name>
         <url-pattern>/CancelOrderServlet</url-pattern>
     </servlet-mapping>
-         <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>cart</servlet-name>
         <url-pattern>/cart</url-pattern>
     </servlet-mapping>
-    
-             <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>CheckoutServletUnreg</servlet-name>
         <url-pattern>/CheckoutServletUnreg</url-pattern>
     </servlet-mapping>
-
     <!-- Other servlet-mapping entries -->
     <servlet-mapping>
         <servlet-name>CheckoutRegservlet</servlet-name>
@@ -191,7 +193,7 @@
         <servlet-name>Signup</servlet-name>
         <url-pattern>/Signup</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>deleteCart</servlet-name>
         <url-pattern>/deleteCart</url-pattern>
     </servlet-mapping>
@@ -207,9 +209,13 @@
         <servlet-name>DelCartItemUnreg</servlet-name>
         <url-pattern>/DelCartItemUnreg</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>MarkDeliveredServlet</servlet-name>
         <url-pattern>/MarkDeliveredServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>userDelete</servlet-name>
+        <url-pattern>/userDelete</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

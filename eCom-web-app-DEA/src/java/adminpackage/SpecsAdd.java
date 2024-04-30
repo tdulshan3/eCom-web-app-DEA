@@ -21,6 +21,7 @@ public class SpecsAdd extends HttpServlet {
             throws ServletException, IOException {
         Dbcon dbConnector = new Dbcon();
         PrintWriter out = response.getWriter();
+        //getting parameters and assign them to variables called name & specsId
         String name = Optional.ofNullable(request.getParameter("Specs_name"))
                 .map(String::trim)
                 .filter(s -> !s.isEmpty())
@@ -34,11 +35,13 @@ public class SpecsAdd extends HttpServlet {
         try {
 
             dbConnector.connect();
+            //insert data to specs table that we grabbed using paramters
             String insertQuery = "INSERT INTO specs (specs_type_id,spec_name) VALUES (?,?)";
-            dbConnector.executePreparedStatement(insertQuery,specsTypeId,name);
+            dbConnector.executePreparedStatement(insertQuery, specsTypeId, name);
             dbConnector.disconnect();
             out.println("Success");
         } catch (ClassNotFoundException | SQLException ex) {
             out.println("Exception occurred: " + ex.getMessage());
         }
-    }}
+    }
+}

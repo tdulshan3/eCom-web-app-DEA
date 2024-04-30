@@ -14,13 +14,14 @@
         <title>Cart</title>
         <link href="style1.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        
-                    <link rel="icon" type="image/png" sizes="32x32" href="16.png">
-<link rel="icon" type="image/png" sizes="16x16" href="32.png">
+
+        <link rel="icon" type="image/png" sizes="32x32" href="16.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="32.png">
     </head>
     <body>
         <%@ include file="navbar.jsp" %>
         <%
+            //get user id using UserSession class
             String userId = UserSession.getUserIdFromSession(request);
             int cartId1 = 0;
 
@@ -112,7 +113,7 @@
                                             }
                                         }
                                     }
-                                //if user is registered.
+                                    //if user is registered.
                                 } else {
                                     //get cart details from database
                                     ResultSet rsCart = dbConn.executeQuery("SELECT cart_id, cart_details FROM cart WHERE user_id= " + userId);
@@ -186,17 +187,18 @@
                             <form action="CheckoutRegservlet" method="post">   
                                 <input type="submit" class="btn btn-block btn-primary my-3 py-3 w-100" value="Proceed To Checkout">
                             </form>
-                            
-                             
+
+
                             <%
                                 //unregister user clear cart button
-                                if (userId.equals("0")) { 
+                                if (userId.equals("0")) {
                             %>
 
                             <form action='DelCartUnReg' method='post'><input type='submit' class="btn btn-block btn-primary my-3 py-3 w-100" value='Clear All'></form>
-                            
+
                             <%
-                                /*register user clear cart button*/} else {
+                                /*register user clear cart button*/
+                            } else {
                             %> 
 
                             <form action='deleteCart' method='post'><input  type='hidden' name='cartId' value=<%=cartId1%>><input class="btn btn-block btn-primary my-3 py-3 w-100" type='submit' value='Clear All'></form>
@@ -206,8 +208,8 @@
                 </div>
             </div>
         </div>
-                        <div class="mt-5">
-                            <%@ include file="footer.html" %></div>
+        <div class="mt-5">
+            <%@ include file="footer.html" %></div>
     </body>
 
 

@@ -18,11 +18,12 @@ public class SpecsTypeDelete extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-
+        //getting url paramter
         String specsTypeId = request.getParameter("specsType_id");
         Dbcon dbConnector = new Dbcon();
          try {
             dbConnector.connect();
+             //delete the row where specstype id equal to url parameter in specstype table
             String query = "DELETE FROM spces_type WHERE spces_type_id = ?";
             dbConnector.executePreparedStatement(query, specsTypeId);
             dbConnector.disconnect();
