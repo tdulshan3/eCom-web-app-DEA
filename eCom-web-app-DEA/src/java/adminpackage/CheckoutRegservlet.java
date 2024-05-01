@@ -23,12 +23,13 @@ public class CheckoutRegservlet extends HttpServlet {
         //if user is not registered rederect to contact form
         if (userId.equals("0")) {
             response.sendRedirect("non_reg_user_contact_form.jsp");
-        //if user registered get confirmation from user
+            //if user registered get confirmation from user
         } else {
             out.println("<script type=\"text/javascript\">");
             out.println("var result = confirm('Are you sure you want to confirm the order?');");
             out.println("if (result) {");
             out.println("  alert('Order Confirmed!');");
+            out.println("  window.location.href = 'cart.jsp';");
             out.println("} else {");
             out.println("  alert('Cancelled!');");
             out.println("  window.location.href = 'cart.jsp';");
@@ -46,15 +47,14 @@ public class CheckoutRegservlet extends HttpServlet {
                     String queryOrder = "INSERT INTO `order` (user_id,cart_d, status) VALUES (?,?, 'pending')";
                     dbConn.executePreparedStatement(queryOrder, userId, cartDetails);
                     dbConn.executePreparedStatement(queryDelUser, cartId);
-                    response.sendRedirect("index.jsp");
                 } else {
                     System.out.println("No cart found for user with user_id: " + userId);
                 }
+                
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(CheckoutRegservlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
-
 
 }
