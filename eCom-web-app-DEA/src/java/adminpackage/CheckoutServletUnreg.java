@@ -39,15 +39,16 @@ public class CheckoutServletUnreg extends HttpServlet {
                     Dbcon dbConn = new Dbcon();
                     try {
                         dbConn.connect();
-                        
-                        //if user alredy have an account this will redirect them to loginpage
-                        String isRegSql = "SELECT * FROM user WHERE email = '" + email + "' AND status = 'registered'";
-                        ResultSet rsx = dbConn.executeQuery(isRegSql);
-                        if (rsx.next()) {
-                            out.println("<script>");
-                            out.println("alert('You already have an account.');");
-                            out.println("window.location.href = 'login&signup.jsp';"); 
-                            out.println("</script>");
+
+                        //if user alredy have an account and status is registerd this will redirect them to loginpage
+                        ResultSet rsCheckUser = dbConn.executeQuery("SELECT status FROM user WHERE email = '" + email + "'");
+                        if (rsCheckUser.next()) {
+                            String status = rsCheckUser.getString("status");
+                            if (status.equals("registered")) {
+                                // User is already registered
+                                out.println("<script>alert('You are already registered. Please login.'); window.location.href='login.jsp';</script>");
+                                return; // Exit the method
+                            }
                         }
 
                         // Delete Duplicates
