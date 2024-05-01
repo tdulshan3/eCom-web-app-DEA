@@ -46,7 +46,7 @@ public class CheckoutServletUnreg extends HttpServlet {
                             String status = rsCheckUser.getString("status");
                             if (status.equals("registered")) {
                                 // User is already registered
-                                out.println("<script>alert('You are already registered. Please login.'); window.location.href='login.jsp';</script>");
+                                out.println("<script>alert('You are already registered. Please login.'); window.location.href='login&signup.jsp';</script>");
                                 return; // Exit the method
                             }
                         }
