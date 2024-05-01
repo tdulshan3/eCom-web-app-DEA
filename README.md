@@ -41,7 +41,7 @@ Explore the Project:Once the project is running, explore its features and functi
 #### Project Details
 
 - Module Code: **SE 204.3**
-- Module Name: **Development Enterprise Application**
+- Module Name: **Development of Enterprise Applications**
 - Year: **2024**
 - Batch: **22.2**
 - University: [NSBM Green University](https://www.nsbm.ac.lk/)
