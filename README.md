@@ -41,7 +41,7 @@ Explore the Project:Once the project is running, explore its features and functi
 #### Project Details
 
 - Module Code: **SE 204.3**
-- Module Name: **Development nterprise Application**
+- Module Name: **Development Enterprise Application**
 - Year: **2024**
 - Batch: **22.2**
 - University: [NSBM Green University](https://www.nsbm.ac.lk/)
@@ -49,7 +49,7 @@ Explore the Project:Once the project is running, explore its features and functi
 
 #### Features
 - Online Shopping
-- Role based authorization (Admin, Registered User, Non Registers User)
+- Role based authorization (Admin, Registered User, Non Registered User)
 - Filtering System
 - Cart and Chekout Process
 - Responsive Design
