@@ -62,6 +62,13 @@ Explore the Project:Once the project is running, explore its features and functi
 - [JavaServer Pages / JSP](https://www.oracle.com/java/technologies/jspt.html)
 - [JavaServer Pages Standard Tag Library](https://tomcat.apache.org/taglibs/standard/)
 - [MySql](https://www.mysql.com/)
+  
+#### Technologies Used
+
+- [Bootstrap](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
+- [jquery](https://releases.jquery.com/)
+- [Swiper](https://swiperjs.com/)
+
 
 Here is the screenshot that shows the E-commerce demo application in use.
 
