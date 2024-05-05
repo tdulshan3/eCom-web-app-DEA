@@ -63,7 +63,7 @@ Explore the Project:Once the project is running, explore its features and functi
 - [JavaServer Pages Standard Tag Library](https://tomcat.apache.org/taglibs/standard/)
 - [MySql](https://www.mysql.com/)
   
-#### Technologies Used
+#### Libraries Used
 
 - [Bootstrap](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
 - [jquery](https://releases.jquery.com/)
