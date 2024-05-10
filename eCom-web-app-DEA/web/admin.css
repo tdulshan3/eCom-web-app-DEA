@@ -25,6 +25,13 @@ body {
     transition: background-color 0.2s ease-in-out;
 }
 
+.sidebar .nav-link1 {
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 0;
+    transition: background-color 0.2s ease-in-out;
+}
+
 nav ul li{
     margin: 5px 0;
 
